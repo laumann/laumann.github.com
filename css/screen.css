@@ -50,6 +50,14 @@ hr {
 	margin: 1em 0em;
 }
 
+table#head {
+	width: 100%;
+}
+
+	#head td#ll {
+		text-align: right
+	}
+
 ul {
 	list-style-type: circle;
 }
