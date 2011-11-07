@@ -1,0 +1,24 @@
+---
+layout: post
+title: Why the Tube is dead to me
+---
+
+I've been an avid user of Youtube, but recently I seemed to be logged in somehow whenever I watched any videos on the site. I then noticed I was logged in via my Gmail account, and Google having recently bought aforementioned video provider, I figured "Aha, they've linked the two!".
+
+And, veritably, yes! But why, I ask? I never had a Youtube account, never wanted it and never want it. All the pish-posh (but quite important) privacy argumentation aside, how does one go about staying logged in to Gmail, but not logged in to Youtube? A quick search provides many answers, but none of them the right one:
+
+* "How do I unlink Youtube from my Gmail account":http://www.google.com/support/forum/p/youtube/thread?tid=07ca4b7fb0a89d1a&hl=en
+* "unlink youtube from google account":http://www.google.com/support/forum/p/Web%20Search/thread?tid=40d7aac9e43c603e&hl=en
+* "The search":https://www.google.com/search?gcx=c&sourceid=chrome&ie=UTF-8&q=unlink+google+account+from+youtube
+
+In short, you can't! The phrasing of some of the answers seems to be: this is fundamental "functionality" of the Google account and therefore you cannot disable this. Especially the best rated answer "here":http://www.google.com/support/forum/p/youtube/thread?tid=07ca4b7fb0a89d1a&hl=en seems to support this view:
+
+bq.. It is what you get when you go to YouTube WHILE logged into your Google account [...]
+
+Because it isn't "linked" to YouTube but is merely enabled to USE YouTube [...] you have, by using it at YouTube, given your Google account YouTube functionality.
+
+You cannot "remove" its ability to use YouTube anymore than you can stop your GMail email address from functioning as a means to receiving mail.  If you don't want it to be functional on YouTube then don't use YouTube while logged into it.
+
+p. What a load of h*gw*sh. Google account with Youtube functionality? I don't mind, I just don't want to use it either --- as much as I don't want to use other services, I would like the option of _not_ being automatically logged in to Youtube _in any way_ just because my email account is open. 
+
+I have read that it's possible to have a Google account without Gmail. If Gmail ranks on the same level of service as Youtube, and both can be accessed through a Google account, how can it be that Youtube cannot be disabled, but Gmail can? It doesn't make much sense. But in conclusion, to watch videos anonymously, log out!

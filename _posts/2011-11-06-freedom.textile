@@ -1,0 +1,18 @@
+---
+layout: post
+title: Free as in Freedom
+---
+
+I have been reading about "Richard Stallman":http://stallman.org/ today and the work of the "Free Software Foundation":http://www.fsf.org/:
+
+* "A follow-up on a post about Steve Jobs":http://stallman.org/archives/2011-jul-oct.html?ohai#27_October_2011_%28Steve_Jobs%29
+* "Defective by design":http://defectivebydesign.com
+* "Extinguishing the fire of learning":http://www.defectivebydesign.org/kindle-fire
+
+On the front page of Stallman's website there's a banner indicating he's not *f'd*. Go and look at the "stallman.org":stallman.org and you'll see it -- I do my best never to mention the name of this particular "social" network, in the hopes that neglicience will put it to rest. But linked to this banner was a somewhat interesting article:
+
+* "Not your friend":http://www.guardian.co.uk/commentisfree/andrewbrown/2010/may/14/facebook-not-your-friend; I have to admit I don't care for his use of Google as the innocent opponent.
+* "A Bewildering Tangle of Options":http://www.nytimes.com/interactive/2010/05/12/business/facebook-privacy.html?ref=personaltech
+* "Google's Transparency Report":http://www.guardian.co.uk/technology/2011/oct/25/google-transparency-report-released
+* "Occupy London Part-Time Protest":http://www.guardian.co.uk/uk/2011/oct/25/occupy-london-part-time-protest
+
