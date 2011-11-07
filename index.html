@@ -9,9 +9,11 @@ title: laumann.github.com
 
 <p>Some credit for the idea should go to my old employer (when I worked as a student programmer). I noticed he kept his own start page for his browser (I assume an <code>index.html</code> or something equally simple), which simply kept all his favourite links. This is close, but not quite there. </p>
 
+<p>For now, this is it. A singly linked list (in chronological order) of a bunch of things I (should) read..</p>
+
 <dl>
 {% for post in site.posts %}
-	<dt>{{ post.date | date_to_string }} <span class="title">{{ post.title }}</span></dt>
+	<dt><code>{{ post.date | date_to_long_string }}</code> <span class="title">{{ post.title }}</span></dt>
 	<dd>{{ post.content }}</dd>
 {% endfor %}
 </dl>

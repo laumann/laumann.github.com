@@ -1,36 +1,19 @@
-/*****************************************************************************/
-/*
-/* Common
-/*
-/*****************************************************************************/
-
-/* Global Reset */
-
 body {
-  font-family: /*helvetica, tahoma, arial, clean, */ "Times New Roman", sans-serif;
-  /*
-  	background-image: url('/img/zen_circle.png');
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-*/
+	font-family: /*helvetica, tahoma, arial, clean, */ "Times New Roman", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
-  text-indent: 0;
-/*  font-family: Arial, monospace;*/
+	font-size: 100%;
+	text-indent: 0;
 }
 
 h1 {
-  margin-bottom: .5em;
-  /* margin-top: 2em; */
-  font-size: 24px;
+	margin-bottom: .5em;
+	font-size: 24px;
 }
 
 p {
-  /* margin: 1em 0; */
-  margin-bottom: 12px;
+	margin-bottom: 12px;
 }
 
 blockquote {
