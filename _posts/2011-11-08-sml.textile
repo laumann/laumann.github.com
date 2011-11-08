@@ -5,13 +5,17 @@ title: Standard ML of New Jersey (SML/NJ)
 
 I read a claim somewhere that ML, especially SML/NJ(Standard ML of New Jersey) is well documented. While I cannot claim that there is a small amount of writing concerned with ML, it seems to me that the documentation is directed at people who already know ML. To be frank, It feels more like the Java API, than Java Tutorials.
 
-A proper, simple let's-take-this-step-by-step tutorial is missing. I have tried to gather here some resources I found useful, whilst reading _Modern Compiler Implementation in ML_[1].
+A proper, simple let's-take-this-step-by-step tutorial is missing. I have tried to gather here some resources I found useful, whilst reading _Modern Compiler Implementation in ML_[1]. The book's website can be found "here":http://www.cs.princeton.edu/~appel/modern/ml/.
 
 * "Programming in Standard ML":http://www.cs.cmu.edu/~rwh/smlbook/book.pdf
 * "SML/NJ Literature":http://www.smlnj.org/doc/literature.html#tutorials
 * "Programming in Standard ML '97":http://homepages.inf.ed.ac.uk/stg/NOTES/
 * "The Standard ML Basis Library":http://www.standardml.org/Basis/manpages.html
 * "Loading Source Files in SML":http://www.classes.cs.uchicago.edu/archive/2006/fall/15300-1/handouts/sml-load.pdf
+* "Sml language":http://c2.com/cgi/wiki?SmlLanguage
+* "The @General@ Structure":http://www.dina.kvl.dk/~sestoft/sml/general.html#SIG:GENERAL.ignore:VAL:SPEC; learn the value of @ignore@.
+
+From "this resource":http://www.itu.dk/~sestoft/mosmllib/General.html#ignore-val I found the following line: <tt>[<strong>ignore</strong> e] evaluates e, discards its value, and returns () : unit.</tt> Beautiful.
 
 Incidentally, I found this resource called "Ottobib":http://www.ottobib.com/ while pondering how to set up the footnote. It gives a bibliography entry in the chosen format -- MLA(Modern Language Association of America), APA(American Psychological Association), Chicago/Turabian, BibTeX or Wikipedia.
 
