@@ -13,4 +13,6 @@ A proper, simple let's-take-this-step-by-step tutorial is missing. I have tried 
 * "The Standard ML Basis Library":http://www.standardml.org/Basis/manpages.html
 * "Loading Source Files in SML":http://www.classes.cs.uchicago.edu/archive/2006/fall/15300-1/handouts/sml-load.pdf
 
+Incidentally, I found this resource called "Ottobib":http://www.ottobib.com/ while pondering how to set up the footnote. It gives a bibliography entry in the chosen format -- MLA(Modern Language Association of America), APA(American Psychological Association), Chicago/Turabian, BibTeX or Wikipedia.
+
 fn1. Andrew W. Appel, _Modern Compiler Implementation in ML_ (Cambridge University Press 1998), ISBN: 0-521-58274-1
