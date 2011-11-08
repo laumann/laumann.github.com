@@ -51,3 +51,7 @@ ul {
 	#banners {
 		text-align: right;
 	}
+
+#fn1, #fn2, #fn3, #fn4, #fn5, #fn6, #fn7, #fn8, #fn9 {
+	font-size: 85%;
+}
