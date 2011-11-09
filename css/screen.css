@@ -27,6 +27,10 @@ span.title {
 	font-weight: bold;
 }
 
+span.date {
+	font-family: monospace;
+}
+
 hr {
 	border: 1px double #ccc;
 	border-collapse: collapse;
@@ -54,4 +58,14 @@ ul {
 
 #fn1, #fn2, #fn3, #fn4, #fn5, #fn6, #fn7, #fn8, #fn9 {
 	font-size: 85%;
+}
+
+code, tt {
+	color: navy;
+}
+
+pre.terminal {
+	border: 1px solid silver;
+	background-color: #f4f4f4;
+	padding: 0.5em;
 }

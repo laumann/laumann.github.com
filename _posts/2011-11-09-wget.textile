@@ -1,0 +1,15 @@
+---
+layout: post
+title: wget
+---
+
+It seems unnecessarily difficult to download the contents of a subdirectory on a website via HTTP(Hyper Text Transfer Protocol). I don't want to go through the browser hell of right click, save as, etc. when there are tools such as @wget@.
+
+The closest I got was:
+
+bc(terminal). $ wget -r -l1 -np -nd --reject "index.html*",robots.txt  http://www.cs.princeton.edu/\~appel/modern/ml/chap2/
+
+which still downloads the @robots.txt@ file.
+
+* "Advanced Usage - Gnu Wget 1.13.4 Manual":http://www.gnu.org/software/wget/manual/html_node/Advanced-Usage.html
+* "Using wget to recursively fetch a directory with arbitrary files in it":http://stackoverflow.com/questions/273743/using-wget-to-recursively-fetch-a-directory-with-arbitrary-files-in-it

@@ -13,7 +13,7 @@ title: laumann.github.com
 
 <dl>
 {% for post in site.posts %}
-	<dt><code>{{ post.date | date_to_long_string }}</code> <span class="title">{{ post.title }}</span></dt>
+	<dt><span class="date">{{ post.date | date_to_long_string }}</span> <span class="title">{{ post.title }}</span></dt>
 	<dd>{{ post.content }}</dd>
 {% endfor %}
 </dl>
