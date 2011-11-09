@@ -9,7 +9,13 @@ The closest I got was:
 
 bc(terminal). $ wget -r -l1 -np -nd --reject "index.html*",robots.txt  http://www.cs.princeton.edu/\~appel/modern/ml/chap2/
 
-which still downloads the @robots.txt@ file.
+which still downloaded the @robots.txt@ file.
+
+I had to change it to:
+
+bc(terminal). $ wget -e robots=off -r -l1 -np -nd -R "index.html*",robots.txt http://www.cs.princeton.edu/\~appel/modern/ml/chap2/
+
+to make @wget@ ignore the @robots.txt@ file.
 
 * "Advanced Usage - Gnu Wget 1.13.4 Manual":http://www.gnu.org/software/wget/manual/html_node/Advanced-Usage.html
 * "Using wget to recursively fetch a directory with arbitrary files in it":http://stackoverflow.com/questions/273743/using-wget-to-recursively-fetch-a-directory-with-arbitrary-files-in-it

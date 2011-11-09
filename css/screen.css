@@ -64,6 +64,10 @@ code, tt {
 	color: navy;
 }
 
+pre {
+	white-space: pre-wrap;
+}
+
 pre.terminal {
 	border: 1px solid silver;
 	background-color: #f4f4f4;
