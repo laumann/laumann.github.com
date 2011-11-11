@@ -21,5 +21,5 @@ h3. ML-Lex
 
 * "A lexical analyzer generator for Standard ML":http://www.smlnj.org/doc/ML-Lex/manual.html
 * "ML-Ulex":http://www.ccs.neu.edu/home/turon/manual.pdf
-
+* "Users's Guide to ML-Lex and ML-Yacc":http://rogerprice.org/ug/ug.pdf
 
