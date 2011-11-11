@@ -1,0 +1,25 @@
+---
+layout: post
+title: ML-Lex
+---
+
+So, I finally reached chapter 2 of _Modern Compiler Implementation_ ("link":http://www.cs.princeton.edu/~appel/modern/ml/), and now I'm beginning to get some of the ideas and structures of SML, although the documentation still seems unnecessarily complicated to navigate.
+
+Figuring this project will expand a bit, I looked at the provided files for chapter 2 from the book's homepage, especially "@sources.cm@":http://www.cs.princeton.edu/~appel/modern/ml/chap2/sources.cm, to use the built-in compilation manager (CM). To use CM(Compilation Manager),  you just invoke @CM.make "sources.cm"@
+
+* "CM: The SML/NJ Compilation and Library Manager":http://www.smlnj.org/doc/CM/new.pdf
+* "Loading Source Files in SML":http://www.classes.cs.uchicago.edu/archive/2006/fall/15300-1/handouts/sml-load.pdf
+* "@smlnj-lib.cm@":http://www.smlnj.org/doc/smlnj-lib/
+
+The compilation fails with this error:
+
+bc. sources.cm:8.1-8.13 Error: Io: openIn failed on "smlnj-lib.cm", No such file or directory
+
+Changing the line that reads @smlnj-lib.cm@ to @$/smlnj-lib.cm@ _almost_ does the trick. One also has to add @$/basis.cm@ to the file. Then everything loads properly.
+
+h3. ML-Lex
+
+* "A lexical analyzer generator for Standard ML":http://www.smlnj.org/doc/ML-Lex/manual.html
+* "ML-Ulex":http://www.ccs.neu.edu/home/turon/manual.pdf
+
+
