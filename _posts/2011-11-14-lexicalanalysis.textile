@@ -1,0 +1,13 @@
+---
+layout: post
+title: Lexical Anylysis
+---
+
+Reading on lexical analysis:
+
+* "CS 164: Programming Languages and Compilers":http://www.cs.berkeley.edu/~hilfingr/cs164/public_html/lectures/note2.pdf
+* "Lexical Analysis":http://dragonbook.stanford.edu/lecture-notes/Stanford-CS143/03-Lexical-Analysis.pdf
+* "flex":http://flex.sourceforge.net/
+* "The Lex & Yacc Page":http://dinosaur.compilertools.net/
+
+y-GLA is a part of Elii.

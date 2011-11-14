@@ -1,0 +1,6 @@
+---
+layout: post
+title: Command Line Pastebin
+---
+
+This is wicked cool: "sprunge.us":http://sprunge.us/ -- it would be fun to do a website design mimicking the layout of man pages. An example is found "here":http://sprunge.us/RHNa?c and "cap.sprunge.us":http://cap.sprunge.us/ tells you something about it.
