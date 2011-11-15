@@ -5,9 +5,10 @@ title: Lexical Anylysis
 
 Reading on lexical analysis:
 
-* "CS 164: Programming Languages and Compilers":http://www.cs.berkeley.edu/~hilfingr/cs164/public_html/lectures/note2.pdf
-* "Lexical Analysis":http://dragonbook.stanford.edu/lecture-notes/Stanford-CS143/03-Lexical-Analysis.pdf
+* "CS 164: Programming Languages and Compilers":http://www.cs.berkeley.edu/~hilfingr/cs164/public_html/lectures/note2.pdf (pdf)
+* "Lexical Analysis":http://dragonbook.stanford.edu/lecture-notes/Stanford-CS143/03-Lexical-Analysis.pdf (pdf)
 * "flex":http://flex.sourceforge.net/
 * "The Lex & Yacc Page":http://dinosaur.compilertools.net/
+* "&#947;-GLA":ftp://ftp.gwdg.de/pub/languages/rexx/uwaterloo/peter/gla.ps.gz (ps.gz)
 
-y-GLA is a part of Eli.
+&#947;-GLA is a part of "Eli":http://eli-project.sourceforge.net/.

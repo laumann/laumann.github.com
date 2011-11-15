@@ -7,8 +7,8 @@ So, I finally reached chapter 2 of _Modern Compiler Implementation_ ("link":http
 
 Figuring this project will expand a bit, I looked at the provided files for chapter 2 from the book's homepage, especially "@sources.cm@":http://www.cs.princeton.edu/~appel/modern/ml/chap2/sources.cm, to use the built-in compilation manager (CM). To use CM(Compilation Manager),  you just invoke @CM.make "sources.cm"@
 
-* "CM: The SML/NJ Compilation and Library Manager":http://www.smlnj.org/doc/CM/new.pdf
-* "Loading Source Files in SML":http://www.classes.cs.uchicago.edu/archive/2006/fall/15300-1/handouts/sml-load.pdf
+* "CM: The SML/NJ Compilation and Library Manager":http://www.smlnj.org/doc/CM/new.pdf (pdf)
+* "Loading Source Files in SML":http://www.classes.cs.uchicago.edu/archive/2006/fall/15300-1/handouts/sml-load.pdf (pdf)
 * "@smlnj-lib.cm@":http://www.smlnj.org/doc/smlnj-lib/
 
 The compilation fails with this error:
@@ -20,6 +20,6 @@ Changing the line that reads @smlnj-lib.cm@ to @$/smlnj-lib.cm@ _almost_ does th
 h3. ML-Lex
 
 * "A lexical analyzer generator for Standard ML":http://www.smlnj.org/doc/ML-Lex/manual.html
-* "ML-Ulex":http://www.ccs.neu.edu/home/turon/manual.pdf
-* "Users's Guide to ML-Lex and ML-Yacc":http://rogerprice.org/ug/ug.pdf
+* "ML-Ulex":http://www.ccs.neu.edu/home/turon/manual.pdf (pdf)
+* "Users's Guide to ML-Lex and ML-Yacc":http://rogerprice.org/ug/ug.pdf (pdf)
 
