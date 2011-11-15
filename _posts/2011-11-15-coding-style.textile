@@ -1,0 +1,16 @@
+---
+layout: post
+title: Coding Style
+---
+
+I've been cleaning up my "collection of C programs":https://github.com/laumann/C and came across this little piece of reading:
+
+* "http://www.kernel.org/doc/Documentation/CodingStyle":http://www.kernel.org/doc/Documentation/CodingStyle
+
+Consequently, I started trying to fix my Emacs to use linux kernel coding style (always). The short way of doing it is (in Emacs):
+
+bc. M-x c-set-style <RET> linux
+
+(see "here":http://www.gnu.org/s/libtool/manual/emacs/Custom-C-Indent.html.) This only sets the indentation style for the current file. To set it as a global default, use in your @.emacs@:
+
+bc. (setq c-default-style "linux")
