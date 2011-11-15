@@ -10,4 +10,4 @@ Reading on lexical analysis:
 * "flex":http://flex.sourceforge.net/
 * "The Lex & Yacc Page":http://dinosaur.compilertools.net/
 
-y-GLA is a part of Elii.
+y-GLA is a part of Eli.
