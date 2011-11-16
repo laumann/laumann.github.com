@@ -10,5 +10,6 @@ Reading on lexical analysis:
 * "flex":http://flex.sourceforge.net/
 * "The Lex & Yacc Page":http://dinosaur.compilertools.net/
 * "&#947;-GLA":ftp://ftp.gwdg.de/pub/languages/rexx/uwaterloo/peter/gla.ps.gz (ps.gz)
+* "Lexical Analysis":http://eli-project.sourceforge.net/elionline/lex.pdf (pdf)
 
 &#947;-GLA is a part of "Eli":http://eli-project.sourceforge.net/.
