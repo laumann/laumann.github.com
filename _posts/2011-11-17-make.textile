@@ -1,0 +1,11 @@
+---
+layout: post
+title: Makealicious
+---
+
+It's about time I gathered some of the resources I have on @make@ (specifically GNU @make@)
+
+* "GNU `make`":http://www.gnu.org/s/hello/manual/make/
+* "Red Antigua - C Tutorials - Makefile examples":http://www.redantigua.com/c-make-index.html
+
+Well, I thought I had more, but the GNU manual is pretty good I find.
