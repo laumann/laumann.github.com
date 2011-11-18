@@ -5,7 +5,7 @@ title: Subversion commit hooks
 
 It shouldn't be that difficult to create client side commit hooks in Subversion. I'm beginning to stumble upon the serious limitations of the centralized distribution model.
 
-Very simply, I want the output from @$ svn diff | diffstat@ included in my commit messages. "This guy":http://stackoverflow.com/questions/4798201/client-side-pre-commit-hooks-in-subversion gets a very straight forward answer.
+Very simply, I want the output from @svn diff | diffstat@ included in my commit messages. "This guy":http://stackoverflow.com/questions/4798201/client-side-pre-commit-hooks-in-subversion gets a very straight forward answer.
 
 * "Version Control with Subversion":http://svnbook.red-bean.com/en/1.6/index.html
 * "A Subversion Pre-Commit Hook":http://wordaligned.org/articles/a-subversion-pre-commit-hook

@@ -1,0 +1,51 @@
+---
+layout: post
+title: More Subversion hooking hacking
+---
+
+I finally got what I wanted.
+
+{% highlight sh linenos %}
+#!/bin/bash
+
+SVN=svn # for now
+
+# Temporary template file
+TMP=`mktemp`
+$SVN diff $@ |diffstat > $TMP
+
+$SVN commit $@ --editor-cmd="./svn-editor.sh $TMP"
+
+{% endhighlight %}
+
+Adding <tt>$&#64;</tt> allows me to pass specific file arguments (and anything else) to svn. Thusly:
+
+bc(terminal). $ ./svnci.sh application/views/layouts/common.phtml application/views/scripts/about/people-behind.phtml
+
+I enter a commit message and get exactly what I want for the commit log:
+
+bc(terminal).. $ svn log -r HEAD
+------------------------------------------------------------------------
+r650 | ###### | 2011-11-18 23:31:27 +0100 (Fri, 18 Nov 2011) | 6 lines
+
+Reverted mistakenly committed changes to common.phtml - it should have been people-behind.phtml.
+
+ layouts/common.phtml              |   14 +++++------
+ scripts/about/people-behind.phtml |   45 +++++++++++++++++++-------------------
+ 2 files changed, 29 insertions(+), 30 deletions(-)
+
+------------------------------------------------------------------------
+
+p. It's even indented by one space (nice!).
+
+Incidentally, there was a superfluous blank line _after_ the @diffstat@ output that produced double blank line in the log that I wanted out, and so I changed @svn-editor.sh@ slightly. The extra line comes from the default svn commit template file. The first line of that file is a blank line for the user to begin typing. Using @tail -n+2 $2 > tmp@ extracts all lines but the first, and voila! I'm happy.
+
+Another issue I was struggling with was that I committed a wrong file and wanted to revert the contents of that file to the contents of the same file in the previous commit.
+
+* "Better way to revert to a previous SVN revision of a file?":http://stackoverflow.com/questions/345997/better-way-to-revert-to-a-previous-svn-revision-of-a-file
+
+The best answer is this (in my opinion):
+
+bc(terminal). svn merge -c -M [path/to/file]
+
+where @M@ is the value of @HEAD@. For some reason @-c@ only accepts numeric arguments, which to me seems like an obnoxious restriction. Who has never needed to revert a file from @HEAD@ to its previous revision?
