@@ -1,0 +1,74 @@
+---
+layout: post
+title: Subversion commit hooks
+---
+
+It shouldn't be that difficult to create client side commit hooks in Subversion. I'm beginning to stumble upon the serious limitations of the centralized distribution model.
+
+Very simply, I want the output from @$ svn diff | diffstat@ included in my commit messages. "This guy":http://stackoverflow.com/questions/4798201/client-side-pre-commit-hooks-in-subversion gets a very straight forward answer.
+
+* "Version Control with Subversion":http://svnbook.red-bean.com/en/1.6/index.html
+* "A Subversion Pre-Commit Hook":http://wordaligned.org/articles/a-subversion-pre-commit-hook
+* "How to force Comments on SVN Commit":http://www.anujgakhar.com/2008/02/14/how-to-force-comments-on-svn-commit/
+* "How to use pre commit hook in SVN to return revision number of the repository?":http://stackoverflow.com/questions/3423182/how-to-use-pre-commit-hook-in-svn-to-return-revision-number-of-the-repository
+* "Tortoise SVN Client Side Hook Scripts":http://sfalla.wordpress.com/2008/10/06/tortoise-svn-client-side-hook-scripts/
+* "client side pre-commit hooks in subversion":http://stackoverflow.com/questions/4798201/client-side-pre-commit-hooks-in-subversion
+* "SVN client side hook":http://stackoverflow.com/questions/2916098/svn-client-side-hook
+
+You find quickly that this sucks. However, it says "here":http://svnbook.red-bean.com/en/1.6/svn.advanced.confarea.html#svn.advanced.confarea.opts.config in the manual that a per-user configuration is possible to some extent in the @~/.subversion@ folder. But this doesn't get you very far.
+
+Looking at these two places:
+
+* "Sending Subversion Diffs for Commit Messages":http://push.cx/2007/seeing-subversion-diffs-for-commit-messages
+* "Subversion Dev: Re: Diffs into default log template":http://svn.haxx.se/dev/archive-2004-10/1146.shtml
+
+I resolved to creating the following scripts:
+
+{% highlight sh linenos %}
+#!/bin/bash
+# File: svnci.sh
+
+SVN=svn # for now
+
+# Temporary template file
+TMP=`mktemp`
+$SVN diff |diffstat > $TMP
+
+$SVN commit --editor-cmd="./svn-editor.sh $TMP"
+{% endhighlight %}
+
+p. Where @svn-editor.sh@ is the following script
+
+{% highlight sh linenos %}
+#!/bin/bash
+# File: svn-editor.sh
+
+SVNCITMP=svnci.tmp
+
+# backup original text
+cp $2 $SVNCITMP
+
+# Build message template
+echo > $2
+echo >> $2
+cat $1 >> $2
+cat $SVNCITMP >> $2
+
+# clean up
+rm $SVNCITMP $1
+
+vim $2
+{% endhighlight %}
+
+p. @$1@ is the name of the temporary file created in @svnci.sh@ and @$2@ is the temporary svn commit message file (usually called @svn-commit.tmp@). Both files should be executable. The ugly thing is you _need_ two scripts to do this -- I would've preferred one. Anyhow this will create the desired effect of prepending the output from @svn diff | diffstat@ to the commit message:
+
+bc(terminal).. Pass args to svnci.sh on to svn
+
+ svnci.sh |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+--This line, and those below, will be ignored--
+
+M    svnci.sh
+
+p. Now I just need to find out how to remove the blank line after the @diffstat@ output
