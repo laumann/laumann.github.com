@@ -65,15 +65,18 @@ ul {
 }
 
 code, tt {
-	color: navy;
+	/* color: navy; */
 }
 
 pre {
 	white-space: pre-wrap;
 }
 
-pre.terminal {
-/*	border: 1px solid silver;
-	background-color: #f4f4f4; */
+pre.terminal, div.highlight {
+	background-color: /* #f0f0f0; */ #ffe0e0;
 	padding: 0.5em;
 }
+
+        .highlight pre {
+	        margin: 0;
+	}
