@@ -1,0 +1,8 @@
+---
+layout: post
+title: Collection of lexers and resources on compiler construction
+---
+
+I find scanner generator technology very interesting (and also _very_ complex). On top of that, it's devastatingly undocumented and seemingly unmaintained. As the paper on &gamma;-GLA quickly concludes: _"Writing an efficient lexical analyzer for even a simple language is not a trivial task..."_
+
+* "re2c Home":http://re2c.org/ -- a tool for writing very fast and very flexible scanners
