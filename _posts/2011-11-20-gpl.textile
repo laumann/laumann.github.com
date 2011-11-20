@@ -1,0 +1,11 @@
+---
+layout: post
+title: GNU General Public License
+---
+
+For reading later:
+
+* "GNU General Public License v3.0":http://www.gnu.org/copyleft/gpl.html
+* "A Quick Guide to GPLv3":http://www.gnu.org/licenses/quick-guide-gplv3.html
+* "How to choose a license for your own work":http://www.gnu.org/licenses/license-recommendations.html
+* "Releasing Free Software If You Work at a University":http://www.gnu.org/philosophy/university.html

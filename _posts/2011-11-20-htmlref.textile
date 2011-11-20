@@ -1,0 +1,13 @@
+---
+layout: post
+title: HTML and CSS Resources
+---
+
+I find myself using these resources over and over when I work with HTML and CSS, so here they are:
+
+* "HTML 4.0 Entities for Symbols and Greek Letters":http://htmlhelp.com/reference/html40/entities/symbols.html
+* "HTML Tutorial":http://www.w3schools.com/html/
+* "CSS Tutorial":http://www.w3schools.com/css/
+* "Formatting a Definition List &lt; CSS":http://www.the-art-of-web.com/css/format-dl/
+
+Also, I've discovered that embedding @h2@ tags in @dt@ is _not_ allowed in strict XHTML 1.1.

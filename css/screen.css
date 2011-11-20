@@ -36,9 +36,9 @@ span.date {
 }
 
 hr {
-	border: 1px double #ccc;
-	border-collapse: collapse;
-	margin: 1em 0em;
+        border: 0;
+	border-bottom: 1px dotted black;
+	/* margin: 1em 0em; */
 }
 
 table#head {
