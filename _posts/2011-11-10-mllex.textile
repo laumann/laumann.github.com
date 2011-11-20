@@ -17,8 +17,6 @@ bc. sources.cm:8.1-8.13 Error: Io: openIn failed on "smlnj-lib.cm", No such file
 
 Changing the line that reads @smlnj-lib.cm@ to @$/smlnj-lib.cm@ _almost_ does the trick. One also has to add @$/basis.cm@ to the file. Then everything loads properly.
 
-h3. ML-Lex
-
 * "A lexical analyzer generator for Standard ML":http://www.smlnj.org/doc/ML-Lex/manual.html
 * "ML-Ulex":http://www.ccs.neu.edu/home/turon/manual.pdf (pdf)
 * "Users's Guide to ML-Lex and ML-Yacc":http://rogerprice.org/ug/ug.pdf (pdf)

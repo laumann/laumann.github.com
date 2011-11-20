@@ -1,6 +1,6 @@
 ---
 layout: default
-title: laumann.github.com
+title: Linked List
 ---
 
 <p>I read a lot. I especially read a lot on the Internet and I constantly have multiple tabs open (I <em>never</em> want to close an open page &mdash; what if it disappears?). Before tabbed browsing I always had twenty-seven IE windows open. This was before I discovered the joys of free software. Things are different now.</p>
@@ -11,9 +11,11 @@ title: laumann.github.com
 
 <p>For now, this is it. A singly linked list (in chronological order) of a bunch of things I (should) read..</p>
 
+<hr />
+
 <dl>
 {% for post in site.posts %}
-	<dt><h2><span class="date">{{ post.date | date_to_long_string }}</span> <span class="title">{{ post.title }}</span></h2></dt>
+	<dt><span class="date">{{ post.date | date_to_long_string }}</span> <span class="title">{{ post.title }}</span></dt>
 	<dd>{{ post.content }}</dd>
 {% endfor %}
 </dl>

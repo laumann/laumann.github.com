@@ -1,0 +1,10 @@
+---
+layout: default
+title: Linked Wish List
+---
+
+Jeg holder min ønskeseddel her, fordi det gør det hurtigt at dele den med andre (forhåbentligt er du ikke bare snublet over den).
+
+Bøger (_books_)
+
+* *Compilers: Principles, Techniques, and Tools* (2nd Edition) _af_ Alfred V. Aho, Monica S. Lam, Ravi Sethi, Jeffrey D. Ullman

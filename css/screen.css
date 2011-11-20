@@ -43,6 +43,7 @@ hr {
 
 table#head {
 	width: 100%;
+	border-bottom: 1px dotted black;
 }
 
 	#head td#ll {
@@ -64,6 +65,16 @@ ul {
 	font-size: 85%;
 }
 
+div#content-wrapper {
+        text-align: center;
+	margin: 0 auto;
+        width: 40em;
+}
+
+div#content {
+	text-align: justify;
+}
+
 code, tt {
 	color: teal;
 }
@@ -76,7 +87,7 @@ pre {
 	}
 
 pre.terminal, div.highlight {
-	background-color: /* #f0f0f0; */ #f7de9c;
+	background-color: /* #f0f0f0; #f7de9c; */ #ffe8ab;
 	padding: 0.5em;
 }
 
