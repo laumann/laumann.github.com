@@ -11,3 +11,10 @@ I find myself using these resources over and over when I work with HTML and CSS,
 * "Formatting a Definition List &lt; CSS":http://www.the-art-of-web.com/css/format-dl/
 
 Also, I've discovered that embedding @h2@ tags in @dt@ is _not_ allowed in strict XHTML 1.1.
+
+UPDATE (22 November 2011):
+
+* "HTML Entity Names":http://www.fileformat.info/format/w3c/htmlentity.htm
+* "fileformat.info":http://www.fileformat.info/
+* "UTF-8-demo.txt":http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-demo.txt
+* "UTF-8 and Unicode FAQ for Unix/Linux":http://www.cl.cam.ac.uk/~mgk25/unicode.html

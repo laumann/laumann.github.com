@@ -1,0 +1,9 @@
+---
+layout: post
+title: Building the Linux Kernel
+---
+
+Although I have this book lying around on the computer, it's nice to have the resource here:
+
+* "Linux Kernel in a Nutshell":http://www.kroah.com/lkn/ by _Greg Kroah-Hartmann_
+* "Learning Linux Kernel":http://www.learninglinuxkernel.com/ also seems like a decent place (although it's probably outdated)
