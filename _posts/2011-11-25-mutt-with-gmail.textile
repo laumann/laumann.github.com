@@ -1,0 +1,9 @@
+---
+layout: post
+title: Using Mutt with Gmail
+---
+
+Gmail is changing look soon, I had a peek and didn't like it -- so I dug out this old article, which I've actually gone through before, but I remembered how good it was, so here's the task for tomorrow:
+
+* "Using Mutt with Gmail":http://www.andrews-corner.org/mutt.html
+* "The Mutt E-mail Client":http://www.mutt.org/
