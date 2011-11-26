@@ -1,0 +1,17 @@
+---
+layout: post
+title: Mutt
+---
+
+I finally got "@mutt@":http://mutt.org up and running using the nifty little guide, "Using Mutt with Gmail":http://www.andrews-corner.org/mutt.html. Excellent!
+
+One issue I've seen with @fetchmail@ is that you have to run it several times to fetch _all_ your messages -- my inbox currently has more than 2000 e-mails, all of which I wanted to fetch. This is a bit annoying, but once the entire inbox has been fetched, it's no problem.
+
+Another thing is colours (it's _always_ colours). While it's easy enough to modify the colours and understand the syntax for adjusting them, it's not exactly clear what the different "objects" are. Remind me to give a thorough explanation some day.
+
+Here are a few resources on @mutt@:
+
+* "muttrc builder":http://muttrcbuilder.org/
+* "The Mutt E-Mail Client: Configuration":http://www.mutt.org/doc/manual/manual-3.html
+* "My First Mutt":http://mutt.blackfish.org.uk/
+
