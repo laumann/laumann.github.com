@@ -1,0 +1,8 @@
+---
+layout: post
+title: GPL-only symbol error
+---
+
+There's an interesting discussion going on on the "kernelnewbies mailing list":http://kernelnewbies.org/MailingList which starts "here":http://article.gmane.org/gmane.linux.kernel.kernelnewbies/40171 and eventually gets a few people involved.
+
+It's interesting to read what some people consider "breach" of the copyright.
