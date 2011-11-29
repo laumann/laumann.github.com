@@ -1,0 +1,8 @@
+---
+layout: post
+title: "ELF: From the Programmer's Perspective"
+---
+
+This looks like an interesting read:
+
+* "ELF(Executable and Linking Format): From the Programmer's Perspective":http://www.ru.j-npcs.org/usoft/WWW/www_debian.org/Documentation/elf/elf.html
