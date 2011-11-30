@@ -1,0 +1,6 @@
+---
+layout: post
+title: Zsh reference
+---
+
+* "Zsh reference card":http://www.bash2zsh.com/zsh_refcard/refcard.pdf
