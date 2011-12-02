@@ -1,0 +1,14 @@
+---
+layout: post
+title: Drafts for books theoretical computer science available online
+---
+
+Following "this link":http://cstheory.stackexchange.com/questions/3540/what-are-the-recent-tcs-books-whose-drafts-are-available-online is a rather good resource on TCS(Theoretical Computer Science) book drafts freely available online. I've been looking at a few today, and the following look really interesting:
+
+* "*Algorithms*":http://www.cs.berkeley.edu/~vazirani/algorithms.html by S. Dasgupta, C.H. Papadimitriou, and U.V. Vazirani
+* "*Markow Chains and Mixing Times*":http://pages.uoregon.edu/dlevin/MARKOV by David A. Levin, Yuval Peres, and Elizabeth L. Wilmer
+* "*Tree Automata Techniques and Applications*":http://tata.gforge.inria.fr/ by Hubert Comon, Max Dauchet, Remi Gilleron, Florent Jacquemard, Denis Lugiez, Christof Löding, Sophie Tison and Marc Tommasi
+* "*Logical Foundations of Proof Complexity*":http://www.cs.toronto.edu/~sacook/homepage/book/ by Stephen Cook and Phuong Nguyen
+* "*Data Streams Algorithms and Applications*":http://www.cs.rutgers.edu/~muthu/stream-1-1.ps by S. Muthukrishnan (ps)
+* "*Graph Theory*":http://diestel-graph-theory.com/ by Reinhard Diestel
+* "*Modern Computer Arithmetic*":http://maths.anu.edu.au/~brent/pub/pub226.html by R. P. Brent and P. Zimmermann
