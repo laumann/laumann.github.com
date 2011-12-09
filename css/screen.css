@@ -2,6 +2,24 @@ body {
 	font-family: /*helvetica, tahoma, arial, clean, */ "Times New Roman", sans-serif;
 }
 
+a.invisible {
+	text-decoration: none;
+	color: #000;
+	cursor: text;	/* To make it blend with the text */
+}
+
+a.invisible :hover {
+	
+}
+
+#showhide {
+	text-align: right;
+	cursor: pointer;
+	font-family: Verdana, Tahoma, sans-serif;
+	font-size: 70%;
+	text-transform: uppercase;
+}
+
 /*h1, h2, h3, h4, h5, h6 {
 	font-size: 100%;
 	text-indent: 0;

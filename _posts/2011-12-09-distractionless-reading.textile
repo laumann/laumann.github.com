@@ -1,0 +1,12 @@
+---
+layout: post
+title: Distractionless reading
+---
+
+Even though this serves as a mish-mash of differently connected resources, I've currently been reading _The Shallows_[1] and followingly I've decided to render links more or less invisible.
+
+In the top corner of the page I've introduced a little text in the right called "SHOW LINKS" which, when clicked, shows all the links on the page. The default is to hide all the links. By hiding I mean that they don't stand out in any way from the ordinary text--hovering above the links will not change the cursor, the link text is undecorated and has the same colour as the rest of the text.
+
+The links however are not deactivated--they are still clickable, so watch out.
+
+fn1. Nicolas Carr, _The Shallows_ (Atlantic Books 2011), ISBN: 1-848-87227-5
