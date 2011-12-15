@@ -1,0 +1,8 @@
+---
+layout: post
+title: Patterns in Mutt
+---
+
+For future reference--the Mutt manual page on patterns:
+
+* "http://www.mutt.org/doc/manual/manual-4.html#ss4.2":http://www.mutt.org/doc/manual/manual-4.html#ss4.2
