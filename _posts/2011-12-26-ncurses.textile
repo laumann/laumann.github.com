@@ -1,0 +1,7 @@
+---
+layout: post
+title: ncurses resources
+---
+
+* "NCURSES Programming HOWTO":http://tldp.org/HOWTO/NCURSES-Programming-HOWTO/
+* "Writing Programs with NCURSES":http://invisible-island.net/ncurses/ncurses-intro.html
