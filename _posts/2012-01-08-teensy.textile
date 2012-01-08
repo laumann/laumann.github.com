@@ -1,0 +1,10 @@
+---
+layout: post
+title: Teensy ELF Executables
+---
+
+I have a strange fascination with optimisation in computer science, which is mostly strange because I don't know that much about it. I've found several resources on assembly programming, but this one is very entertaining to read:
+
+* "A Whirlwind Tutorial on Creating Really Teensy ELF Executables for Linux":http://www.muppetlabs.com/~breadbox/software/tiny/teensy.html
+
+Or: Size _is_ everything. I decided to follow the text while performing all the optimisations performed to see the different results. I hit a snag when the author moves into writing the ELF by hand in a flat-form binary format recognised by @nasm@, as the template provided apparently doesn't match up with the format accepted by my current kernel version of Linux.
