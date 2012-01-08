@@ -8,3 +8,8 @@ I have a strange fascination with optimisation in computer science, which is mos
 * "A Whirlwind Tutorial on Creating Really Teensy ELF Executables for Linux":http://www.muppetlabs.com/~breadbox/software/tiny/teensy.html
 
 Or: Size _is_ everything. I decided to follow the text while performing all the optimisations performed to see the different results. I hit a snag when the author moves into writing the ELF by hand in a flat-form binary format recognised by @nasm@, as the template provided apparently doesn't match up with the format accepted by my current kernel version of Linux.
+
+* "KernelNewbies Programming Links":http://kernelnewbies.org/ProgrammingLinks
+* "Linux Assembly: resources":http://asm.sourceforge.net/resources.html#tutorials
+* "Introduction to UNIX Assembly Proramming":http://asm.sourceforge.net/intro/Assembly-Intro.html
+* "GCC Inline Assembly HOWTO":http://ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html
