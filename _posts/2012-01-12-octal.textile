@@ -1,0 +1,10 @@
+---
+layout: post
+title: Octal permissions values
+---
+
+As it says, it _is_ really simple:
+
+* "chmod octal cheat sheet":http://kernelhack.com/?p=22
+
+
