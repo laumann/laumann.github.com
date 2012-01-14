@@ -7,4 +7,17 @@ As it says, it _is_ really simple:
 
 * "chmod octal cheat sheet":http://kernelhack.com/?p=22
 
+table{border:1px solid black; width:200px; margin: 0 auto 0 auto}.
+| &nbsp; |=. user |=. group |=. all |
+|=. 7 |=. @rwx@ |=. @rwx@ |=. @rwx@ |
+|=. 6 |=. @rw-@ |=. @rw-@ |=. @rw-@ |
+|=. 5 |=. @r-x@ |=. @r-x@ |=. @r-x@ |
+|=. 4 |=. @r--@ |=. @r--@ |=. @r--@ |
+|=. 3 |=. @-wx@ |=. @-wx@ |=. @-wx@ |
+|=. 2 |=. @-w-@ |=. @-w-@ |=. @-w-@ |
+|=. 1 |=. @--x@ |=. @--x@ |=. @--x@ |
+|=. 0 |=. @---@ |=. @---@ |=. @---@ |
+
+
+One example is the permission @755@ that translates to @rwxr-xr-x@ giving the owner @rwx@, and anyone else can only read and execute it. This is useful for scripts, that you want outsiders to be able to read and execute, but not modify.
 
