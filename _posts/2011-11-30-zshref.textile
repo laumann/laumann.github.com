@@ -4,3 +4,4 @@ title: Zsh reference
 ---
 
 * "Zsh reference card":http://www.bash2zsh.com/zsh_refcard/refcard.pdf
+* "Zsh Tips, Tricks and Examples by zzapper":http://www.zzapper.co.uk/zshtips.html
