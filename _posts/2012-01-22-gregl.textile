@@ -1,0 +1,10 @@
+---
+layout: post
+title: The Works of Greg London
+---
+
+While looking for reading on Perl, I came across this site:
+
+* "Greg London's Home Page":http://www.greglondon.com/
+
+where there are at least two interesting reads: _Impatient Perl_ and _Libre Labyrinth_ (the latter being about the labyrinth of copyright licenses).
