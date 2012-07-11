@@ -1,0 +1,11 @@
+---
+layout: post
+title: Why Coding Style Matters
+---
+
+I found this nice little quote when watching a really nice video.
+
+bq. It is not merely a matter of aesthetics that programs should be written in a particular style. Rather there is a psychological basis for writing programs in a conventional manner: programmers have strong expectations that other programmers will follow these discourse rules. If the rules are violated, then the utility afforded by the expectations that programmers have built up over time is effectively nullified.
+
+ * "gregkh / kernel-tutorial":https://github.com/laumann/laumann.github.com
+ * The "video":http://www.youtube.com/watch?v=LLBrBBImJt4
