@@ -1,16 +1,15 @@
-/* Default setting is _hidden_ */
+/* Default setting is shown */
 
-hide = false;
+hide = true;
 
 $(function() {
-    $("a").addClass("invisible");
+    //$("a").addClass("invisible");
     
     $("#showhide").click(function() {
 	if (hide) {
 	    $("a").addClass("invisible");
 	    $("#showhide").html("Show Links");
-	}
-	else {
+	} else {
 	    $("a").removeClass("invisible");
 	    $("#showhide").html("Hide Links");
 	}
