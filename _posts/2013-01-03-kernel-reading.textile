@@ -3,7 +3,6 @@ layout: post
 title: Linux Kernel Reading
 ---
 
-I'm not sure why I'd want to write device drivers, but here's a free book on
-device drivers on Linux.
+I'm not sure why I'd want to write device drivers, but here's a free book on device drivers on Linux.
 
 * "Linux Device Drivers: Third Edition":http://lwn.net/Kernel/LDD3/
