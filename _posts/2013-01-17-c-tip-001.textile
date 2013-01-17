@@ -1,0 +1,18 @@
+---
+title: First C tip
+layout: post
+---
+
+The very first C tip to emerge from the book Head First C:
+
+{% highlight c++ %}
+char *cards = "JQK";	/* This variable cannot be modified */
+{% endhighlight %}
+whereas, creating "an array from a string literal, then you *can* modify" the string:
+{% highlight c++ %}
+char cards[] = "JQK";	/* This one can be modified */
+{% endhighlight %}
+
+This means that the first form can effectively be used to create read-only strings in C. Neat! This should definitely come in useful at some point somewhere.
+
+PS. I found the book _Head First C_ and thought I'd give it a go, since I'd heard some hype about this style of learning. Would be nice if some learning would actually stick in by brain!
