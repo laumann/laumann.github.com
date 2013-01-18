@@ -1,0 +1,45 @@
+---
+title: A curious If-then-else switch in Java
+layout: post
+---
+
+Yesterday, I came across a curious use of @if-then-else@ in Java. Well, it's not so much curious as it is silly (in my opinion); it goes a little something like this:
+
+{% highlight java %}
+/* Given String key */
+if ("firstkey".equals(key)) {
+	/* ... */
+} else if ("secondkey".equals(key)) {
+	/* ... */
+} else if (...) {
+	/* 
+	 * And so on
+	 */
+} else {
+	/* ... */
+}
+{% endhighlight %}
+
+Notice how the string literal is used in the call to @equals@? I read it the same as "if this constant equals my key then ...", and it reads really weird. So I pointed it out to my colleague, arguing that it's the same as doing the following comparison (assume we have the integer n, and want to know if it's greater than or equal to 5:
+
+{% highlight java %}
+/* Given a number n */
+if (4 < n) {
+	/* The condition reads: "if 4 is less than n, then ... */
+}
+{% endhighlight %}
+
+Whereas simply reversing the operands (and changing @<@ to @>@ of course) suddenly renders it a lot more readable:
+
+{% highlight java %}
+/* Given a number n */
+if (n > 4) {
+	/* The condition reads: "if n is greater than 4, then ... */
+}
+{% endhighlight %}
+
+The phrase "n greater than 4" is a lot easier to translate to "n greater-than-or-equal to 5".
+
+My colleague offered the following response: suppose that @key@ is @null@ - then we'd be trying to invoke a method on @null@ and run into a @NullPointerException@. True, I said, but why not simply check for @null@ beforehand instead of letting the code stamp through a whole of comparisons just to realise that none of them worked, because our argument was @null@ the entire time? As an aside, this chain had no less than _nine_ comparisons--and since we don't yet run Java 7, we don't have the handy @switch@ on String comparison utility. The result is a huge dependency on the compiler technology. Unless the compiler does something to optimise this kind of cases, then the code _will_ attempt all nine boolean conditions before giving up, whereas explicitly checking for @null@ could be done once to skip ahead. It may not be a huge performance hit, but in a large project this kind of thinking cannot be harmful. It would also render the code a lot easier to read and maintain, if one was shown explicitly how potential @null@ arguments are handled (and supposed to be handled).
+
+It also got me thinking about the API of @String#equals@. Obviously @null.equals("string")@ gives a NPE, but in order for @equals@ to associative, shouldn't @"string".equals(null)@ also give an NPE? It might be annoying to code around, checking that the argument never is @null@, but at least it would be consistent. 
