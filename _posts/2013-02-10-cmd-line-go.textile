@@ -1,0 +1,43 @@
+---
+title: Command Line programs in Go
+layout: post
+---
+
+While working with programming in Go I've developed some usage patterns that I thought might be worth jotting down.
+
+Say we're developing a command-line tool that has a number of commands, something like @add@, @list@ and @rm@. We can declare a common form for command functions, like this:
+
+{% highlight go %}
+type command func([]string)
+{% endhighlight %}
+
+So each command expects a list of arguments (for instance taken from @os.Args@). Then we can maintain a map of strings (the names of the commands) to commands.
+
+{% highlight go %}
+var commands = map[string]command{
+	"add":  add,	// func add([]string) { ... }
+	"list": list,   // func list([]string) { ... }
+	"rm":   remove, // func remove([]string) { ... }
+}
+{% endhighlight %}
+
+which is a fairly straight-forward mapping from the command's name to the function it invokes.
+
+Finally, the main function can be written in the following way:
+
+{% highlight go %}
+import "os"
+
+func main() {
+	if len(os.Args) < 2 {
+		usage()          // Some kind of usage printing
+		os.Exit(0)
+	}
+	
+	if cmd, ok := commands[os.Args[1]]; ok {
+		cmd(os.Args[2:]) // Strip away the command name 
+	}
+}
+{% endhighlight %}
+
+Adding a new command is easy. Simply implement a function (could be kept in its own @.go@ file) of type @func([]string)@ and add a new entry to the @commands@ map and it will be picked up automatically (upon recompilation).
