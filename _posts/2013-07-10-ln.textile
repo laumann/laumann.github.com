@@ -1,0 +1,15 @@
+---
+title: The four forms of ln
+layout: post
+---
+
+It's time I got used to @ln@ syntax. The first form from the @man ln@ is:
+{% highlight bash %}
+ln [OPTION]... [-T] TARGET LINK_NAME
+{% endhighlight %}
+
+For example:
+{% highlight bash %}
+ln -s foo/bar.baz link
+{% endhighlight %}
+will create the entry @link -> foo/bar.baz@.
