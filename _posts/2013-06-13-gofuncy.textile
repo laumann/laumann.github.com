@@ -1,0 +1,69 @@
+---
+layout: post
+title: Funky Go func
+---
+
+"Go":http://golang.org has recently been demanding a lot of attention from me, because it keeps surprising me how very little code and concepts can achieve quite a lot.
+
+Types are an especially interesting topic. A type is declared like so:
+{% highlight go %}
+type T int 			// A typed alias of an integer
+type S struct { /* Members */ }	// A struct
+type F func([]string) error	// A type which is a function
+{% endhighlight %}
+
+The first two are not that interesting, whereas the latter really got my attention, especially in a talk by Rob Pike describing lexical analysis in Go, he declared the following "state function":
+
+{% highlight go %}
+type stateFn func(l lexer) stateFn
+{% endhighlight %}
+
+A recursive type definition that "a @stateFn@ is a function that takes a lexer and returns another @stateFn@". An elegant combination of states and functions. But once you get the idea, the turns out to be quite powerful. Although at the time I didn't realise another important implication of the generality of type declarations, but I'll return to this shortly. To stay with matters at hand, the @stateFn@ definition allows you to write the following:
+
+{% highlight go %}
+func run() {
+	for state := initState; state != nil; {
+		state = state(lexer)
+	}
+}
+{% endhighlight %}
+indicating that the final states are the ones that simply return @nil@ (for whatever reason). This makes it very simply to extend a given lexing implementation because a new state simply corresponds to a new function (although the lexing details are a little hairier).
+
+But let me get back to the other. Methods can be attached to any type, allowing us to do
+
+{% highlight go %}
+func (s *S) do() {
+	/* do something with struct S */
+}
+{% endhighlight %}
+a little like methods on a class (a lot actually). Implementing certain functions allows a type to satisfy an interface, a common example is @Stringer@:
+
+{% highlight go %}
+func (t T) String() string {
+	return fmt.Printf("%x", t) // Our t's are always represented as hexadecimal
+}
+{% endhighlight %}
+
+So, how about attaching a function to @F@? @F@ is a type (that happens to be a function):
+
+{% highlight go %}
+package main
+
+type Void0Fn func()
+
+func (f Void0Fn) String() string {
+	return "<void function>()"
+}
+
+func main() {
+	var f Void0Fn = func() {
+		fmt.Print("hello, I'm the void function that takes to arguments (or crap)")
+	}
+	f()
+	fmt.Println(f)
+}
+// Output:
+// Hello, I'm the void function that takes to arguments (or crap)
+// <void function>()
+{% endhighlight %}
+I've created a little playground for this example: "http://play.golang.org/p/pQ7yi3T6LK":http://play.golang.org/p/pQ7yi3T6LK. I have no idea as to the usefulness of this, but I think it's pretty cool.

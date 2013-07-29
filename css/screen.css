@@ -1,9 +1,18 @@
 body {
 	font-family: /*helvetica, tahoma, arial, clean, */ "Times New Roman", sans-serif;
+	background-color: #e8e8e8;
+}
+
+a {
+	text-decoration: none;
+	color: firebrick;
+}
+
+a:hover {
+	color: firebrick;
 }
 
 a.invisible {
-	text-decoration: none;
 	color: #000;
 	cursor: text;	/* To make it blend with the text */
 }
@@ -86,6 +95,8 @@ ul {
 div#content-wrapper {
         text-align: center;
 	margin: 0 auto;
+	padding: 1em 5em;
+	background-color: #fff;
         width: 50em;
 }
 
