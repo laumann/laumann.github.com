@@ -1,0 +1,68 @@
+---
+title: cgit on Ubuntu with Apache
+layout: post
+---
+
+Setting up "cgit":http://git.zx2c4.com/cgit on Ubuntu is apparently not a walk in the park. First of all, it's not even in the Ubuntu repositories, so one has to build it from source. The first thing to know about cgit is that it's a CGI script, so if you know how to make those work, all you need to know is how to configure cgit itself (let it find your repositories, display names, etc.).
+
+First, get the source code from here:
+
+{% highlight bash %}
+$ git clone git://git.zx2c4.com/cgit
+{% endhighlight %}
+
+Initalize the git submodule and execute the following steps:
+
+{% highlight bash %}
+$ git submodule init
+$ git submodule update
+$ make
+{% endhighlight %}
+
+p. Just before executing @make@ you _may_ want to adjust a few things. The Makefile has at the top a series of configuration that can be explicitly overwritten by defining them in a file called @cgit.conf@.
+
+Now you should have an executable called @cgit@ that we're going to install for Apache to find and execute. (A fun little exercise is to simply execute the file @./cgit@ and see how it outputs its html.)
+
+Let's put cgit in @/var/www/cgi-bin@ (since that folder is already configured to be executable). My Apache root is @/var/www@, so I'll do the following
+
+{% highlight bash %}
+$ cp /path/to/cgit /var/www/cgit/cgit.cgi # Copy the cgit executable into /var/www/cgi-bin
+{% endhighlight %}
+
+cgit also needs two other files to work (properly), namely @cgit.css@ and some logo (default is @cgit.png@). The location of these is per default the Apache root (@/var/www@), but to keep cgit specific things separate we'll do the following:
+
+{% highlight bash %}
+$ mkdir /var/www/cgit
+$ cp /path/to/cgit.{css,png} /var/www/cgit
+{% endhighlight %}
+
+Now, for me, begins the tricky bit. Convincing Apache to do something. I'm no genius when it comes to Apache configuration, so there are probably quite a few better ways to do this. My Apache setup (on localhost) is very basic and uses the file @/etc/apache2/sites-enabled/000-default@, so I'll edit that adding the following:
+
+{% highlight apache %}
+# Nice pretty URLs
+RewriteEngine on
+RewriteRule ^/git$ /git/ [R]
+RewriteRule ^/git/(.*)$ /cgi-bin/cgit.cgi/$1 [PT]
+{% endhighlight %}
+
+If you haven't enabled @mod_rewrite@ for Apache, do @a2enmod rewrite@ and restart. The above redirects @/git/something@ to @/cgi-bin/cgit.cgi/something@. What we want to achieve is being able to browse git repositories from the root as @/git/repo@.
+
+Now, cgit reads (by default) its configuration from @/etc/cgitrc@ that should contain @NAME=VALUE@ pairs. Important! Do _not_ insert spaces before or after the equals sign. For some reason this breaks the configuration file parser and the indicated value will not be used. Enter the following in @/etc/cgitrc@:
+
+{% highlight text %}
+# cgit configuration
+virtual-root=/git
+logo=/cgit/cgit.png
+css=/cgit/cgit.css
+{% endhighlight %}
+
+Restarting Apache and navigating to @localhost/cgi-bin/cgit.cgi@ should display the cgit browser index page with a red message text, informing us that no repositories were found. Repositories can be added either by auto-discovery or one at a time. I prefer the latter solution, so I'll add an example repository:
+
+{% highlight text %}
+repo.url=Git
+repo.path=/var/www/git/git.git
+repo.name=git
+repo.desc=A mirror of the official Git repository
+{% endhighlight %}
+
+There are still a couple of things that don't work as intended. It seems that cgit wants a @--bare@ repository, so pointing it at non-bare work repositories is not likely to work. My current solution is to simply @git clone --bare /path/to/real/repo@ from @/var/www/git@, which allows me to pull in changes whenever I want to update it.
