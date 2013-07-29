@@ -1,0 +1,22 @@
+---
+layout: post
+title:
+---
+
+Last night I was reading _Catch-22_ and it's incredible how much I thoroughly enjoy that book! It has a magnificient use of words, constantly ramming your inner sensory ear, not in a nice way, but an awesome way.
+
+I've gotten so used to dumbing down my English, and simplifying my the way I speak that I've come to forget so many words and being utterly useless at constructing any kind of elaborate sentential structure. It would be wonderful to be able to change this somehow.
+
+On a related note, I came across this website called "Leanpub":http://leanpub.com which is an online publishing platform for bloggers and authors. Technical authors are especially targeted, but "regular" authors are also encompassed in their audience. The idea is to, as you write your work, publish as often as you can, and let people buy the book as you're writing it. That way you can directly ask for feedback, and readers should come to feel very much part of the writing process.
+
+I suppose this platform would make multi-authorship quite easy and likely; say, if your writing a book and start receiving input from a particular reader, this reader could maybe be turned into a co-author, if given the opportunity.
+
+There were two books that caught my immediate eye, the first being "@career.fork()@":https://leanpub.com/freelancedeveloperbook by Steve Jalim, on being a free-lance developer. I grabbed his free sample (which doesn't seem to be available anymore), and found in the introduction the first-ever recognition of Internet share-and-copy culture and his thoughts thereof:
+
+bq. Hi there. I've written this book [...] So, thank you for buying it. Unless you copied it, of course, in which case you should wait for some kind of karmic payback to strike.
+
+Karmic payback. As you sow, so shall you reap, I guess.
+
+The second that looked interesting was "Go, The Standard Library":https://leanpub.com/go-thestdlib being written by Daniel Huckstep from which I also had a peek. This is a technical book touring the Go standard library exemplifying the usage in different cases. I'm still very tempted to work and develop in Go, but I think the obnoxious decision to enforce exported functions to be capitalised really puts a stop to my enthusiasm. For some reason, I really care about nice looking code, code that is formatted is an easy-to-read manner and is not a complete eyesore. This is why I enjoy reading C code (go figure), because, formatted properly (like Linux), it reads really well, and the inherent danger of complexity forces developers not to write too complex code. The ability
+
+But the @MixedCaps@ so-called "convention" really drives me mad. It's not easy to read, with letters bouncing up and down all time in front of your very eyes, how can you process it?
