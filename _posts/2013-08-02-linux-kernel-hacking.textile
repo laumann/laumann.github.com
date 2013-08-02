@@ -1,0 +1,33 @@
+---
+layout: post
+title: Linux Kernel Hacking
+---
+I remember quite precisely when I picked up an interest in the Linux kernel (and OS programming in general). Part of the bachelor programme I took was a course on operating systems, dOpSys, featuring a book called _Operating System Principles_[1], of which I honestly don't remember much. Most of the talk seemed to be about synchronisation mechachanisms. On the other hand, we got to do a rewrite of the scheduler in a tiny version of Linux 2.14, which was extremely engaging and rewarding.
+
+Considering what I do and study now, I think it's time I rediscovered this passion. Yesterday I cloned Linus' stable kernel and compiled it overnight (@make -j4@, but I think it should be @-j8@), the next being installation and rebooting. The workstation sports an Intel i5 processor and 8GB memory, so there's plenty to work with. I'm currently running Linux Mint with a tainted[2] kernel, because of my Nvidia graphics card, so I hope I'll be able to run without it. Otherwise I might have to look for non-proprietary drivers. To get started I pulled a @.config@ from my current kernel (located in @/boot@) and ran:
+
+{% highlight bash %}
+$ yes '' | make oldconfig
+{% endhighlight %}
+
+
+I've also been reading more and more documentation, among others:
+
+ * "Understanding the Linux Kernel":http://shop.oreilly.com/product/9780596000028.do A relatively thorough book providing overviews of Linux' handling of different problem areas, as well as specific implementations for i686
+ * "Linux Kernel in a Nutshell":http://www.kroah.com/lkn/ I haven't so far in this one, but
+ * "Linux Device Drivers":http://lwn.net/Kernel/LDD3/ This one might be interesting if I end up having to write a device driver for the USB voltmeter
+ * "The Zen of kobjects":http://lwn.net/Articles/51437/ A nice little article on the @kobject@
+ * "Building and running a new Linux kernel":http://crashcourse.ca/introduction-linux-kernel-programming/lesson-1-building-and-running-new-linux-kernel This online course teaches Linux programming, the first lesson being free (and pretty easy to follow). A nice plus is that he exactly documents all the tiny details that you might notice (and he noticed).
+ * Documentation: What better place to start (or end) than the documentation that ships with the product?
+
+Of course not on this list are various online resources that I've forgotten to jot down over the time.
+
+h3. Git
+
+The book "Pro Git":http://git-scm.com/book is highly recommendable once you have a working man's grasp of Git. It's a fairly quick read, easily transformed to a suitable format (@.epub@ for me), and I especially enjoyed the final chapter on Git internals, which in fairly precise detail goes through the implementation of Git's ideas. Not only are you able to say what Git does with your data, but you actually get to try it out yourself (in Ruby).
+
+I also have ulterior motives for reading up on Git; working with Subversion is such a pain in the ass that I'm currently lobbying internally in the company for a switch-over. I know I have the support of most of my colleagues, but I need to convince some key people and in order to do that I need to become more or less guru-like (at least in their eyes), so I could always provide Git support. But when you like what you're doing, it's all good.
+
+fn1. Lubomir F. Bic & Allan C. Shaw, _Operating System Principles_ (Pearson), ISBN: 0-130-26611-6 ("website":http://www.pearsonhighered.com/educator/academic/product/0,,0130266116,00%2Ben-USS_01DBC.html)
+
+fn2. A "tainted kernel" is one that has either a proprietary module loaded, the kernel issued a warning or risky modules were loaded. Easy to follow article "here":http://askubuntu.com/questions/248470/what-does-the-kernel-taint-value-mean

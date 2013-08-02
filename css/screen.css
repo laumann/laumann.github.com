@@ -136,3 +136,7 @@ pre.terminal, div.highlight {
         .highlight pre {
 	        margin: 0;
 	}
+
+p.footnote {
+	margin: 0
+}
