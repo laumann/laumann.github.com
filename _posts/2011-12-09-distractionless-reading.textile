@@ -9,4 +9,6 @@ In the top corner of the page I've introduced a little text in the right called 
 
 The links however are not deactivated--they are still clickable, so watch out.
 
+EDIT(2013-08-02): I've removed the feature as links are not so prominent anymore (a @firebrick@ red)
+
 fn1. Nicolas Carr, _The Shallows_ (Atlantic Books 2011), ISBN: 1-848-87227-5
