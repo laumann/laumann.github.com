@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>{{ page.title }}</title>
+	<title>laumann.github.com{% if page.title %}: {{ page.title }}{% endif %}</title>
 
 	<!-- syntax highlighting CSS -->
 	<link rel="stylesheet" href="/css/syntax.css" type="text/css" />
@@ -16,14 +16,17 @@
 <body>
 <table id="head">
 	<tr>
-		<td id="header"><h1><code>{{ page.title }}</code></h1></td>
-		<td id="ll"><img alt="Singly Linked List" src="/img/Singly-linked-list.png"/></td>
+		<td style="width: 1px"><a href="/"><img src="/img/zebra5.jpg" alt="Why the Zebra?" title="Why the Zebra?"/></a></td>
+		<td id="header"><h1><code>laumann.github.com{% if page.title %}: {{ page.title }}{% endif %}</code></h1></td>
+		<td id="ll" style="vertical-align: top"><a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a></td>
 	</tr>
 </table>
 
+<!--
 <div style="text-align: right">
 	<span id="showhide">Hide links</span>
 </div>
+-->
 
 <div id="content-wrapper">
 	<div id="content">{{ content }}</div>
@@ -31,7 +34,6 @@
 
 <div class="footer">
 	<p id="banners">
-		<a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a>
 		<!-- a href="http://vim.org/"><img src="/img/vim_created.gif" style="height:31px" alt="Powered by vim!" /></a -->
 		<!--a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml11-blue" alt="Valid XHTML 1.1" height="31" width="88" /></a-->
       <!--a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/img/vcss-blue.gif" alt="Valid CSS!" />

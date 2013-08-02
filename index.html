@@ -1,6 +1,6 @@
 ---
 layout: default
-title: laumann.github.com
+title:  
 ---
 
 <p>I read a lot. I especially read a lot on the Internet and I constantly have multiple tabs open (I <em>never</em> want to close an open page &mdash; what if it disappears?). Before tabbed browsing I always had twenty-seven IE windows open. This was before I discovered the joys of free software. Things are different now.</p>
@@ -13,9 +13,8 @@ title: laumann.github.com
 
 <hr />
 
-<dl>
-{% for post in site.posts %}
-	<dt><span class="date">{{ post.date | date_to_long_string }}</span> <span class="title">{{ post.title }}</span></dt>
-	<dd>{{ post.content }}</dd>
-{% endfor %}
-</dl>
+<ol class="post-list">
+	{% for post in site.posts %}
+	<li style="list-style-type: lower-hexadecimal"><span class="date">{{ post.date | date_to_string }}</span> · <span class="title"><a href="{{ post.url }}">{{ post.title }}</a></span></li>
+	{% endfor %}
+</ol>

@@ -1,6 +1,6 @@
 body {
 	font-family: /*helvetica, tahoma, arial, clean, */ "Times New Roman", sans-serif;
-	background-color: #e8e8e8;
+	/*background-color: #e8e8e8; */
 }
 
 a {
@@ -60,7 +60,16 @@ span.title {
 
 span.date {
 	font-family: monospace;
+	font-size: .85em;
 }
+
+ol.post-list {
+}
+
+	.post-list li {
+		list-style-type: lower-hexadecimal;
+		font-family: monospace;
+	}
 
 hr {
         border: 0;
@@ -94,7 +103,7 @@ ul {
 
 div#content-wrapper {
         text-align: center;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	padding: 1em 5em;
 	background-color: #fff;
         width: 50em;
@@ -115,6 +124,9 @@ pre {
 	        color: black;
 	}
 
+div.highlight {
+	margin-left: 2em;
+}
 pre.terminal, div.highlight {
 	background-color: /* #f0f0f0; #f7de9c; */ #ffe8ab;
 	padding: 0.5em;
