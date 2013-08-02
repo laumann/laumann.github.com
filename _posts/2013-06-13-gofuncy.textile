@@ -56,9 +56,9 @@ func (f Void0Fn) String() string {
 }
 
 func main() {
-	var f Void0Fn = func() {
+	f := Void0Fn(func() {
 		fmt.Print("hello, I'm the void function that takes to arguments (or crap)")
-	}
+	})
 	f()
 	fmt.Println(f)
 }
