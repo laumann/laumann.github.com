@@ -10,6 +10,7 @@ a {
 
 a:hover {
 	color: firebrick;
+	text-decoration: underline;
 }
 
 a.invisible {
@@ -58,7 +59,7 @@ span.title {
 	font-weight: bold;
 }
 
-span.date {
+span.data {
 	font-family: monospace;
 	font-size: .85em;
 }
