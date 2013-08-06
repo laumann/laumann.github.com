@@ -64,13 +64,34 @@ span.data {
 	font-size: .85em;
 }
 
-ol.post-list {
+table.post-list {
+	font-family: monospace;
 }
-
-	.post-list li {
-		list-style-type: lower-hexadecimal;
-		font-family: monospace;
+	.post-list th {
+		padding: 0 1em;
+		font-size: 1em;
 	}
+
+	.post-list td {
+		padding: 0 1em;
+		border-left: 1px solid  black;
+		font-size: 0.85em;
+	}
+
+	.post-list td:first-child {
+		border-left: 0;
+		padding-left: 0;
+	}
+
+	.post-list th:first-child {
+		padding-left: 0;
+	}
+
+	.post-list td:last-child {
+		font-size: 1em;
+		font-weight: bold;
+	}
+
 
 hr {
         border: 0;
