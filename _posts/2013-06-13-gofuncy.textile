@@ -57,13 +57,13 @@ func (f Void0Fn) String() string {
 
 func main() {
 	f := Void0Fn(func() {
-		fmt.Print("hello, I'm the void function that takes to arguments (or crap)")
+		fmt.Print("hello, I'm the void function that takes no arguments (or crap)")
 	})
 	f()
 	fmt.Println(f)
 }
 // Output:
-// Hello, I'm the void function that takes to arguments (or crap)
+// Hello, I'm the void function that takes no arguments (or crap)
 // <void function>()
 {% endhighlight %}
 I've created a little playground for this example: "http://play.golang.org/p/pQ7yi3T6LK":http://play.golang.org/p/pQ7yi3T6LK. I have no idea as to the usefulness of this, but I think it's pretty cool.
