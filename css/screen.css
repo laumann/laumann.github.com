@@ -146,9 +146,6 @@ pre {
 	        color: black;
 	}
 
-div.highlight {
-	margin-left: 2em;
-}
 pre.terminal, div.highlight {
 	background-color: /* #f0f0f0; #f7de9c; */ #ffe8ab;
 	padding: 0.5em;
