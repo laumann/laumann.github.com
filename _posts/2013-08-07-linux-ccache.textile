@@ -1,0 +1,66 @@
+---
+layout: post
+title: Compiling the Linux kernel with ccache
+---
+
+I finally did it! It's far from the first time I've compiled my own kernel version, but it's the first time I've been able to do it using @ccache@.
+
+"@ccache@":http://freecode.com/projects/ccache is a fast C compiler cache, and to use it one simply replaces one's @gcc@ with @ccache gcc@ in the right places. The @man@ page recommendation is to symlink the ccache executable to replace the underlying compiler, like this:
+
+{% highlight sh %}
+ln -s /usr/bin/ccache /usr/local/bin/gcc
+{% endhighlight %}
+
+but I don't like being that intrusive with my system. I know I'm playing with the core of the system, but that doesn't mean I should strive to break the entire infrastructure on top of it. So I had to think of something else: What if I had some sort of linux "working mode" in which common commands like @make@ were executed appropriately (with all the arguments that I'd want by default). So I came up with this:
+
+{% highlight sh %}
+# ccache for Linux development
+export CCACHE_DIR="/home/laumann/.ccache"
+export CC="ccache gcc"
+export CXX="ccache g++"
+export PATH="/usr/lib/ccache:$PATH"
+
+alias make='make -j6'
+
+# Set cache size
+ccache -M 4G
+{% endhighlight %}
+
+Which I then source whenever I want to work with linux. Almost. The first time running, I didn't see any cache hits, but figured that the first time around you're building the cache and later you'll reap the benefits. Currently with the @.config@ (compiling more than 2000 modules) the cache grew to 2.2GB.
+
+The second time around, I wanted to compile using the cache. Doing @source ~/.linuxrc@ sets the environment I want and I only have to type @make@ to get going. But it didn't use the cache! It turns out that simply setting the environment varible @CC@ to the desired value is not something @make@ cares about. You have to do this:
+
+{% highlight sh %}
+$ make CC="ccache gcc"
+{% endhighlight %}
+
+Then @make@ gets it, and you'll start seeing plenty of cache hits.
+
+Running the command @watch -n1 -d ccache -s@, while the compilation process is underway, provides an updated overview every second, such as this:
+
+{% highlight text %}
+cache directory                     /home/laumann/.ccache
+cache hit (direct)                 10487
+cache hit (preprocessed)              29
+cache miss                         13218
+called for link                       32
+called for preprocessing            3630
+unsupported source language          141
+no input file                        552
+files in cache                     37012
+cache size                           2.5 Gbytes
+max cache size                       4.0 Gbytes
+{% endhighlight %}
+(This is the final output after a recompilation, using the cache). More than 10,000 cache hits seems ok to me. One has to keep in mind that the cache misses also count times where there _were_ cache entries, but they weren't used (because I didn't instruct @make@ to get at it). The major convincing factor that this is worth is the visibly faster build time. I think I'll have to make a habit of running
+
+{% highlight sh %}
+time make -j6 CC="ccache gcc" CXX="ccache g++"
+{% endhighlight %}
+
+There are a bunch of things to do to get a "stable" working kernel out of this:
+
+ * Figure out why the graphics card is not initialised. This could have something to do with the fact that the kernel is "tainted". I've been running Nvidia's proprietary driver since I installed Linux Mint.
+ * Consider moving to Arch Linux. This seems to be a good blend (for me at least) between Gentoo and Ubuntu that are the two distributions I now the best. In the past I've had cursory glances at Fedora, openSUSE, etc. but none never caught my attention more than those two. Arch Linux seems to offer the level DIYOS that I can (and want to) manage. I even managed to configure non-ugly fonts on it! But this was not on the workstation, so this'll have to come later.
+ * Cut down on the number of compiled modules. I wonder if there aren't any tools out there that could (attempt) to provide the minimal number of modules required to support the hardware. But this also needs to take into consideration the more exotic hardware I plug in from time to time (the most exotic of which is my webcam).
+
+But to reiterate the mile stones, currently we have (1) a working compiled kernel (although not yet much support for the graphics card) and (2) compilation using @ccache@ which visibly reduces build time (even if it still takes a long time).
