@@ -7,17 +7,62 @@ As it says, it _is_ really simple:
 
 * "chmod octal cheat sheet":http://kernelhack.com/?p=22
 
-table{border:1px solid black; width:200px; margin: 0 auto 0 auto}.
-| &nbsp; |=. user |=. group |=. all |
-|=. 7 |=. @rwx@ |=. @rwx@ |=. @rwx@ |
-|=. 6 |=. @rw-@ |=. @rw-@ |=. @rw-@ |
-|=. 5 |=. @r-x@ |=. @r-x@ |=. @r-x@ |
-|=. 4 |=. @r--@ |=. @r--@ |=. @r--@ |
-|=. 3 |=. @-wx@ |=. @-wx@ |=. @-wx@ |
-|=. 2 |=. @-w-@ |=. @-w-@ |=. @-w-@ |
-|=. 1 |=. @--x@ |=. @--x@ |=. @--x@ |
-|=. 0 |=. @---@ |=. @---@ |=. @---@ |
-
+<table class="rounded striped" style="text-align: center;">
+<thead>
+	<td>&nbsp;</td>
+	<td>user</td>
+	<td>group</td>
+	<td>all</td>
+</thead>
+<tr>
+	<td>7</td>
+	<td><code>rwx</code></td>
+	<td>@rwx@</td>
+	<td><code>rwx</code></td>
+</tr>
+<tr>
+	<td>6</td>
+	<td>@rw-@</td>
+	<td>@rw-@</td>
+	<td>@rw-@</td>
+</tr>
+<tr>
+	<td>5</td>
+	<td>@r-x@</td>
+	<td>@r-x@</td>
+	<td>@r-x@</td>
+</tr>
+<tr>
+	<td>4</td>
+	<td>@r--@</td>
+	<td>@r--@</td>
+	<td>@r--@</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>@-wx@</td>
+	<td>@-wx@</td>
+	<td>@-wx@</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>@-w-@</td>
+	<td>@-w-@</td>
+	<td>@-w-@</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td>@--x@</td>
+	<td>@--x@</td>
+	<td>@--x@</td>
+</tr>
+<tr>
+	<td>0</td>
+	<td>@---@</td>
+	<td>@---@</td>
+	<td>@---@</td>
+</tr>
+</table>
 
 One example is the permission @755@ that translates to @rwxr-xr-x@ giving the owner @rwx@, and anyone else can only read and execute it. This is useful for scripts, that you want outsiders to be able to read and execute, but not modify.
 

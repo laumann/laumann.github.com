@@ -1,7 +1,21 @@
 ---
 layout: default
 ---
-<div id="post">
 {{ content }}
+
+<div class="row">
+
+<div class="one columns">
+	{% if page.next.url %} 
+	<a href="{{page.next.url}}" title="next Post: {{page.next.title}}"><i class="icon-left-bold"></i></a> 
+	{% endif %} 
 </div>
 
+<div class="push_ten one columns" style="text-align: right">
+	{% if page.previous.url %}
+	<a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}"><i class="icon-right-bold"></i></a> 
+	{% endif %}
+</div>
+
+
+</div>

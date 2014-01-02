@@ -2,9 +2,9 @@
 layout: post
 title: Linux Kernel Hacking
 ---
-I remember quite precisely when I picked up an interest in the Linux kernel (and OS programming in general). Part of the bachelor programme I took was a course on operating systems, dOpSys, featuring a book called _Operating System Principles_[1], of which I honestly don't remember much. Most of the talk seemed to be about synchronisation mechachanisms. On the other hand, we got to do a rewrite of the scheduler in a tiny version of Linux 2.14, which was extremely engaging and rewarding.
+I remember quite precisely when I picked up an interest in the Linux kernel (and OS programming in general). Part of the bachelor programme I took was a course on operating systems, dOpSys, featuring a book called _Operating System Principles_ [1], of which I honestly don't remember much. Most of the talk seemed to be about synchronisation mechanisms. On the other hand, we got to do a rewrite of the scheduler in a tiny version of Linux 2.14, which was extremely engaging and rewarding.
 
-Considering what I do and study now, I think it's time I rediscovered this passion. Yesterday I cloned Linus' stable kernel and compiled it overnight (@make -j4@, but I think it should be @-j8@), the next being installation and rebooting. The workstation sports an Intel i5 processor and 8GB memory, so there's plenty to work with. I'm currently running Linux Mint with a tainted[2] kernel, because of my Nvidia graphics card, so I hope I'll be able to run without it. Otherwise I might have to look for non-proprietary drivers. To get started I pulled a @.config@ from my current kernel (located in @/boot@) and ran:
+Considering what I do and study now, I think it's time I rediscovered this passion. Yesterday I cloned Linus' stable kernel and compiled it overnight (@make -j4@, but I think it should be @-j8@), the next being installation and rebooting. The workstation sports an Intel i5 processor and 8GB memory, so there's plenty to work with. I'm currently running Linux Mint with a tainted [2] kernel, because of my Nvidia graphics card, so I hope I'll be able to run without it. Otherwise I might have to look for non-proprietary drivers. To get started I pulled a @.config@ from my current kernel (located in @/boot@) and ran:
 
 {% highlight bash %}
 $ yes '' | make oldconfig
