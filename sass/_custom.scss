@@ -1,0 +1,24 @@
+// Your custom SCSS should be written here...
+
+$code-pale-bg: #ffe8ab;
+
+pre {
+	white-space: pre-wrap;
+
+	code {
+		color: black;
+	}
+
+	.terminal {
+		background-color: $code-pale-bg;
+		padding: 0.5em;
+	}
+}
+
+div {
+	.highlight {
+		background-color: $code-pale-bg;
+		padding: 0.5em;
+		font-family: monospace;
+	}
+}

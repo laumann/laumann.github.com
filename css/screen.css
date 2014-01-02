@@ -1,160 +1,17 @@
-body {
-	font-family: /*helvetica, tahoma, arial, clean, */ "Times New Roman", sans-serif;
-	/*background-color: #e8e8e8; */
-}
+/* Welcome to Compass. In this file you should write your main styles. (or centralize your imports) Import this file using the following HTML or equivalent: <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
 
-a {
-	text-decoration: none;
-	color: firebrick;
-}
+html { line-height: 1; }
 
-a:hover {
-	color: firebrick;
-	text-decoration: underline;
-}
+ol, ul { list-style: none; }
 
-a.invisible {
-	color: #000;
-	cursor: text;	/* To make it blend with the text */
-}
+table { border-collapse: collapse; border-spacing: 0; }
 
-a.invisible :hover {
-	
-}
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
 
-#showhide {
-	text-align: right;
-	cursor: pointer;
-	font-family: Verdana, Tahoma, sans-serif;
-	font-size: 70%;
-	text-transform: uppercase;
-}
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
 
-/*h1, h2, h3, h4, h5, h6 {
-	font-size: 100%;
-	text-indent: 0;
-}
+a img { border: none; }
 
-h1 {
-	margin-bottom: .5em;
-	font-size: 24px;
-}*/
-
-h2 {
-	font-weight: normal;
-}
-
-p {
-	margin-bottom: 12px;
-}
-
-blockquote {
-	font-style: italic;
-	text-align: justify;
-	font-size: 90%;
-}
-
-
-span.title {
-	font-weight: bold;
-}
-
-span.data {
-	font-family: monospace;
-	font-size: .85em;
-}
-
-table.post-list {
-	font-family: monospace;
-}
-	.post-list th {
-		padding: 0 1em;
-		font-size: 1em;
-	}
-
-	.post-list td {
-		padding: 0 1em;
-		border-left: 1px solid  black;
-		font-size: 0.85em;
-	}
-
-	.post-list td:first-child {
-		border-left: 0;
-		padding-left: 0;
-	}
-
-	.post-list th:first-child {
-		padding-left: 0;
-	}
-
-	.post-list td:last-child {
-		font-size: 1em;
-		font-weight: bold;
-	}
-
-
-hr {
-        border: 0;
-	border-bottom: 1px dotted black;
-	/* margin: 1em 0em; */
-}
-
-table#head {
-	width: 100%;
-	border-bottom: 1px dotted black;
-}
-
-	#head td#ll {
-		text-align: right
-	}
-
-ul {
-	list-style-type: circle;
-}
-
-.footer {
-	
-}
-	#banners {
-		text-align: right;
-	}
-
-#fn1, #fn2, #fn3, #fn4, #fn5, #fn6, #fn7, #fn8, #fn9 {
-	font-size: 85%;
-}
-
-div#content-wrapper {
-        text-align: center;
-	/*margin: 0 auto;*/
-	padding: 1em 5em;
-	background-color: #fff;
-        width: 50em;
-}
-
-div#content {
-	text-align: justify;
-}
-
-code, tt {
-	color: teal;
-}
-
-pre {
-	white-space: pre-wrap;
-}
-        pre code {
-	        color: black;
-	}
-
-pre.terminal, div.highlight {
-	background-color: /* #f0f0f0; #f7de9c; */ #ffe8ab;
-	padding: 0.5em;
-}
-
-        .highlight pre {
-	        margin: 0;
-	}
-
-p.footnote {
-	margin: 0
-}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
