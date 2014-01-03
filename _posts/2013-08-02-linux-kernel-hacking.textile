@@ -10,7 +10,6 @@ Considering what I do and study now, I think it's time I rediscovered this passi
 $ yes '' | make oldconfig
 {% endhighlight %}
 
-
 I've also been reading more and more documentation, among others:
 
  * "Understanding the Linux Kernel":http://shop.oreilly.com/product/9780596000028.do A relatively thorough book providing overviews of Linux' handling of different problem areas, as well as specific implementations for i686

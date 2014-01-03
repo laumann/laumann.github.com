@@ -2,21 +2,24 @@
 layout: default
 ---
 
-{{ content }}
 
 <div class="row">
+	<div class="nine columns">
+		<h4><i class="icon-book"></i> {{ page.title }}</h4>
+	</div>
 
-<div class="one columns">
+	<div class="three columns" style="text-align: right">
 	{% if page.next.url %} 
-	<a href="{{page.next.url}}" title="next Post: {{page.next.title}}"><i class="icon-left-bold"></i></a> 
+	<div class="medium rounded default btn icon-left icon-left-bold"><a href="{{page.next.url}}">Next</a></div>
 	{% endif %} 
-</div>
-
-<div class="push_ten one columns" style="text-align: right">
 	{% if page.previous.url %}
-	<a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}"><i class="xlarge icon-right-bold"></i></a> 
+	<div class="medium rounded default btn icon-right icon-right-bold"><a href="{{page.previous.url}}">Prev</a></div>
+	<!-- <a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}"><i class="xlarge icon-right-bold"></i></a> -->
 	{% endif %}
 </div>
 
-
 </div>
+
+
+{{ content }}
+

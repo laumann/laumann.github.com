@@ -4,6 +4,7 @@
 
 // Grid Settings
 $row-max-width: 940px !default;    				// 940px
+//$row-max-width: 3000px !default;    				// 3000px
 $gutter-in-px: 20px !default;      				// 20px
 $cols: 12 !default;              				// 12 Column Default Grid
 $hybrid: 16 !default;							// 16 Column Default Hybrid Grid
@@ -47,8 +48,8 @@ $rhythm-height: .711;
 // http://www.modularscale.com by Tim Brown
 // https://github.com/scottkellum/modular-scale
 $ratio: golden();						// Ratio for Modular Scale
-$base-font-size: 14px !default;
-$importantNum: 60px !default;
+$base-font-size: 16px !default;
+$importantNum: 40px !default;
 $base-size: $base-font-size $importantNum;
 // Gumby Default Scale Values: 16, 18, 26, 30, 42, 48, 68, 78, 110, 126;
 

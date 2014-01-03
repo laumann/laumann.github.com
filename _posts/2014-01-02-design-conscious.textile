@@ -13,5 +13,12 @@ I think the key-word to any good design is segmentation. Segmenting the screen r
 
 I have made a decision today, in order to change my workflow: Make @laumann.github.io@ my start-up page, and re-design to something I like (using CSS and JavaScript as much as I want). I have found a framework called "Gumby":http://gumbyframework.com that looks a lot like Bootstrap and Foundation, but seems less determined to waste space on the screen.
 
-[1] http://github.com
-[2] http://getbootstrap.com/
+Some of web sites whose designs I think fit their purpose are
+
+ * "llvm.org":http://llvm.org This site is simply beautifully done, the headers are an ideal balance between blocks that mark the boundaries of a segment and anonymous divisors.
+ * "Github":http://github.com Very consistent layout, but their insistence on the narrow view is sometimes annoying (when viewing code that doesn't fold).
+ * "build.golang.org":http://build.golang.org is a very specific example. The main "golang.org":http://golang.org site is simple and consistent, but it suffers from too wide swaths of text. But the build site gives a really nice overview of the build history with SHA's and committer comments.
+
+fn1. http://github.com
+
+fn2. http://getbootstrap.com/
