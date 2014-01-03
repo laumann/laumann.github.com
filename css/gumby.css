@@ -1695,7 +1695,7 @@ p { text-align: justify; }
 ul#post-list { font-family: monospace; }
 ul#post-list li { display: block; }
 ul#post-list span.title { font-weight: bold; }
-ul#post-list span.wc { font-size: 14px; font-size: 1rem; }
+ul#post-list span.wc { font-size: 9px; font-size: 0.64286rem; }
 ul#post-list span.wc:before { content: "("; }
 ul#post-list span.wc:after { content: ")"; }
 

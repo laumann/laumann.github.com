@@ -11,17 +11,19 @@
 	<script type="text/javascript" src="/js/libs/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
-	<!--
-<table id="head">
-	<tr>
-		<td style="width: 1px"></td>
-		<td id="header"><h1><code>laumann.github.com{% if page.title %}: {{ page.title }}{% endif %}</code></h1></td>
-		<td id="ll" style="vertical-align: top"><a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a></td>
-	</tr>
-</table>
--->
-<div class="zebra" style="float: left; margin: 1em; border-width: 10px 1px 1px 1px;">
+<!--
+<div class="zebra" style="float: left; margin: 1em; border-width: 10px 1px 1px 1px; position: absolute">
 	<a href="/"><img src="/img/zebra5.jpg" alt="Why the Zebra?" title="Why the Zebra?"/></a>
+</div>
+-->
+<div class="nav" style="float: right; margin: 1em; position: absolute; top: 1em; right: 1em;">
+	<ul>
+		<li><div class="pretty medium info btn icon-left icon-flow-cascade" style="width: 100%"><a href="/">Home</a></div></li>
+		<li><div class="pretty medium default btn icon-left icon-mail" style="width: 100%"><a href="/">E-mail</a></div></li>
+	</ul>
+</div>
+<div class="row" style="text-align: center">
+	<h2><code>laumann.github.io</code></h2>
 </div>
 <div class="row">
 	{{ content }}

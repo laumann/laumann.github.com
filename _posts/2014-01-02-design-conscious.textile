@@ -1,0 +1,17 @@
+---
+layout: post
+title: Design conscious
+---
+
+I'm a design conscious person. I take note of how things are "designed" in a major way. Whenever I read a text online (and I read quite a bit), I always note how it's presented; is the layout consistent? Does it make sense for the web?
+
+Like the presentation of food plays a role in how readily you want to eat it, the presentation of content on a website (or any other application for that matter) also plays a role in how readily the users digest the content. Very often, I find the more work goes into the design the less interesting the content, but there are examples of design complementing and enhancing a site's content. A good example is github [1] (GH). Their design is minimalistic, responsive and supports its content rather well. GH bases itself on Bootstrap [2] which is a CSS web framework to build consistent UIs and web frontends. It has a huge advantage in being very easy to set up, and everything just looks good right away. Unfortunately it is not exactly straight-forward to change things in Bootstrap--from what I've read and been told, customisation beyond changing of colours and spacing between elements is not exactly easy. And it shows. There are quite a few websites out there using Bootstrap, and one can see it immediately.
+
+One rather common example of what I consider bad design is using the entire page to present a large piece of text. Imagine a book printed on A4, but in landscape mode, it feels like watching a tennis match rather than reading, your head is moving back and forth all the time. Prose text is much easier to digest when presented in narrower columns which is clearly evidenced by the standard formatting of books and news papers. Even online news papers format their articles in narrow columns (but this might just be to preserve the familiarity of the narrow-column book). Making good use of the screen real estate is definitely a priority, but it must adapt to the content. A blog like this cannot use the entire wide-screen. But an application presenting a dashboard or control panel of some sort could advantageously utilise the entire screen. The presentation could (or would) be a segmentation of the screen into smaller panels, each containing its functionality.
+
+I think the key-word to any good design is segmentation. Segmenting the screen real estate into appropriate pieces and giving each piece the responsibility for an appropriate amount of information helps to enforce the feel of coherence and structure. The more solid the underlying (if flexible) structure feels, the better the overall presentational feel. One's design may contain unexpected design patterns, but as long as it fits into the overall design, then nothing is really lost.
+
+I have made a decision today, in order to change my workflow: Make @laumann.github.io@ my start-up page, and re-design to something I like (using CSS and JavaScript as much as I want). I have found a framework called "Gumby":http://gumbyframework.com that looks a lot like Bootstrap and Foundation, but seems less determined to waste space on the screen.
+
+[1] http://github.com
+[2] http://getbootstrap.com/

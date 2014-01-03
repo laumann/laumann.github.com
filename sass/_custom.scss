@@ -42,7 +42,7 @@ ul#post-list {
   }
   span {
     &.title { font-weight: bold; }
-    &.wc { @include font-size($med); }
+    &.wc { @include font-size($small); }
     &.wc:before { content: "(" }
     &.wc:after { content: ")" }
   }
