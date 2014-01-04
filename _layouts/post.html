@@ -10,10 +10,10 @@ layout: default
 
 	<div class="three columns" style="text-align: right">
 	{% if page.next.url %} 
-	<div class="medium rounded default btn icon-left icon-left-bold"><a href="{{page.next.url}}">Next</a></div>
+	<div class="small rounded default btn icon-left icon-left-bold"><a href="{{page.next.url}}"><code>next</code></a></div>
 	{% endif %} 
 	{% if page.previous.url %}
-	<div class="medium rounded default btn icon-right icon-right-bold"><a href="{{page.previous.url}}">Prev</a></div>
+	<div class="small rounded default btn icon-right icon-right-bold"><a href="{{page.previous.url}}"><code>prev</code></a></div>
 	<!-- <a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}"><i class="xlarge icon-right-bold"></i></a> -->
 	{% endif %}
 </div>
