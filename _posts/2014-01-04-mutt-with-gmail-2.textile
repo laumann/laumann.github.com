@@ -1,0 +1,10 @@
+---
+layout: post
+title: Using Mutt with Gmail (again)
+---
+
+There are quite a few ways to handle e-mail clients. My favorite working environment is the command line and several times I have attempted to switch to @mutt@ as my e-mail client. But whenever doing so I always seemed to lose the configuration one way or the other. But like re-installing Gentoo over and over, with practice it gets easier.
+
+The Arch Linux wiki has a looong article on "using mutt":https://wiki.archlinux.org/index.php/mutt#IMAP that I should probably get through some time. I also found a "forum thread":https://bbs.archlinux.org/viewtopic.php?pid=293494 on setting up mutt, which I followed and seems to work. The only problem with the setup is that whenever I open mutt, the _entire_ inbox is downloaded--and it has over 11000 e-mails.
+
+Clearly some sort of caching is required in which I keep a local copy of the inbox.
