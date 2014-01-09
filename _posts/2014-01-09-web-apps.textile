@@ -1,0 +1,21 @@
+---
+layout: post
+title: Designing a web application
+---
+
+At the company where I work, one of our products is a web application. That is about as detailed as I will make. Suffice it to say we require using the _entire_ real estate of the screen, which has lead some of us to look for web frameworks that support a quite extreme degree of adaptability--to fit on tiny smartphone screens as well as large displays. Our second requirement is a rather broad support for browsers, from what I know, all the way back to IE6. However crazy that might sound, these are the conditions to which we should try to adapt.
+
+The result is that most of the web frameworks out there: Bootstrap, Foundation, Gumby, etc, don't suit our needs, because they impose a strict 12-column, centered grid. Usually this limits the width of the page to little under a thousand pixels, which might not sound like a severe limitation, but we can use all the real estate we can lay our hands on.
+
+The closest candidate, I have yet found is "Foundation":http://foundation.zurb.com, which only deserves mention because the width limitation can relatively easily be nullified [1]. The aim is to be able to build a web application with the screen real estate usage like Google Docs (or some similar web application). To this end, I am going to throw out Gumby, because it doesn't serve the needs I have. Gumby was easy to install and work with (especially Compass and Sass), but Foundation should be just as easy. This blog will receive yet another workover, where Foundation will replace Gumby. There are some other features I want to incorporate in the blog:
+
+* A quick links section (somewhere, either to the left or right)
+* More accessible navigation
+
+h4. Installing Foundation
+
+I want to use Compass to manage my CSS. It adds both advanced features, not only on top of CSS, but also on SASS, and validation of the generated CSS. Both these features are worth it. But the recommended way of installing and working with Foundation is a little restrictive: Using @npm@, @bower@ the Foundation base is checked out with @git@ into a repo, making it difficult to integrate into an already existing Git repository.
+
+The most direct path I found is downloading the "Foundation Compass template":https://github.com/zurb/foundation-compass-template as a @.zip@ and unzipping its contents into the desired location. Using @bower@ to manage automatic updates to the framework, one must then run @bower update@ to get the latest version.
+
+fn1. "Responsive and full screen frameworks":http://stackoverflow.com/questions/12842036/responsive-and-full-screen-frameworks 
