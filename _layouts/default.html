@@ -8,23 +8,54 @@
 	<!-- syntax highlighting CSS -->
 	<link rel="stylesheet" href="/css/app.css" type="text/css" />
 	<link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+	<link rel="stylesheet" href="/css/foundation-icons.css" type="text/css" />
 	
 	<!--script type="text/javascript"
 	src="/js/libs/modernizr-2.6.2.min.js"></script -->
-	<script src="/js/vendor/custom.modernizr.js"></script>
-	<!-- <script type="text/javascript" src="/js/jquery.js"></script>
-	<script type="text/javascript" src="/js/app.js"></script> -->
+	<script type="text/javascript" src="/js/vendor/custom.modernizr.js"></script>
 </head>
 <body>
-	
-<div class="nav" style="float: right; margin: 1em; position: absolute; top: 1em; right: 1em;">
+
+<div class="contain-to-grid">
+<nav class="top-bar" data-topbar>
+	<ul class="title-area">
+		<li class="name">
+		<h1><a href="/"><code>laumann.github.io</code></a></h1>
+		</li>
+		<li class="toggle-topbar menu-icon"><a href="#">Menu</a></li></ul>
+
+	</ul>
+	<section class="top-bar-section">
+		<ul>
+			<li class="divider"></li>
+			<li><a href="/index.html">Home</a></li>
+			<li class="divider"></li>
+			<li><a href="/about.html">About</a></li>
+		</ul>
+	</section>
+</nav>
 </div>
+
+<div class="row">
+</div>
+<!--
 <div class="row" style="text-align: center">
 	<h2><code>laumann.github.io</code></h2>
 </div>
+-->
 <div class="row">
-	<div class="small-1 columns panel">
+	<div class="small-1 columns">
+		<div class="panel">
+		<i class="fi-pricetag-multiple large
+			left" style="font-size: 36px; margin-right: .5rem"></i>
 		One the side line out here, I aim to keep quick links to sites I regularly visit.
+		</div>
+		<div class="panel">
+			<i class="fi-link"></i>
+			
+			<a href="http://github.com/laumann"><i
+					class="fi-social-github"></i> github</a>
+		</div>
 	</div>
 	<div class="small-9 columns">
 		{{ content }}
@@ -41,26 +72,9 @@
 	</div>
 </div>
 
-<!--
-<div class="wrapper shaded" style="text-align: right">
-	<div style="margin-right: 1em">
-	</div>
-</div>
--->
-
-<div class="row footer">
-	<p id="banners">
-		<!--a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml11-blue" alt="Valid XHTML 1.1" height="31" width="88" /></a-->
-      <!--a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px" src="/img/vcss-blue.gif" alt="Valid CSS!" />
-</a -->
-	</p>
-</div>
-
-<script src="/js/vendor/jquery.js"></script>
-<script src="/js/foundation.min.js"></script>
-<script>
-	$(document).foundation();
-</script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/foundation.min.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
 
 </body>
 </html>

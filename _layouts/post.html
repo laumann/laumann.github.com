@@ -5,18 +5,18 @@ layout: default
 
 <div class="row">
 	<div class="small-9 columns">
-		<h4><i class="icon-book"></i> {{ page.title }}</h4>
+		<h4><i class="fi-book"></i> {{ page.title }}</h4>
 	</div>
 
 	<div class="small-3 columns" style="text-align: right">
-		<ul class="button-group radius right">
+		<ul class="button-group right">
 			{% if page.next.url %}
-			<li><a class="button tiny"
-				href="{{page.next.url}}">next</a></li>
+			<li><a class="button tiny" href="{{page.next.url}}"><i
+					class="fi-arrow-left"></i></a></li>
 			{% endif %}
 			{% if page.previous.url %}
-			<li><a class="button tiny"
-				href="{{page.previous.url}}">prev</a></li>
+			<li><a class="button tiny" href="{{page.previous.url}}">
+				<i class="fi-arrow-right"></i></a></li>
 			{% endif %}
 		</ul>
 	</div>

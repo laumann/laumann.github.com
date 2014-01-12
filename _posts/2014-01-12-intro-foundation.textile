@@ -1,0 +1,13 @@
+---
+layout: post
+title: Foundation
+---
+
+<div class="panel right">
+	!/img/Foundation_595.jpg!
+</div>
+
+As well as being named after one of my favourite science fiction books, "Foundation":http://foundation.zurb.com is the best candidate for web framework I have found to date.
+
+I bought _Foundation_ by Isaac Asimov online for about $3 -- the cost of shipping from the US to Denmark was more than twice the price of the book. But I quite liked this edition, and I really liked reading it. It still sits in the collection at home, I think I've read it twice now.
+
