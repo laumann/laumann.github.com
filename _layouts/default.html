@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>laumann.github.com{% if page.title %}: {{ page.title }}{% endif %}</title>
 
 	<!-- syntax highlighting CSS -->
@@ -10,7 +11,9 @@
 	
 	<!--script type="text/javascript"
 	src="/js/libs/modernizr-2.6.2.min.js"></script -->
-	<script type="text/javascript" src="/js/app.js"></script>
+	<script src="/js/vendor/custom.modernizr.js"></script>
+	<!-- <script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script> -->
 </head>
 <body>
 	
@@ -47,6 +50,12 @@
 </a -->
 	</p>
 </div>
+
+<script src="/js/vendor/jquery.js"></script>
+<script src="/js/foundation.min.js"></script>
+<script>
+	$(document).foundation();
+</script>
 
 </body>
 </html>

@@ -4,20 +4,22 @@ layout: default
 
 
 <div class="row">
-	<div class="nine columns">
+	<div class="small-9 columns">
 		<h4><i class="icon-book"></i> {{ page.title }}</h4>
 	</div>
 
-	<div class="three columns" style="text-align: right">
-	{% if page.next.url %} 
-	<div class="small rounded default btn icon-left icon-left-bold"><a href="{{page.next.url}}"><code>next</code></a></div>
-	{% endif %} 
-	{% if page.previous.url %}
-	<div class="small rounded default btn icon-right icon-right-bold"><a href="{{page.previous.url}}"><code>prev</code></a></div>
-	<!-- <a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}"><i class="xlarge icon-right-bold"></i></a> -->
-	{% endif %}
-</div>
-
+	<div class="small-3 columns" style="text-align: right">
+		<ul class="button-group radius right">
+			{% if page.next.url %}
+			<li><a class="button small secondary"
+				href="{{page.next.url}}">next</a></li>
+			{% endif %}
+			{% if page.previous.url %}
+			<li><a class="button small secondary"
+				href="{{page.previous.url}}">prev</a></li>
+			{% endif %}
+		</ul>
+	</div>
 </div>
 
 
