@@ -1,15 +1,19 @@
 // The latest settings can be found here:
 // https://github.com/zurb/bower-foundation/blob/master/scss/foundation/_settings.scss
 
+$row-width: 100%;
+//$body-bg: #eee;
+
 @import "foundation/functions";
 @import "foundation/components/side-nav";
 
-$row-width: 100%;
 
 p {
   text-align: justify;
 }
 
+
+/*
 $include-html-nav-classes: $include-html-classes;
 
 // We use this to control padding.
@@ -30,4 +34,4 @@ $side-nav-font-weight: bold;
 $side-nav-divider-size: 1px;
 $side-nav-divider-style: solid;
 $side-nav-divider-color: scale-color(#fff, $lightness: -10%);
-
+*/
