@@ -3,10 +3,15 @@
 
 $row-width: 100%;
 //$primary-color: #2e3784;
-$primary-color: #0086B3;
+//$primary-color: #5181E0;
+$primary-color: #5873a8;
 
 p {
   text-align: justify;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 ul#post-list {
@@ -45,9 +50,14 @@ div {
   }
 }
 $topbar-margin-bottom: 10px;
-$topbar-height: 28px;
+$topbar-height: 25px;
+
+$topbar-bg: $primary-color; //#5181e0; //#2f2f2f; //#43c6db;
+$topbar-link-bg-hover: scale-color($primary-color, $lightness: -10%); //#272727 ;
+.top-bar-section li a:not(.button):hover {
+  text-decoration: none;
+}
 /*
-$topbar-bg: #e8e8e8;
 $topbar-link-color: #000;
 $topbar-link-color-hover: #000;
 $topbar-link-color-active: #000;
