@@ -1,0 +1,24 @@
+---
+layout: post
+title: On Free Software
+---
+
+Ever since I was "initiated" into the world of programming and computers I have enjoyed the freedom to share and learning from reading the code other people freely made available. I've had an intuitive feeling from the beginning that socialising amongst coders/hackers often takes the form of sharing code. Reading _Free Software, Free Society_ by RMS has reinforced this belief and I more strongly believe this is the way to think of, and develop, software.
+
+Obviously I should dish out the usual explanation of the difference between "free" software and "free" software, but I'd rather tell you to go read the "FSF":http://fsf.org website to find out. Someone has already put it better than I could. I love using software that I can delve into, modify and then see in action; it is hugely gratifying to know some piece of software you wrote was picked up by someone else, because they liked the way it worked.
+
+Consequently, I have been looking to get into free software development, but so far have not really gotten anywhere. To paraphrase Eric Raymond, most open source software gets written in the first place to scratch some hacker's personal itch. This is obviously true for many outstanding projects out there, notably tools I use every day like Linux, git, Jekyll and even programming languages, such as Go. But I have come to accept that joining a project is not something you do, because you simply feel like it. I believe that if you join a project, it is because you are using the software often enough to know its ins and outs, and have come to the conclusion that if you want your ideas carried into the software, you will have to program them yourself.
+
+Starting a project is a different beast altogether. I do this all the time. But I just as quickly abandon (or forget) them. Why? Because either I end up not seeing it's _real_ use (for me) or I find a better alternative. Although I have still to find a good @epub@ editor.
+
+h4. My wishes for an @epub@ editor
+
+One of my stronger desires was to build an @epub@ editor, facilitating easy and fast production of @.epub@ files. I had several requirements for this:
+
+# SHOULD be possible to write in different forms of markup languages, notably Markdown and Textile.
+# MUST be a command-line tool, working like @git@ with different plumbing commands
+# MUST support relatively easy extension (special processing directives, etc).
+# SHOULD support easy CSS hacking
+# NICE TO HAVE sass
+
+For speed I wanted to use Go as the implementation language, although this might introduce some limitations in extendibility. To address this, a scripting language would be necessary, which could either be a specific one, or the scripter could define what language went into the scripting section. An alternative approach could also be finding out if Go can actually do compilation on the fly. If this is possible, then a whole host of possibilites exist.
