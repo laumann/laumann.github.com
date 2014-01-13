@@ -1,0 +1,64 @@
+---
+layout: post
+title: Functions on channels (a Go trick)
+---
+
+One of my first projects in Go was a directory watcher[1]. It was inspired by the directory watcher module available for Ruby programs, which starts watching a given directory and returns a list of modified, added or deleted files. I wanted to do some automatic recompilation of Go programs as I worked on them, so a directory watcher package seemed just the thing. For a while I was quite happy with the result, but felt that the design lacked flexibility. Or rather, the design didn't use the flexibility of the language. So I reworked some parts of over the weekend, especially the scanning routine which is called at every interval to find files with changes.
+
+A directory watcher is instantiated in the following way
+
+{% highlight go %}
+package main
+
+import "github.com/laumann/goutil/directorywatcher"
+
+func main() {
+	const path := "."
+	dw := directorywatcher.New(path)
+	c := dw.AddNewObserver()
+	dw.Start()
+	for evAt := range c {
+		fmt.Println("[%s] %d file(s) changed", evAt.At.Format(time.Stamp), len(evAt.Events));
+	}
+}
+{% endhighlight %}
+
+An observer is simply a channel of @EventsAt@, which is a struct containing a @[]Event@ and a timestamp. Each event then describes the event type (added, deleted or modified) and an associated file. The API outlined above might change to simplify it, as someone using it might just want to call @Start()@ and get an observer channel.
+
+The directory watcher structure has a few modifiable parts, in particular one can choose between a recursive scanning (in which a given folder and all its subdirectories will be watched), or non-recursive which only watches the files in the given directory (and not subfolders). The latter uses the @filepath.Glob@ function.
+
+Scanning takes place at regular (adjustable) intervals, originally in a function @scan1()@ which always had to decide whether the scanning method was recursive or not. This was my problem; as the method of scanning doesn't (and shouldn't) change after the watcher has been started, I found it counterintuitive to test this for every scan. Previous attempts at separating the scanning logic and lock the scanning algorithm at @Start()@ time were unsuccessful, in the sense that they resulted in too much replication of code. So how could this be changed?
+
+The (nicer) solution turns out to involve concurrency: There are really two separate problems. The first problem is scanning and getting a list of files that match a given pattern, the second is deciding whether a given file is new, modified or deleted. A normal imperative approach would first scan to get a list of matching files, then address the second question. But this is not desirable, as there might be a lot of files and storing all these in memory, might not be desirable. In order to detect deleted files, one already has to keep track of a list of currently known files.
+
+Concurrency allows us to model this differently. If the scanning routine runs in its own thread and passes matching files to a decision making thread then the storage would be keep at a constant level. The following function type defines such a scanner
+
+{% highlight go %}
+// A scanning function. Takes a path and returns a channel of strFileInfo
+type scanFn func(path string) <-chan strFileInfo
+{% endhighlight %}
+
+Intuitively, a scanning function creates a channel, and starts its own goroutine in which it scans its directories and passes the results back on the channel. This channel is then the return value. But how do we define @strFileInfo@? Not only do we want an @os.FileInfo@ object representing our file, we also want the path (a @string@) with which it was matched. A common approach would be to declare a struct holding the two values and passing it along the channel. But this means introducing another named struct into the namespace, and the receiver would constantly have to refer to this struct. Rather I wanted to have something akin to multiple return types, being able to pass a pair of values along a channel, which is not immediately supported in Go.
+
+But the multiple return value idea can be helpful. How about passing functions on the channel? Define very simple functions that, when applied, simply yields the multiple values we're interested in. This idea lead to the following definition of @strFileInfo@:
+
+{% highlight go %}
+type strFileInfo func() (string, os.FileInfo)
+{% endhighlight %}
+
+Using this the scanning function simply constructs functions yielding the desired values and passes those on the channel.
+
+{% highlight go %}
+// in a scanFn implementing function
+c <- func() (string, os.FileInfo) { return path, finfo }
+
+// var scan scanFn
+for pair := range scan() {
+	str, finfo := pair() // Unpack the pair
+	// ...
+}
+{% endhighlight %}
+
+The scanning mechanism is thus completely separated out, but working nicely in sync with the receiver of the scanning results.
+
+fn1. Can be found "here":http://github.com/laumann/goutil
