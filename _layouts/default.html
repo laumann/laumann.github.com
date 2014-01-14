@@ -27,7 +27,19 @@
 		</li>
 	</ul>
 	<section class="top-bar-section">
-		<ul>
+		<ul class="right">
+			<li><a href="#" id="sha1"></a>
+			<script type="text/javascript">
+				d3.json('https://api.github.com/repos/laumann/laumann.github.com/branches/master', function(err, data) {
+					d3.select("#sha1")
+					.attr("href", data._links.html)
+					.style("font-family", "monospace")
+					.text(data.commit.sha);
+				});
+			</script>
+			</li>
+		</ul>
+		<ul class="left">
 			<li class="divider"></li>
 			<li><a href="/index.html">home</a></li>
 			<li class="divider"></li>
