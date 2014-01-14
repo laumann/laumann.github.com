@@ -1,0 +1,6 @@
+---
+layout: post
+title: LALR(1) parsing explained
+---
+
+This actually goes on the reading list: "http://web.cs.dal.ca/~sjackson/lalr1.html":http://web.cs.dal.ca/~sjackson/lalr1.html. But I also wanted to attach a few words to it: Most examples of non-recursive parsing techniques I've seen like LL(_k_) or LALR result in huge, sparse tables, wasting a lot of space (as far as I can see). I wonder if this could be improved without compromising speed. Furthermore, reducing space consumption could also potentially improve locality and access times (due to items being located closer in caches).
