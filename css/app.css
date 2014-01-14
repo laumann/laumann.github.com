@@ -14,9 +14,11 @@ code { font-family: monospace; }
 
 div .highlight { background-color: #ffe8ab; padding: 0.5em; font-family: monospace; margin-bottom: 13px; }
 
-.top-bar-section li a:not(.button):hover { text-decoration: none; }
-
 /*
+$topbar-bg: $primary-color; //#5181e0; //#2f2f2f; //#43c6db;
+$topbar-link-bg-hover: scale-color($primary-color, $lightness: -10%); //#272727 ;
+.top-bar-section li a:not(.button):hover { text-decoration: none;
+}
 $topbar-link-color: #000;
 $topbar-link-color-hover: #000;
 $topbar-link-color-active: #000;
@@ -379,7 +381,7 @@ select { width: 100%; }
 meta.foundation-mq-topbar { font-family: "/only screen and (min-width:40.063em)/"; width: 40.063em; }
 
 /* Wrapped around .top-bar to contain to grid width */
-.contain-to-grid { width: 100%; background: #5873a8; }
+.contain-to-grid { width: 100%; background: #333333; }
 .contain-to-grid .top-bar { margin-bottom: 10px; }
 
 .fixed { width: 100%; left: 0; position: fixed; top: 0; z-index: 99; }
@@ -387,7 +389,7 @@ meta.foundation-mq-topbar { font-family: "/only screen and (min-width:40.063em)/
 .fixed.expanded:not(.top-bar) .title-area { position: fixed; width: 100%; z-index: 99; }
 .fixed.expanded:not(.top-bar) .top-bar-section { z-index: 98; margin-top: 25px; }
 
-.top-bar { overflow: hidden; height: 25px; line-height: 25px; position: relative; background: #5873a8; margin-bottom: 10px; }
+.top-bar { overflow: hidden; height: 25px; line-height: 25px; position: relative; background: #333333; margin-bottom: 10px; }
 .top-bar ul { margin-bottom: 0; list-style: none; }
 .top-bar .row { max-width: none; }
 .top-bar form, .top-bar input { margin-bottom: 0; }
@@ -403,7 +405,7 @@ meta.foundation-mq-topbar { font-family: "/only screen and (min-width:40.063em)/
 .top-bar .toggle-topbar.menu-icon a { text-indent: -48px; width: 34px; height: 34px; line-height: 33px; padding: 0; color: white; }
 .top-bar .toggle-topbar.menu-icon a span { position: absolute; right: 0; display: block; width: 16px; height: 0; -webkit-box-shadow: 0 10px 0 1px white, 0 16px 0 1px white, 0 22px 0 1px white; box-shadow: 0 10px 0 1px white, 0 16px 0 1px white, 0 22px 0 1px white; }
 .top-bar.expanded { height: auto; background: transparent; }
-.top-bar.expanded .title-area { background: #5873a8; }
+.top-bar.expanded .title-area { background: #333333; }
 .top-bar.expanded .toggle-topbar a { color: #888888; }
 .top-bar.expanded .toggle-topbar a span { -webkit-box-shadow: 0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888; box-shadow: 0 10px 0 1px #888888, 0 16px 0 1px #888888, 0 22px 0 1px #888888; }
 
@@ -419,7 +421,7 @@ meta.foundation-mq-topbar { font-family: "/only screen and (min-width:40.063em)/
 .top-bar-section ul li > a.button.success:hover { background: #358753; }
 .top-bar-section ul li > a.button.alert { background: #f04124; }
 .top-bar-section ul li > a.button.alert:hover { background: #d32a0e; }
-.top-bar-section ul li:hover > a { background: #4f6797; color: white; }
+.top-bar-section ul li:hover > a { background: #272727; color: white; }
 .top-bar-section ul li.active > a { background: #5873a8; color: white; }
 .top-bar-section ul li.active > a:hover { background: #4f6798; }
 .top-bar-section .has-form { padding: 8.33333px; }
@@ -437,22 +439,22 @@ meta.foundation-mq-topbar { font-family: "/only screen and (min-width:40.063em)/
 
 .js-generated { display: block; }
 
-@media only screen and (min-width: 40.063em) { .top-bar { background: #5873a8; *zoom: 1; overflow: visible; }
+@media only screen and (min-width: 40.063em) { .top-bar { background: #333333; *zoom: 1; overflow: visible; }
   .top-bar:before, .top-bar:after { content: " "; display: table; }
   .top-bar:after { clear: both; }
   .top-bar .toggle-topbar { display: none; }
   .top-bar .title-area { float: left; }
   .top-bar .name h1 a { width: auto; }
   .top-bar input, .top-bar .button { font-size: 0.875rem; position: relative; top: 7px; }
-  .top-bar.expanded { background: #5873a8; }
+  .top-bar.expanded { background: #333333; }
   .contain-to-grid .top-bar { max-width: 100%; margin: 0 auto; margin-bottom: 10px; }
   .top-bar-section { -webkit-transition: none 0 0; -moz-transition: none 0 0; transition: none 0 0; left: 0 !important; }
   .top-bar-section ul { width: auto; height: auto !important; display: inline; }
   .top-bar-section ul li { float: left; }
   .top-bar-section ul li .js-generated { display: none; }
-  .top-bar-section li.hover > a:not(.button) { background: #4f6797; color: white; }
-  .top-bar-section li a:not(.button) { padding: 0 8.33333px; line-height: 25px; background: #5873a8; }
-  .top-bar-section li a:not(.button):hover { background: #4f6797; }
+  .top-bar-section li.hover > a:not(.button) { background: #272727; color: white; }
+  .top-bar-section li a:not(.button) { padding: 0 8.33333px; line-height: 25px; background: #333333; }
+  .top-bar-section li a:not(.button):hover { background: #272727; }
   .top-bar-section .has-dropdown > a { padding-right: 28.33333px !important; }
   .top-bar-section .has-dropdown > a:after { content: ""; display: block; width: 0; height: 0; border: inset 5px; border-color: rgba(255, 255, 255, 0.4) transparent transparent transparent; border-top-style: solid; margin-top: -2.5px; top: 12.5px; }
   .top-bar-section .has-dropdown.moved { position: relative; }
@@ -464,10 +466,10 @@ meta.foundation-mq-topbar { font-family: "/only screen and (min-width:40.063em)/
   .top-bar-section .dropdown li label { white-space: nowrap; background: #333333; }
   .top-bar-section .dropdown li .dropdown { left: 100%; top: 0; }
   .top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] { border-bottom: none; border-top: none; border-right: solid 1px #4d4d4d; clear: none; height: 25px; width: 0; }
-  .top-bar-section .has-form { background: #5873a8; padding: 0 8.33333px; height: 25px; }
+  .top-bar-section .has-form { background: #333333; padding: 0 8.33333px; height: 25px; }
   .top-bar-section ul.right li .dropdown { left: auto; right: 0; }
   .top-bar-section ul.right li .dropdown li .dropdown { right: 100%; }
-  .no-js .top-bar-section ul li:hover > a { background: #4f6797; color: white; }
+  .no-js .top-bar-section ul li:hover > a { background: #272727; color: white; }
   .no-js .top-bar-section ul li:active > a { background: #5873a8; color: white; }
   .no-js .top-bar-section .has-dropdown:hover > .dropdown { display: block; } }
 .accordion { *zoom: 1; margin-bottom: 0; }
