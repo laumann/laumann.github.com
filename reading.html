@@ -1,0 +1,19 @@
+---
+layout: default
+title: Reading
+---
+
+<h1>Reading list</h1>
+
+<p id="out"></p>
+
+<script type="text/javascript">
+$(function() {
+	$.get('reading.json', function(data) {
+		console.log($(data.rlist));
+		var b = data.rlist[0];
+		$("#out").append(b.title + " by <i>" + b.author + "</i> (" + b.url + ")");
+	}, "json");
+		//}).fail(function(err, status, error) { alert("error: " + err + ";" + status + ";" + error); }).done(function() { alert("something happened"); });
+});
+</script>
