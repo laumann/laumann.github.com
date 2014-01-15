@@ -1,0 +1,65 @@
+---
+layout: post
+title: Synchronizing on shared, updateable data in Go
+---
+
+This morning, waiting for a 5-day exam assignment to be released, I watched a video called "AirPair":https://www.youtube.com/watch?v=Yvoe2JPyhas, in which a Onsi and Erik discuss the code of a server health manager tool, used and developed inside Google. This is in some ways quite a private conversation, so I'm a little surprised it's publicly available, but I rather enjoyed watching it.
+
+They discussed some interesting things such as dependency management in Go[1][2], the lack of generics causing some code duplication (and which is preferable, code duplication or "achieving" generics using `reflect`?), testing taken beyond the builtin `testing` package using Ginkgo[3]. The most interesting part of the video was when they came across a worker pool implementation, which implemented a load balancing strategy in a round-robin fashion.[4] The strategy involved a shared integer `index` protected by a mutex. To get the index of the next worker, the mutex was taken and the index incremented by one modulo the number of workers. Erik remarks that this can be achieved differently, and they proceed to type up an alternative solution on the spot.
+
+The idea is as follows: Instead of trying to synchronize access to a shared variable, have a separate goroutine answering requests for the index to use.
+
+{% highlight go %}
+type WorkerPool struct {
+	// ...
+	indexProvider	chan chan int
+}
+
+func (pool *WorkerPool) mux() {
+	index := 0
+	for {
+		select {
+		case c := <-pool.indexProvider:
+			go func(index int) {
+				c <- index
+			}(index)
+			index = (index + 1) % len(pool.workers)
+		}
+	}
+}
+
+func (pool *WorkerPool) getNextIndex() int {
+	c := make(chan int)
+	indexProvider <- c
+	return <-c
+}
+
+func (pool *WorkerPool) Foo() {		// Not really important what this is called, it's just the balancing routine
+	for /* something */ {
+		i := getNextIndex()
+		pool.workers[i] <- work
+	}
+}
+{% endhighlight %}
+
+Upon initialisation the method @pool.mux()@ must be called to start the index providing service. I thought this was a prime example of how Go works following the principle of "sharing data by communicating" instead of "communicating by sharing data".
+
+There are some interesting things to observe here
+
+* The addition of the @mux()@ and @getNextIndex()@ methods cause quite a lot of extra lines of code. But it's all very idiomatic Go (AFAIK) and it's very easy to read and reason about.
+* The only real puzzle to me was the discussion of buffered/unbuffered channels in Go. Particularly in @mux()@, the passing back of the index value on the received channel is wrapped in a goroutine. Exactly why this is done like this, I'm not sure, but it's related to the buffering/unbuffering of channels.
+* Secondly, not displayed in the code above, the @indexProvider@ channel is initialised with @make(chan chan int, 0)@, and I'm not sure why zero is used instead of one.
+
+h4. (Un)buffered channels
+
+After five minutes of reading, I found the answer to my puzzle in the "documentation":http://golang.org/doc/effective_go.html#channels. Specifically it says *_"If the channel is unbuffered, the sender blocks until the receiver has received the value"_*. Well, thank you, that explains it. Conversely if the channel has as buffer, the sender only blocks until the value has been put in the channel's buffer. If the buffer is full, the send operation blocks until a free spot on the buffer opens up.
+
+The added zero in the making of the @indexProvider@ channel, it not necessary. The default for channels is to be unbuffered, which is what zero indicates.
+
+fn1. "Golang dependency management for Rubyists":http://www.stovepipestudios.com/blog/2013/02/go-dependency-management.html by Tyson Tate
+
+fn2. "kr/godep":https://github.com/kr/godep dependency tool by "Keith Rarick":http://github.com/kr
+
+fn3. "Ginkgo: A Golang BDD Testing Framework":http://onsi.github.io/ginkgo/ by Onsi Fakhouri
+
+fn4. Rob Pike gave a presentation at some point building a load balancer in Go, but decidedly avoiding round-robin because it may lead to skew when workers cannot report that they have finished a task. Instead he kept workers paired with the number of tasks they had been given in a priority queue and always picked the least loaded.
