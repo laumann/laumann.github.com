@@ -1,5 +1,7 @@
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");
 p { text-align: justify; }
+p.footnote { margin-bottom: 0; }
+p#fn1 { /* Add a border above the first footnote */ border-top: 1px solid #e6e6e6; margin-top: 30px; }
 
 a:hover { text-decoration: underline; }
 

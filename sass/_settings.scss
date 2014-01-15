@@ -8,6 +8,15 @@ $primary-color: #5873a8;
 
 p {
   text-align: justify;
+
+  &.footnote {
+    margin-bottom: 0;
+  }
+
+  &#fn1 { /* Add a border above the first footnote */
+    border-top: 1px solid #e6e6e6;
+    margin-top: 30px;
+  }
 }
 
 a:hover {
