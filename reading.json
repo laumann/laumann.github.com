@@ -1,6 +1,6 @@
 {
 	"rlist": [
-		{ "title": "Sacred Economics", "author": "Charles Eisenstein", "url" : "http://sacred-economics.org", "comment": null },
+		{ "title": "Sacred Economics", "author": "Charles Eisenstein", "url" : "http://sacred-economics.com", "comment": null },
 		{ "title": "A Tutorial explaining LALR(1) Parsing", "author": "Stephen Jackson", "url": "http://web.cs.dal.ca/~sjackson/lalr1.html", "comment": null }
 	]
 }

@@ -9,14 +9,14 @@ title: Reading
 	<div class="small-9 columns">
 	<h2>Reading list</h2>
 
-<p id="out"></p>
+	<p id="out"></p>
 
 <script type="text/javascript">
 $(function() {
 	d3.json('reading.json', function(err, data) {
 		d3.select("#out")
 			.append("table")
-			.style("border-collapse", "collapse")
+			.style({ "border-collapse": "collapse", "width": "100%" })
 			.selectAll("tr")
 			.data(data.rlist)
 			.enter().append("tr")
@@ -26,10 +26,10 @@ $(function() {
 				if (d.url) {
 					title = '<a href="' + d.url + '">' + d.title + '</a>';
 				}
-				return [ title, d.author ];
+				return [ title, d.author, "" ];
 			})
 			.enter().append("td")
-			.style("padding", "3px")
+			.style({ "padding": "3px" })
 			.html(function(d) { return d; });
 	});
 });
@@ -40,7 +40,7 @@ $(function() {
 <div class="small-3 columns panel">
 <p>Dynamically generated reading list.</p>
 
-<p>This list is generated from <a href="http://github.com/laumann/laumann.github.com/blob/master/reading.json">reading.json</a> and presented using <a href="http://d3js.org">d3</a>. The goal is to be able to easily collect and add reading material, and simply push it out in JSON format.</p>
+<p>This list is generated from <a href="http://github.com/laumann/laumann.github.com/blob/master/reading.json">reading.json</a> and presented using <a href="http://d3js.org">d3</a>. The goal is to be able to easily collect and add reading material, and simply push it out as JSON.</p>
 
 <p>The layout here might change drastically with time (as the powers of d3 become more available).</p>
 
