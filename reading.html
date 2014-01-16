@@ -16,17 +16,21 @@ $(function() {
 	d3.json('reading.json', function(err, data) {
 		d3.select("#out")
 			.append("table")
-			.style({"width": "100%", "border-collapse": "collapse" })
+			.style("border-collapse", "collapse")
 			.selectAll("tr")
 			.data(data.rlist)
 			.enter().append("tr")
-			.on("mouseover", function() { d3.select(this).selectAll("td").style({"background-color": "#eee" }) })
-			.on("mouseout",  function() { d3.select(this).selectAll("td").style({"background-color": null }) })
 			.selectAll("td")
-			.data(function(d) { return [ d.author, d.title, d.url ]; })
+			.data(function(d) {
+				var title = d.title;
+				if (d.url) {
+					title = '<a href="' + d.url + '">' + d.title + '</a>';
+				}
+				return [ title, d.author ];
+			})
 			.enter().append("td")
 			.style("padding", "3px")
-			.text(function(d) { return d; });
+			.html(function(d) { return d; });
 	});
 });
 </script>
@@ -42,7 +46,7 @@ $(function() {
 
 <h4>Reference material</h4>
 <ol>
-	<li><a href="d3js.org">d3js.org</a></li>
+	<li><a href="http://d3js.org">d3js.org</a></li>
 	<li><a href="http://christopheviau.com/d3_tutorial/">Try d3 Now</a></li>
 	<li><a href="http://www.macwright.org/presentations/dcjq/">a fun, difficult intro to d3</a></li>
 </ol>
