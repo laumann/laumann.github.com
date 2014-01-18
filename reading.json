@@ -2,5 +2,6 @@
 	"rlist": [
 		{ "title": "Sacred Economics", "author": "Charles Eisenstein", "url" : "http://sacred-economics.com", "comment": null },
 		{ "title": "A Tutorial explaining LALR(1) Parsing", "author": "Stephen Jackson", "url": "http://web.cs.dal.ca/~sjackson/lalr1.html", "comment": null }
+		{ "title": "An O(ND) Difference Algorithm and Its Variations (1986)", "author": "Eugene W. Myers", "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.4.6927", "comment": null }
 	]
 }
