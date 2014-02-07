@@ -87,6 +87,14 @@ $topbar-height: 25px;
   margin-right: -0.15em;
 }
 
+$topbar-bg: #f2f2f2;
+$topbar-link-bg-hover: #f2f2f2;
+$topbar-link-color: #000;
+$topbar-link-color-hover: #000;
+$topbar-link-color-active: #000;
+//$topbar-divider-color: #d9d9d9;
+$topbar-divider-border-bottom: solid 1px #d9d9d9; // scale-color($topbar-bg, $lightness: 13%);
+$topbar-divider-border-top: solid 1px #d9d9d9; //scale-color($topbar-bg, $lightness: -50%);
 /*
 $topbar-bg: $primary-color; //#5181e0; //#2f2f2f; //#43c6db;
 $topbar-link-bg-hover: scale-color($primary-color, $lightness: -10%); //#272727 ;
