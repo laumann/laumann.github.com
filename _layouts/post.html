@@ -9,16 +9,12 @@ layout: default
 	</div>
 
 	<div class="small-3 columns" style="text-align: right">
-		<ul class="button-group right">
 			{% if page.next.url %}
-			<li><a class="button tiny" href="{{page.next.url}}"><i
-					class="fi-arrow-left"></i></a></li>
+			<a href="{{page.next.url}}">next</a>
 			{% endif %}
 			{% if page.previous.url %}
-			<li><a class="button tiny" href="{{page.previous.url}}">
-				<i class="fi-arrow-right"></i></a></li>
+			<a href="{{page.previous.url}}">prev</a>
 			{% endif %}
-		</ul>
 	</div>
 </div>
 
