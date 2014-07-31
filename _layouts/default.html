@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<div class="contain-to-grid">
+<! --div class="contain-to-grid" -->
 	<nav class="top-bar" data-topbar>
 
 	<ul class="title-area">
@@ -60,51 +60,13 @@
 		</ul>
 	</section>
 </nav>
-</div>
+<!-- /div -->
 
 <div class="row">
-	<div class="small-1 columns">
-		<div class="panel">
-		<i class="fi-pricetag-multiple large
-			left" style="font-size: 36px; margin-right: .5rem"></i>
-		One the side line out here, I aim to keep quick links to sites I regularly visit.
-	</div>
-	</div>
-	<div class="small-9 columns">
-		{{ content }}
-	</div>
-	<div class="small-2 columns">
-		<ul class="side-nav">
-			<li>Current reading</li>
-			<li class="divider"></li>
-		<li>
-		<div class="row">
-			<div class="small-7 columns">
-				<a href="http://sacred-economics.com/">Sacred Economics</a> (Charles Eisenstein)
-			</div>
-			<div class="small-5 columns">
-				<div class="progress"><span class="meter" style="width: 11%"></span></div>
-			</div>
-
-		</div>
-		</li>
-		<li>
-		<div class="row">
-			<div class="small-7 columns">
-				<a href="http://www.markrblake.com/markrblake/index.htm">Pigs Might Fly</a> (Mark Blake)
-			</div>
-			<div class="small-5 columns">
-				<div class="progress"><span class="meter" style="width: 5%"></span></div>
-			</div>
-
-		</div>
-		</li>
-			<li class="divider"></li>
-			<li class="right">
-				<a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a>
-				</li>
-		</ul>
-	</div>
+	{{ content }}
+	<!--
+	<a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a>
+	-->
 </div>
 
 <script type="text/javascript" src="/js/foundation.min.js"></script>
