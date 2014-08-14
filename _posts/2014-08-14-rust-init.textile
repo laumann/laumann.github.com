@@ -1,0 +1,22 @@
+---
+layout: post
+title: First Rusty steps
+---
+
+I suspect there are going to be _lots_ of jokes on the name "Rust" and "rusty". Especially as long as Rust is still new.
+
+In my search for a thesis topic, I've come across "Rust":http://rust-lang.org supported and developed by Mozilla for the past 3-4 years. As far as I can tell, development started back in 2009.
+
+To be honest, it's taken a bit of time to get into Rust and their way of doing things. In my mind (and I'm pretty sure I'm not alone here), Rust seems to be competing for a share of programmers with Go. This is not entirely false, but the two languages do have different goals in terms of who they expect to use it.
+
+I do not want this to be a Go v. Rust run-down, so I'll only devote this paragraph to this. Let us start with the similarities and get them out of the way. Go and Rust both want to be fast. Go compiles "fast code fast". Rust compiles fast code a little slower, but the resulting code is still fast, and the Rust binaries are usually a little smaller than Go's (in my informal experience and hearsay). Go started of with the slogan of being a "systems programming language" which is also how Rust advertises itself. Go has since dropped the slogan in favour of the description "general purpose language". To be fair, when Rust and Go say "system" they seem to always have meant different things. Rust talks about low-level systems, such as machine services and OS's. Go talks more about services and cloud infrastructure.
+
+The first (and most) positive thing about Rust is their emphasis on memory safety. Their model of memory and no shared pointers I think is really strong and will definitely reduce the number of program errors related to dangling pointers. The second-best thing, which follows from the first, is the (default) lack of a garbage collector. The memory safety guarantees ensure that at compilation time, memory-freeing statements can be inserted at the exactly correct positions and anything will only be freed once.
+
+The immediate downside to Rust, in my opinion, is the sheer number of language features included. Why do you need generics? Add them when the memory model has stabilised itself. Why do you need algebraic types? Stick with structs until the demand arises.
+
+The above paragraph pretty much sums up my first weeks' experience with Rust. There are so many features, none of which are explained particularly well (except the memory safety, which is brilliant), and none of which seem to work fully yet. To be fair, Rust is new and still undergoing fast development, but I think at this point the project suffers from the "too many cooks"-syndrome. Perusing the "github issues":http://github.com/rust-lang/rust/issues also demonstrates that a lot of people have a lot of ideas, which is great, but entertaining all these ideas or accepting them as features/improvements to be done can be very distracting for the core language developers as they might not know in which direction to go.
+
+These were the first few weeks. Once I started getting the basic ideas of Rust, more things started falling into place and I started seeing the basic goal that Rust wants to achieve. And I think there is ample room for a language like Rust.
+
+In a later post I want to get into compiling Rust and working with Rust development.
