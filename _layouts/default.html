@@ -6,7 +6,7 @@
 	<title>laumann.github.com{% if page.title %}: {{ page.title }}{% endif %}</title>
 
 	<!-- syntax highlighting CSS -->
-	<link rel="stylesheet" href="/css/uikit.almost-flat.min.css" type="text/css" />
+	<link rel="stylesheet" href="/css/uikit.min.css" type="text/css" />
 	<!--
 	<link rel="stylesheet" href="/css/syntax.css" type="text/css" />
 	<link rel="stylesheet" href="/css/foundation-icons.css" type="text/css" />
@@ -40,45 +40,27 @@
 		</ul>
 	</div>
 	<ul class="uk-navbar-nav">
-		<li><a href="/">home</a></li>
-		<li class="divider"></li>
-		<li><a href="/greg.html">greg</a>
-		</li>
-		<li class="divider"></li>
-		<li><a href="/about.html">about</a></li>
-		<li class="divider"></li>
-		<li><a href="/reading.html">reading</a></li>
-		<li class="divider"></li>
+		<li><a href="/"><i class="uk-icon-home"></i></a></li>
+		<li><a href="/blog.html">Blog</a></li>
+		<li><a href="/about.html">About</a></li>
+		<li><a href="/reading.html">Reading</a></li>
 	</ul>
 </nav>
 
 <div class="uk-container uk-container-center">
 <div class="row uk-grid">
-	<div class="uk-width-medium-3-4">
-		{{ content }}
-	</div>
-	<div class="uk-width-medium-1-4">
-		<div class="uk-panel uk-panel-box uk-text-center">
-			<i class="uk-icon-circle-o uk-icon-large"></i>
-			<h3>laumann.github.com</h3>
-		</div>
-		<div class="uk-panel">
-			<h3 class="uk-panel-title">Blog roll</h3>
-			<ul class="uk-list uk-list-line">
-			{% for post in site.posts %}
-				<li><a href="{{ post.url }}">{{ post.title }}</a></li>
-			{% endfor %}
-			</ul>
-		</div>
-	</div>
+	{{ content }}
 	<!--
 	<a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a>
 	-->
 </div>
 </div>
 
+
+<!-- {% include footer.html %} -->
+
 <! --script type="text/javascript" src="/js/foundation.min.js"></script -->
-<script type="text/javascript" src="/js/app.js"></script>
+<! --script type="text/javascript" src="/js/app.js"></script -->
 
 </body>
 </html>

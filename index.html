@@ -1,36 +1,80 @@
 ---
 layout: default
-title:  
+title:
 ---
 
-<div class="row">
-	
-<div class="medium-6 columns">
-<ul id="post-list">
-	{% for post in site.posts limit:5 %}
-	<article class="uk-article">
-		<h1 class="uk-article-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
-		<p class="uk-article-meta">{{ post.date | date_to_string}}</p>
-		{{ post.content }}
-	</article>
-	<!-- li>
-		<span class="title"><a href="{{ post.url }}">{{ post.title }}</a></span>
-		< span class="label secondary round">{{ post.content | number_of_words }}</span
-	</li>
-		-->
-	{% endfor %}
-</ul>
-</div>
-
-<div class="medium-6 columns">
-<p>I read a lot. I especially read a lot on the Internet and I constantly have multiple tabs open (I <em>never</em> want to close an open page &mdash; what if it disappears?). Before tabbed browsing I always had twenty-seven IE windows open. This was before I discovered the joys of free software. Things are different now.</p>
+<div class="uk-grid">
+	<div class="uk-width-medium-1-1 uk-margin-small-bottom">
+		<h1>What you find here</h1>
+	</div>
+	<div class="uk-width-medium-1-1">
+		<div class="uk-grid uk-margin-bottom">
+	<div class="uk-width-medium-1-2">
+		<p>I read a lot. I especially read a lot on the Internet and I
+		constantly have multiple tabs open (I <i>never</i> want to close an open page &mdash; what if it disappears?). Before tabbed browsing I always had twenty-seven IE windows open. This was before I discovered the joys of free software. Things are different now.</p>
 
 <p>I've been using different services to keep track of web sites I liked (like foxmarks (now xmarks)), but that's not what I needed. I need more of an archive that plasters together different sources I read in conjunction with one another. Therefore this site. I don't mean to share &mdash; enough of that is being done already.</p>
 
 <p>Some credit for the idea should go to my old employer (when I worked as a student programmer). I noticed he kept his own start page for his browser (I assume an <code>index.html</code> or something equally simple), which simply kept all his favourite links. This is close, but not quite there. </p>
 
 <p>For now, this is it. A singly linked list (in chronological order) of a bunch of things I (should) read..</p>
+	
+	</div>
+	<div class="uk-width-medium-1-2">
+		<div>&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<div class="uk-width-medium-1-3">
+		<div class="uk-grid">
+			<div class="uk-width-medium-1-6">
+				<i class="uk-icon-keyboard-o uk-icon-large
+					uk-text-primary"></i>
+			</div>
+			<div class="uk-width-5-6">
+				<h2>Blog</h2>
+				<p><a href="/blog.html">A simple blog roll</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="uk-width-medium-1-3">
+		<div class="uk-grid">
+			<div class="uk-width-medium-1-6">
+				<i class="uk-icon-puzzle-piece uk-icon-large
+					uk-text-primary"></i>
+			</div>
+			<div class="uk-width-5-6">
+				<h2>Greg</h2>
+				<p><a href="http://greg-go.appspot.com">
+				A simple regular expression editor and tester
+				written in Go (for Go)</a></p>
+				<p>Heavily inspired by <a
+	  href="http://rubular.org">Rubular</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="uk-width-medium-1-3">
+		<div class="uk-grid">
+			<div class="uk-width-medium-1-6">
+				<i class="uk-icon-bookmark uk-icon-large
+					uk-text-primary"></i>
+			</div>
+			<div class="uk-width-5-6">
+				<h2>Reading</h2>
+				<p><a href="/reading.html">A
+					simple reading list.</a></p>
+				<p>Managed in JSON and presented with d3.</p>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+<!--
+<div class="medium-6 columns">
+
 </div>
 
 
 </div>
+-->
