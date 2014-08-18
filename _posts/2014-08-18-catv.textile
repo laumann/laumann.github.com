@@ -1,0 +1,16 @@
+---
+layout: post
+title: Considered Harmful
+---
+
+I love "cat-v.org":http://cat-v.org. Especially the "section on Java":http://harmful.cat-v.org/software/java, the language in which I was brought up and currently work in. And love to hate.
+
+<notextile>
+<div class="uk-grid">
+	<div class="uk-width-1-1 uk-align-center">
+		<img src="/img/problem-factory.jpg" class="uk-align-center" />
+	</div>
+</div>
+</notextile>
+
+This why I turn to languages such as "Go":http://golang.org and "Rust":http://rust-lang.org.
