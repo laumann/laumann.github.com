@@ -35,8 +35,6 @@ body:before {
 
 <div id="wrap">
 <nav class="uk-navbar uk-margin-large-bottom">
-	<!-- a href="/"
-	 class="uk-navbar-brand"><code>laumann.github.com</code></a -->
 	<div class="uk-navbar-flip">
 		<ul class="uk-navbar-nav">
 			<li><a href="#" id="sha1"></a>
@@ -53,9 +51,9 @@ body:before {
 	</div>
 	<ul class="uk-navbar-nav">
 		<li><a href="/"><i class="uk-icon-home"></i></a></li>
-		<li><a href="/blog.html">Blog</a></li>
-		<li><a href="/about.html">About</a></li>
-		<li><a href="/reading.html">Reading</a></li>
+		<li {% if page.active == 'post' %}class="uk-active"{% endif %}><a href="/blog.html">Blog</a></li>
+		<li {% if page.active == 'about' %}class="uk-active"{% endif %}><a href="/about.html">About</a></li>
+		<li {% if page.active == 'reading' %}class="uk-active"{% endif %}><a href="/reading.html">Reading</a></li>
 	</ul>
 </nav>
 
@@ -71,9 +69,6 @@ body:before {
 <div id="footer" style="padding-top: 50px;">
 {% include footer.html %}
 </div>
-
-<! --script type="text/javascript" src="/js/foundation.min.js"></script -->
-<! --script type="text/javascript" src="/js/app.js"></script -->
 
 </body>
 </html>
