@@ -1,0 +1,40 @@
+---
+layout: post
+title: Notes on Rust
+---
+
+bq. "There is a huge cognitive overhead when working with abstractions and trying to control the final memory layout of the running code"
+&mdash;From a presentation on Rust
+
+I'm gathering bits and pieces of Rust code "here":https://github.com/laumann/rust-tour
+
+{% highlight rust %}
+/// An example of destructuring a struct
+///
+/// When we're only interested in some attributes the ".." syntax is quite
+/// useful.
+///
+#[deriving(Clone)]
+struct Point3d {
+	x: f32,
+	y: f32,
+	z: f32
+}
+
+impl Point3d {
+	fn xy(&self) -> (f32, f32) {
+		let Point3d {
+			x: x,
+			y: y,
+			..
+		} = (*self).clone();
+		(x, y)
+	}
+}
+
+fn main() {
+	let p = Point3d{x: 1.0, y: 2.0, z: 3.0};
+	let (x, y) = p.xy();
+	println!("x = {}, y = {}", x, y);
+}
+{% endhighlight %}
