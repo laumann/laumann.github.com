@@ -1,0 +1,77 @@
+---
+layout: post
+title: Chinese whispers in Rust
+---
+
+A tiny exercise in Rust processes and channels. Essentially we want to build a chain of channels, where an independent process sits in-between each channel, reading on one end and passing the received data along the chain.
+
+Usually in chinese whispers some sort of distortion occurs. In our case, just passing along a @uint@ our distortion simply adds one to the passed-along value.
+
+Briefly on channels and process spawning in Rust: A channel is created like this:
+
+{% highlight rust %}
+let (tx, rx) = channel();
+{% endhighlight %}
+where @tx@ is the sending end of type @Sender<T>@, and @rx@ is the receiving end of type @Receiver<T>@. Of course the above can include all sorts of typing information.
+
+Spawning a process running a function is achieved as follows
+{% highlight rust %}
+spawn(proc() {
+    // ... code here
+});
+{% endhighlight %}
+
+In our case we just wish to spawn a number of processes connecting end-points of channels using processes. Personally I don't care too much for the verbosity in @spawn(proc() ...@ as opposed to Go's @go@ keyword. I suppose a macro could be implemented to do exactly this?
+
+The "whispering" can be modelled with the following function, which simply connects a receiver and sender.
+{% highlight rust %}
+fn whisper(rx: Receiver<uint>, tx: Sender<uint>) {
+    let n = rx.recv(); // Receive value
+    tx.send(n+1);      // Pass it along with distortion
+}
+{% endhighlight %}
+
+The scheme can be presented in the following ASCII-arty way:
+
+<notextile>
+<pre>
+          +----p1----+ +----p2----+ +----p3----+ +----p4----+
+in &rarr; (tx , rx) &mdash;&mdash; (tx , rx) &mdash;&mdash; (tx , rx) &mdash;&mdash; (tx , rx) &mdash;&mdash; (tx , rx) &rarr; out
+     +-------+    +-------+    +-------+    +-------+    +-------+
+</pre>
+</notextile>
+where each process gets the receiver of one channel and the sender of the next channel in the chain. In the end we'll pass in an input on the first @tx@ and wait for the output to appear on the last @rx@.
+
+Below is the full program. "Here":http://is.gd/zI51SQ is the code in action.
+
+{% highlight rust %}
+static NPROC: uint = 25_000;
+
+fn whisper(rx: Receiver<uint>, tx: Sender<uint>) {
+    let n = rx.recv();
+    tx.send(n + 1);
+}
+
+fn main() {
+    println!("Spawning {} processes.", NPROC);
+
+    let (tx, mut rx) = channel();
+    for _ in range(0, NPROC) {
+        let (tx_next, rx_next) = channel();
+        spawn(proc() whisper(rx, tx_next));
+        rx = rx_next;
+    }
+
+    tx.send(0);
+    let n = rx.recv();
+    println!("Received {}", n);
+}
+{% endhighlight %}
+Points to note about the above program:
+
+* The @let (tx, mut rx) = channel()@: Since @let@-expressions are pattern matching, it allows us to declare @rx@ as mutable and keep @tx@ immutable.
+* @proc() whisper(rx, tx_next)@ does not require braces, just an expression (which could be a @{}@-block).
+* Notice the first value is not sent before all processes have been spawned. This places some serious limitations on the programs (at some point in time all these processes have to be alive). Experimentation has shown me that ~25000-30000 processes is the limit. When a certain limit is reached, the following happens:
+<pre>task '&lt;unnamed&gt;' failed at 'receiving on a closed channel', /home/rustbuild/src/rust-buildbot/slave/nightly-linux/build/src/libsync/comm/mod.rs:845</pre>An instructive exercise is to move the @tx.send(0)@ up just before the @for@-loop. This allows processes to start working as soon as they are spawned.
+
+A more elaborate version can be found "here":https://github.com/laumann/rust-tour/blob/master/prog/whisper.rs.
