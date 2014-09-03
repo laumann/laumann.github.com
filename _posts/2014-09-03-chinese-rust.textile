@@ -71,7 +71,7 @@ Points to note about the above program:
 
 * The @let (tx, mut rx) = channel()@: Since @let@-expressions are pattern matching, it allows us to declare @rx@ as mutable and keep @tx@ immutable.
 * @proc() whisper(rx, tx_next)@ does not require braces, just an expression (which could be a @{}@-block).
-* Notice the first value is not sent before all processes have been spawned. This places some serious limitations on the programs (at some point in time all these processes have to be alive). Experimentation has shown me that ~25000-30000 processes is the limit. When a certain limit is reached, the following happens:
+* Notice the first value is not sent before all processes have been spawned. This places some serious limitations on the programs (at some point in time all these processes have to be alive at the same time). Experimentation has shown me that ~25000-30000 processes is the limit. When a certain limit is reached, the following happens:
 <pre>task '&lt;unnamed&gt;' failed at 'receiving on a closed channel', /home/rustbuild/src/rust-buildbot/slave/nightly-linux/build/src/libsync/comm/mod.rs:845</pre>An instructive exercise is to move the @tx.send(0)@ up just before the @for@-loop. This allows processes to start working as soon as they are spawned.
 
 A more elaborate version can be found "here":https://github.com/laumann/rust-tour/blob/master/prog/whisper.rs.
