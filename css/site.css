@@ -1,4 +1,9 @@
 
+body {
+	background-image: url('/img/hex-circuits.jpeg');
+	background-repeat: repeat;
+}
+
 p.footnote { margin-bottom: 0; }
 p#fn1 { /* Add a border above the first footnote */ border-top: 1px solid #e6e6e6; margin-top: 30px; }
 
@@ -22,3 +27,4 @@ code { font-family: monospace; font-size: .8rem; color: #555; }
 .tex, .latex, .tex sub, .latex sub { font-size: 1em; }
 
 .latex sup { font-size: 0.85em; vertical-align: -0.2em; margin-left: -0.36em; margin-right: -0.15em; }
+
