@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAaE,oBAAqB;ECMnB,eAAQ,EDTD,UAAI;ECSX,kBAAQ,EDTD,UAAI;ECSX,UAAQ,EDTD,UAAI",
+"sources": ["susy/language/susy/_box-sizing.scss","susy/output/support/_rem.scss"],
+"names": [],
+"file": "layout.css"
+}

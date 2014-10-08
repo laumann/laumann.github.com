@@ -4,9 +4,15 @@
 {% include head.html %}
 
 <style type="text/css">
-html, body {height: 100%;}
+html, body {
+	height: 100%;
+	/*color: #F8F8F2;
+	color: #272822 */
+}
 
-#wrap {min-height: 100%;}
+#wrap { 
+	min-height: 100%;
+}
 
 #main {
 	overflow:auto;
@@ -28,37 +34,65 @@ body:before {
 	width:0;
 	margin-top:-32767px;
 }
+
+#navbar {
+	background-color: #272822;
+	color: #75715E;
+	border-bottom: 5px solid #AE81FF;
+	padding: 10px 15px;
+}
+	#navbar ul {
+		list-style: none outside none !important;
+		display: inline !important;
+		margin: 0;
+		padding: 0;
+	}
+	#navbar li {
+		display: inline;
+		font-weight: bold;
+		font-size: 14px;
+		margin: 0;
+		padding: 0 15px;
+	}
+	#navbar a {
+		color: #75715E;
+		text-decoration: none;
+	}
+	#navbar li.uk-active a {
+		color: #F8F8F2;
+	}
+
 </style>
 </head>
 <body>
 
 
+<!--
+Color palette:
+
+blue: #66d9ef
+background: #272822
+-->
+
 <div id="wrap">
+	<div id="navbar">
+		<ul>
+			<li><a href="/"><i class="uk-icon-home"></i>Home</a></li>
+			<li {% if page.active == 'post' %}class="uk-active"{% endif %}><a href="/blog.html">Blog</a></li>
+			<li {% if page.active == 'about' %}class="uk-active"{% endif %}><a href="/about.html">About</a></li>
+			<li {% if page.active == 'reading' %}class="uk-active"{% endif %}><a href="/reading.html">Reading</a></li>
+		</ul>
+	</div>
+
 <nav class="uk-navbar">
 	<div class="uk-navbar-flip">
 		<ul class="uk-navbar-nav">
-			<li><a href="#" id="sha1"></a>
-			<script type="text/javascript">
-				d3.json('https://api.github.com/repos/laumann/laumann.github.com/branches/master', function(err, data) {
-					d3.select("#sha1")
-					.attr("href", data._links.html)
-					.style("font-family", "monospace")
-					.text(data.commit.sha);
-				});
-			</script>
-			</li>
 		</ul>
 	</div>
-	<ul class="uk-navbar-nav">
-		<li><a href="/"><i class="uk-icon-home"></i></a></li>
-		<li {% if page.active == 'post' %}class="uk-active"{% endif %}><a href="/blog.html">Blog</a></li>
-		<li {% if page.active == 'about' %}class="uk-active"{% endif %}><a href="/about.html">About</a></li>
-		<li {% if page.active == 'reading' %}class="uk-active"{% endif %}><a href="/reading.html">Reading</a></li>
-	</ul>
 </nav>
 
-<div class="uk-container uk-container-center" style="background-color: #fff; padding-bottom: 50px">
-<div class="row uk-grid" style="padding-top: 50px">
+<div class="uk-container uk-container-center" style="padding-bottom: 50px; height: 100%;">
+<div class="row uk-grid" style="padding-top: 50px; height: 100%">
 	{{ content }}
 	<!--
 	<a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a>

@@ -1,18 +1,22 @@
-
+/*
 body {
 	background-image: url('/img/hex-circuits.jpeg');
 	background-repeat: repeat;
 }
+*/
 
 p.footnote { margin-bottom: 0; }
 p#fn1 { /* Add a border above the first footnote */ border-top: 1px solid #e6e6e6; margin-top: 30px; }
 
-a:hover { text-decoration: underline; }
+/* #E6DB74 */
+a { color: #e6db74 }
+a:hover { text-decoration: underline; color: #e6db74 }
+a:visited { color: #e6db74 }
 
 ul#post-list { list-style-type: none; margin-left: 0; }
 ul#post-list span.date { font-family: monospace; }
 
-pre { white-space: pre-wrap; background-color: #ececec; border: 0; }
+pre { white-space: pre-wrap; background-color: #272822; border: 1px solid #222; }
 pre code { color: #000; font-family: monospace; font-weight: normal; }
 pre.terminal { background-color: #ffe8ab; padding: 0.5em; font-family: monospace; }
 
