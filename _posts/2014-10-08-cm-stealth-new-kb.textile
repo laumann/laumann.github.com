@@ -1,0 +1,33 @@
+---
+layout: post
+title: The Stealth Keyboard
+---
+
+I just bought a new keyboard (again), it is the same maker (Cooler Master) like the one I bought last time, but I bought the "Stealth TK" which means it has a ten-key numpad ("picture":http://gaming.coolermaster.com/images/products/76/image_652.jpg). The first thing I noticed as I unboxed it and started typing is that the arrow keys are embedded in the numpad. The coolest feature by far the labelling on the keys: it sits on the sides of the keys instead of on top. It is the closest I have so far come to the sleek, clean look of Das Keyboard.
+
+Not only do the keys look different, they also feel different. Compared to the Quickfire, this keyboard features the Cherry MX Brown switches which have a little tactile bump where the Quickfire sports the Cherry MX Black that have no bump or click at all. So far I think I prefer typing on the Stealth, but I'm not so sure about the numpad being a good idea.
+
+Another difference is the weight. The Quickfire is very solid, and sits firmly on the desk, where the Stealth seems to be much more plasticy. It doesn't weigh as much (although it's larger) - that being said it still seems like a solid keyboard. An interesting (beginner's) project could be moving the keys from the Stealth into the frame of the Quickfire.
+
+Having typed out the above as the first exercise in typing on this beast, I must say I am very pleased with the Cherry MX Brown switches compared to the black version. The little tactile bump gives great feedback and I think I am already typing faster than what I've been doing with the Quickfire.
+
+h3. Building my own keyboard
+
+Keyboards are extremely fascinating. I am always surprised by how little attention people pay to their keyboard. If you work in the IT industry, it is *the* tool you use the most, so why shouldn't it perform its very best?
+
+To that end, I've been searching (and researching) on what makes up a good keyboard. For sure it should be mechanical, the Cherry MX switches are by far the most standard ones (and the best it seems). Furthermore, I think more work could be put into the ergonomics of the thing.
+
+Below I've gathered some resources on keyboards and building keyboards
+
+ * "Building a keyboard Part 1":http://blog.keyboard.io/post/77078804805/building-a-keyboard-part-1
+ * "Building a keyboard Part 2":http://blog.keyboard.io/post/77078933799/building-a-keyboard-part-2
+ * "mchck.org":https://mchck.org/
+ * "blog.keyboard.io":http://blog.keyboard.io
+ * "Humble Hacker Keyboard":http://www.humblehacker.com/keyboard/
+ * "key64.org":http://www.key64.org/
+ * "Keyboard Matrix Help":http://www.dribin.org/dave/keyboard/one_html/
+ * "Teensy USB development board":http://pjrc.com/teensy/index.html
+
+The two blog posts on building a keyboard are great reading if you, like me, are mostly a software guy, but dream of doing something worthwhile with some electronics.
+
+I figure for starters I could use the Arduino Uno which is not being used for anything right now. I also borrowed some keys from a friend, which I could definitely use in a prototype.
