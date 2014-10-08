@@ -1,5 +1,6 @@
 # Require any additional compass plugins here.
-add_import_path "bower_components/foundation/scss"
+require 'susy'
+require 'compass-normalize'
 
 # Tell compass where to find local extensions
 # If you followed directions and ran 'gem install modular-scale' comment the next two lines out:

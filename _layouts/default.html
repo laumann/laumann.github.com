@@ -2,106 +2,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 {% include head.html %}
-
-<style type="text/css">
-html, body {
-	height: 100%;
-	/*color: #F8F8F2;
-	color: #272822 */
-}
-
-#wrap { 
-	min-height: 100%;
-}
-
-#main {
-	overflow:auto;
-	padding-bottom: 150px;
-}
-/* must be same height as the footer */
-#footer {
-	position: relative;
-	margin-top: -150px; /* negative value of footer height */
-	height: 100px;
-	clear:both;
-}
-
-/*Opera Fix*/
-body:before {
-	content:"";
-	height:100%;
-	float:left;
-	width:0;
-	margin-top:-32767px;
-}
-
-#navbar {
-	background-color: #272822;
-	color: #75715E;
-	border-bottom: 5px solid #AE81FF;
-	padding: 10px 15px;
-}
-	#navbar ul {
-		list-style: none outside none !important;
-		display: inline !important;
-		margin: 0;
-		padding: 0;
-	}
-	#navbar li {
-		display: inline;
-		font-weight: bold;
-		font-size: 14px;
-		margin: 0;
-		padding: 0 15px;
-	}
-	#navbar a {
-		color: #75715E;
-		text-decoration: none;
-	}
-	#navbar li.uk-active a {
-		color: #F8F8F2;
-	}
-
-</style>
 </head>
 <body>
-
-
-<!--
-Color palette:
-
-blue: #66d9ef
-background: #272822
--->
 
 <div id="wrap">
 	<div id="navbar">
 		<ul>
 			<li><a href="/"><i class="uk-icon-home"></i>Home</a></li>
-			<li {% if page.active == 'post' %}class="uk-active"{% endif %}><a href="/blog.html">Blog</a></li>
-			<li {% if page.active == 'about' %}class="uk-active"{% endif %}><a href="/about.html">About</a></li>
-			<li {% if page.active == 'reading' %}class="uk-active"{% endif %}><a href="/reading.html">Reading</a></li>
+			<li {% if page.active == 'post' %}class="active"{% endif %}><a href="/blog.html">Blog</a></li>
+			<li {% if page.active == 'about' %}class="active"{% endif %}><a href="/about.html">About</a></li>
+			<li {% if page.active == 'reading' %}class="active"{% endif %}><a href="/reading.html">Reading</a></li>
 		</ul>
 	</div>
-
-<nav class="uk-navbar">
-	<div class="uk-navbar-flip">
-		<ul class="uk-navbar-nav">
+	<div id="blogroll">	
+		<ul class="uk-list uk-list-line">
+		{% for post in site.posts %}
+			<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+		{% endfor %}
 		</ul>
 	</div>
-</nav>
+	<div id="main">
+		{{ content }}
+		<!--
+		<a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a>
+		-->
+	</div>
 
-<div class="uk-container uk-container-center" style="padding-bottom: 50px; height: 100%;">
-<div class="row uk-grid" style="padding-top: 50px; height: 100%">
-	{{ content }}
-	<!--
-	<a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a>
-	-->
+	<div id="fixed-pane">
+		<h1>Greg</h1>
+		<p>A simple regular expression editor and tester written in Go
+		(for Go). Heavily inspired by Rubular.</p>
+		<h1>Links</h1>
+		<ul>
+			<li><a href="http://eff.org">eff.org</a></li>
+			<li><a href="http://fsf.org">fsf.org</a></li>
+			<li><a href="http://golang.org">golang.org</a></li>
+			<li><a href="http://rust-lang.org">rust-lang.org</a></li>
+			<li><a href="http://keyboard.io">keyboard.io</a></li>
+			<li><a href="http://kernel.org">kernel.org</a></li>
+			<li><a href="http://git-scm.com">git-scm.com</a></li>
+		</ul>
+	</div>
 </div>
-</div>
-</div>
+
 <div id="footer" style="padding-top: 50px;" class="uk-text-muted">
-{% include footer.html %}
+	{% include footer.html %}
 </div>
 
 </body>
