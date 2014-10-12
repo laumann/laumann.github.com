@@ -87,18 +87,26 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 td, th { padding: 0; }
 
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
 #wrap { min-height: 100%; }
 
-#blogroll { width: 16.66667%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; background-color: #eee; }
+/* Index page */
+#index-left { width: 66.66667%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
+
+#index-right { width: 33.33333%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
 
 #main { width: 58.33333%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; overflow: auto; padding-bottom: 150px; }
 
 #fixed-pane { width: 25%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
 
-*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+/* Blog page layout */
+#blog { max-width: 960px; margin-left: auto; margin-right: auto; }
+#blog:after { content: " "; display: block; clear: both; }
+#blog #blogroll { width: 100%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
 
 /** Site layout with sticky footer */
-html, body { height: 100%; color: #272822; background-color: #eee; }
+html, body { height: 100%; color: #272822; background-color: #fff; }
 
 /* must be same height as the footer */
 #footer { position: relative; margin-top: -150px; /* negative value of footer height */ height: 100px; clear: both; }
@@ -110,11 +118,11 @@ p .footnote { margin-bottom: 0; }
 p #fn1 { border-top: 1px solid #e6e6e6; margin-top: 30px; }
 
 /* #E6DB74 */
-a { color: #66D9EF; }
-a:hover { text-decoration: underline; color: #66D9EF; }
-a:visited { color: #66D9EF; }
+a { color: #1569C7; text-decoration: none; }
+a:hover { text-decoration: underline; color: #1569C7; }
+a:visited { color: #1569C7; }
 
-pre { white-space: pre-wrap; background-color: #272822; border: 1px solid #222; }
+pre { white-space: pre-wrap; background-color: #ffe8ab; border: 1px solid #222; }
 
 pre code { color: #000; font-family: monospace; font-weight: normal; }
 
@@ -131,18 +139,15 @@ code { font-family: monospace; font-size: .8rem; color: #555; }
 
 .latex sup { font-size: 0.85em; vertical-align: -0.2em; margin-left: -0.36em; margin-right: -0.15em; }
 
-h1 { text-align: center; font-weight: bold; border: 3px solid lightblue; background: #fff; padding: 3px; }
-
 h1 a { color: #000 !important; text-decoration: none; }
 
 h1 a:hover { text-decoration: none; }
 
 /** Top navigation bar */
-#navbar { background-color: #272822; color: #75715e; border-bottom: 5px solid #FD971F; padding: 10px 15px; }
-#navbar ul { list-style: none outside none !important; display: inline !important; margin: 0; padding: 0; }
-#navbar ul li { display: inline; font-weight: bold; font-size: 14px; margin: 0; padding: 0 15px; }
+#navbar { background-color: #1569C7; color: #ddd; padding: 0; font-size: 12px; }
+#navbar ul { list-style: none outside none !important; display: inline !important; margin: 0; padding: 0 0 0 0.83333%; }
+#navbar ul li { display: inline; font-family: "Lucida Console", "Courier New", monospace; margin: 0; padding: 0; padding-left: 5px; }
 #navbar ul li.active a { color: #f8f8f2; }
-#navbar a { color: #75715e; text-decoration: none; }
+#navbar a { color: #ddd; text-decoration: none; }
 
 /** Footer */
-.site-footer { background-color: #272822; color: #75715e; }

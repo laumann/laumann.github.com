@@ -8,12 +8,16 @@
 <div id="wrap">
 	<div id="navbar">
 		<ul>
-			<li><a href="/"><i class="uk-icon-home"></i>Home</a></li>
-			<li {% if page.active == 'post' %}class="active"{% endif %}><a href="/blog.html">Blog</a></li>
-			<li {% if page.active == 'about' %}class="active"{% endif %}><a href="/about.html">About</a></li>
-			<li {% if page.active == 'reading' %}class="active"{% endif %}><a href="/reading.html">Reading</a></li>
+			<li><a href="/"><i class="uk-icon-home"></i>laumann.github.io</a></li>
+			<li>|</li>
+			<li {% if page.active == 'post' %}class="active"{% endif %}><a href="/blog.html">blog</a></li>
+			<li>|</li>
+			<li {% if page.active == 'about' %}class="active"{% endif %}><a href="/about.html">about</a></li>
+			<li>|</li>
+			<li {% if page.active == 'reading' %}class="active"{% endif %}><a href="/reading.html">reading</a></li>
 		</ul>
 	</div>
+	<!--
 	<div id="blogroll">	
 		<ul class="uk-list uk-list-line">
 		{% for post in site.posts %}
@@ -21,13 +25,10 @@
 		{% endfor %}
 		</ul>
 	</div>
-	<div id="main">
-		{{ content }}
-		<!--
-		<a href="http://vim.org/"><img src="/img/powered-by-vim.png" style="height:31px" alt="Powered by vim!" /></a>
-		-->
-	</div>
+	-->
+	{{ content }}
 
+	<!--
 	<div id="fixed-pane">
 		<h1>Greg</h1>
 		<p>A simple regular expression editor and tester written in Go
@@ -43,9 +44,10 @@
 			<li><a href="http://git-scm.com">git-scm.com</a></li>
 		</ul>
 	</div>
+	-->
 </div>
 
-<div id="footer" style="padding-top: 50px;" class="uk-text-muted">
+<div id="footer" style="padding-top: 50px;">
 	{% include footer.html %}
 </div>
 
