@@ -104,6 +104,7 @@ td, th { padding: 0; }
 #blog { max-width: 960px; margin-left: auto; margin-right: auto; }
 #blog:after { content: " "; display: block; clear: both; }
 #blog #blogroll { width: 100%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
+#blog #blogroll ul#bloglist { float: right; list-style-type: none; padding-left: 1%; }
 
 /** Site layout with sticky footer */
 html, body { height: 100%; color: #272822; background-color: #fff; }
@@ -145,7 +146,7 @@ h1 a:hover { text-decoration: none; }
 
 /** Top navigation bar */
 #navbar { background-color: #1569C7; color: #ddd; padding: 0; font-size: 12px; }
-#navbar ul { list-style: none outside none !important; display: inline !important; margin: 0; padding: 0 0 0 0.83333%; }
+#navbar ul { list-style: none outside none !important; display: inline !important; margin: 0; padding: 0 0 0 10px; }
 #navbar ul li { display: inline; font-family: "Lucida Console", "Courier New", monospace; margin: 0; padding: 0; padding-left: 5px; }
 #navbar ul li.active a { color: #f8f8f2; }
 #navbar a { color: #ddd; text-decoration: none; }

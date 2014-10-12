@@ -44,6 +44,12 @@ $susy: (
 
 	#blogroll {
 		@include span(12 last);
+
+		ul#bloglist {
+			float: right;
+			list-style-type: none;
+			padding-left: 1%;
+		}
 	}
 }
 
@@ -138,7 +144,7 @@ $dark-bg: #1569C7;
 		list-style: none outside none !important;
 		display: inline !important;
 		margin: 0;
-		padding: 0 0 0 0.83333%;
+		padding: 0 0 0 10px;
 
 		li {
 			display: inline;

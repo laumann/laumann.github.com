@@ -5,10 +5,11 @@ title: Blog
 
 <div id="blogroll">
 
-	<ul style="float: right">
-	{% for post in site.posts %}
-		<li><a href="{{ post.url }}">{{ post.title }}</a></li>
-	{% endfor %}
+	<ul id="bloglist">
+		{% for post in site.posts %}
+			<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title | truncate: 42 }}</a></li>
+		{% endfor %}
+		<li style="text-align: center; font-size: 12px"><a href="#">more...</a></li>
 	</ul>
 
 	{% for post in site.posts limit:5 %}
