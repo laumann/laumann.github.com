@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lexical Anylysis
+title: Lexical Analysis
 ---
 
 Reading on lexical analysis:
