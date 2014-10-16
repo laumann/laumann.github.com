@@ -1,16 +1,16 @@
 ---
-layout: post
+layout: blog
 title: Blog
 ---
 
 <div id="blogroll">
+	<h1>Blog</h1>
 
 	<ul id="bloglist">
 		{% for post in site.posts %}
 			<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title | truncate: 42 }}</a></li>
 		{% endfor %}
-		<!-- li style="text-align: center; font-size: 12px"><a
-	  href="#">more...</a></li -->
+		<li style="text-align: center; font-size: 12px"><a href="#">more...</a></li>
 	</ul>
 
 	{% for post in site.posts limit:5 %}

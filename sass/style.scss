@@ -47,9 +47,14 @@ $susy: (
 
 		ul#bloglist {
 			float: right;
+			width: span(4);
+			padding-left: gutter();
 			list-style-type: none;
-			padding-left: 1%;
 		}
+	}
+
+	#post {
+		@include span(12 last);
 	}
 }
 
