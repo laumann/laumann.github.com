@@ -32,8 +32,9 @@ $susy: (
 #main {
 	@include span(7);
 	overflow:auto;
-	padding-bottom: 150px;
+	padding-bottom: 50px;
 }
+
 #fixed-pane {
 	@include span(3 last);
 }
@@ -76,9 +77,12 @@ html, body {
 /* must be same height as the footer */
 #footer {
 	position: relative;
-	margin-top: -150px; /* negative value of footer height */
-	height: 100px;
+	margin-top: -50px; /* negative value of footer height */
+	//height: 50px;
 	clear:both;
+	background-color: #ddd;
+	padding-top: 20px;
+	font-size: 12px;
 }
 
 /*Opera Fix*/
@@ -196,7 +200,24 @@ $dark-bg: #1569C7;
  * Footer
  */
 .site-footer {
-	// background-color: $dark-bg;
-	// color: $dark-fg;
+	//@include container(960px);
+	@include container(960px);
+	background-color: #ddd;
+	color: #555;
+	height: 30px;
+
+	div.left {
+		@include span(3);
+	}
+
+	div.center {
+		@include span(6 center);
+		text-align: center;
+	}
+
+	div.right {
+		@include span(3 last);
+		text-align: right;
+	}
 }
 

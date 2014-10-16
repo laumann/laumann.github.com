@@ -96,7 +96,7 @@ td, th { padding: 0; }
 
 #index-right { width: 33.33333%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
 
-#main { width: 58.33333%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; overflow: auto; padding-bottom: 150px; }
+#main { width: 58.33333%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; overflow: auto; padding-bottom: 50px; }
 
 #fixed-pane { width: 25%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
 
@@ -111,7 +111,7 @@ td, th { padding: 0; }
 html, body { height: 100%; color: #272822; background-color: #fff; }
 
 /* must be same height as the footer */
-#footer { position: relative; margin-top: -150px; /* negative value of footer height */ height: 100px; clear: both; }
+#footer { position: relative; margin-top: -50px; /* negative value of footer height */ clear: both; background-color: #ddd; padding-top: 20px; font-size: 12px; }
 
 /*Opera Fix*/
 body:before { content: ""; height: 100%; float: left; width: 0; margin-top: -32767px; }
@@ -151,3 +151,8 @@ h1 a:hover { text-decoration: none; }
 #navbar a { font-weight: bold; color: #ddd; text-decoration: none; }
 
 /** Footer */
+.site-footer { max-width: 960px; margin-left: auto; margin-right: auto; background-color: #ddd; color: #555; height: 30px; }
+.site-footer:after { content: " "; display: block; clear: both; }
+.site-footer div.left { width: 25%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
+.site-footer div.center { width: 50%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; text-align: center; }
+.site-footer div.right { width: 25%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; text-align: right; }
