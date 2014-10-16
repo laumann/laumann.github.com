@@ -107,6 +107,9 @@ td, th { padding: 0; }
 #blog #blogroll ul#bloglist { float: right; width: 33.33333%; padding-left: 0.83333%; list-style-type: none; }
 #blog #post { width: 100%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
 
+#about { width: 50%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
+#about p { text-align: justify; }
+
 /** Site layout with sticky footer */
 html, body { height: 100%; color: #272822; background-color: #fff; }
 
@@ -156,3 +159,6 @@ h1 a:hover { text-decoration: none; }
 .site-footer div.left { width: 25%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
 .site-footer div.center { width: 50%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; text-align: center; }
 .site-footer div.right { width: 25%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; text-align: right; }
+
+/** Utility classes */
+span.inline-title { font-weight: bold; padding-right: 0.83333%; }

@@ -59,6 +59,14 @@ $susy: (
 	}
 }
 
+#about {
+	@include span(6);
+
+	p {
+		text-align: justify;
+	}
+}
+
 $font-color: #272822;
 $bg-color: #fff;
 // $link-color: #66D9EF;
@@ -219,5 +227,13 @@ $dark-bg: #1569C7;
 		@include span(3 last);
 		text-align: right;
 	}
+}
+
+/**
+ * Utility classes
+ */
+span.inline-title {
+	font-weight: bold;
+	padding-right: gutter();
 }
 
