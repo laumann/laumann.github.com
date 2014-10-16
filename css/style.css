@@ -147,6 +147,6 @@ h1 a:hover { text-decoration: none; }
 #navbar ul { list-style: none outside none !important; display: inline !important; margin: 0; padding: 0 0 0 10px; }
 #navbar ul li { display: inline; font-family: "Lucida Console", "Courier New", monospace; margin: 0; padding: 0; padding-left: 5px; }
 #navbar ul li.active a { color: #f8f8f2; }
-#navbar a { color: #ddd; text-decoration: none; }
+#navbar a { font-weight: bold; color: #ddd; text-decoration: none; }
 
 /** Footer */
