@@ -1,0 +1,19 @@
+---
+layout: post
+title: Yet Another Layout
+---
+
+I'm redesigning this blog again. In my never-ending quest for good CSS frameworks I have so far tried
+
+ * UIKit ("getuikit.com":http://getuikit.com/)
+ * Foundation ("foundation.zurb.com":http://foundation.zurb.com/)
+ * Bootstrap ("getbootstrap.com":http://getbootstrap/)
+
+all of them being more or less similar. Bootstrap has the most features and is the easiest to get up and running (with predictably high-quality results) - it is also the hardest to adapt with colours and spacing. The experience with Foundation is more or less the same
+
+Until now UIKit has been the easiest to work with and it also doesn't feature 
+
+The next canditate is "Susy":http://susy.oddbird.net/. Susy is different kind of framework, which only provides grids - and only when you want them. It is much less opinionated than the larger frameworks when it comes to styling, but excels at the mathematics involved in aligning and spacing the various elements.
+
+The current layout you see now is built with Susy and is unfinished. The layout features a top navigation bar and footer, and for the blog subsite a narrow 960px frame provides a better reading experience.
+
