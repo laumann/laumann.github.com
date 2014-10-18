@@ -1,0 +1,28 @@
+---
+layout: post
+title: Building a Keyboard
+---
+
+It had to happen&mdash;of course I'm going to build my own keyboard. Recently I bought some oven-bake clay and starting modelling the layout using some keys I borrowed from a friend.
+
+The layout will be tailored to my hand, with four keys in a column per finger plus three extra for the index finger and another two extra for the pinky. I also plan to have three keys for the thumb (it's actually baffling how little the thumb is actually used in regular day-to-day typing).
+
+Right now it is only the design phase. Having made a model for the right hand, a few things are still missing. First off there is the actual modelling - how could this be built? Originally I wanted to build a model of clay, bake it and somehow make a mold or plastic "shell" from the model. This doesn't appear to be easy though.
+
+I think the simplest "first design" would be to get the design I want first, then complete it on a flat surface and post-pone raised keys for version 2.
+
+Secondly, there are the electronics: I need
+ * keys (Cherry MX Brown)
+ * key caps
+ * wiring
+ * diodes
+ * some sort of controller.
+
+For the controller, I originally envisioned using the Arduino Uno, but it would seem a bit like overkill. Instead I'm considering the "Teensy":http://www.pjrc.com/teensy/ or the "McHck":https://mchck.org/
+
+I want to post some design documents&mdash;pictures and drawings&mdash;soon.
+
+h2. Highly recommended reading
+
+ 1. "Keyboard Matrix Help":http://www.dribin.org/dave/keyboard/one_html/
+
