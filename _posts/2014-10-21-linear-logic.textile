@@ -1,0 +1,18 @@
+---
+layout: post
+title: Notes on Linear Logic and Types
+---
+
+I think I need to know something about linear types in order to understand session types, so here is some of the reading material I've consulted so far:
+
+ * "A taste of linear logic":http://homepages.inf.ed.ac.uk/wadler/papers/lineartaste/lineartaste-revised.pdf (PDF)
+
+A great paper by Philip Wadler, a really good introductory text on linear logic and linear types. 
+ 
+ * "Lively Linear Lisp":http://www.pipeline.com/~hbaker1/LinearLisp.html
+
+A more pragmatic direct introduction to linear types (not so much about linear logic). Motivated in a functional setting (with LISP).
+
+ * "Introduction to Linear Logic":http://www.brics.dk/LS/96/6/BRICS-LS-96-6.pdf (PDF)
+
+A more (seemingly) authoritative piece on linear logic, but I have not been able to print it yet--the printer outputs some garbled version. The only part that prints nice is the front page.
