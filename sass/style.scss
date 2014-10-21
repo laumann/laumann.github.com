@@ -67,6 +67,13 @@ $susy: (
 	}
 }
 
+ul.inlist, ol.inlist {
+	list-style-type: none;
+	li {
+		display: inline-block;
+	}
+}
+
 $font-color: #272822;
 $bg-color: #fff;
 // $link-color: #66D9EF;

@@ -110,6 +110,9 @@ td, th { padding: 0; }
 #about { width: 50%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
 #about p { text-align: justify; }
 
+ul.inlist, ol.inlist { list-style-type: none; }
+ul.inlist li, ol.inlist li { display: inline-block; }
+
 /** Site layout with sticky footer */
 html, body { height: 100%; color: #272822; background-color: #fff; }
 
