@@ -26,3 +26,8 @@ h2. Highly recommended reading
 
  1. "Keyboard Matrix Help":http://www.dribin.org/dave/keyboard/one_html/
 
+h2. Key set and key cap stores
+
+Living in the EU, I would prefer to shop in the EU, since taxes can be quite horrendous on imports from the US.
+
+ * "The Keyboard Company":http://www.keyboardco.com/index.asp (base in the UK)
