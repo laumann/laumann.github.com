@@ -1,0 +1,66 @@
+---
+layout: post
+title: Managing Reusable Components in Rust
+---
+
+_*Summary*_ In an effort to come to grips with Rust's module and file organisation, I read all the material I could get my hands on, but none of it provided a good explanation for me. So I'm typing this up as I go, and attempt to provide a minimal example and explanation of how modules can be organised coherently and in an reusable fashion in a Rust codebase.
+
+Working on the "Matasano Crypto Challenge":http://cryptopals.com/ I've built up a little repository of Rust code. Some of this code I would like to re-use, and I would even like for some of the library code to use other parts of the library code. Imagine the following setup:
+
+{% highlight rust %}
+// File: foo.rs
+pub fn foo_function(v: &Vec<u8>) -> Vec<u8> {
+    ...
+}
+{% endhighlight %}
+
+{% highlight rust %}
+// File: bar.rs
+pub fn bar_function(v: &Vec<u8>) -> Vec<u8> {
+    ...
+}
+{% endhighlight %}
+
+{% highlight rust %}
+// File: main1.rs
+mod foo;
+mod bar;
+
+fn main() {
+    // Use both 'foo::foo_function()' and 'bar::bar_function' here...
+}
+{% endhighlight %}
+
+As the modules @foo@ and @bar@ don't interfere with each other, running @rustc main.rs@ should work. But what if @bar@ would like to use some functionality defined in @foo@? Surely the following changes should work?
+
+{% highlight rust %}
+// File: bar.rs
+mod foo;
+
+fn bar_function(v: &Vec<u8>) -> Vec<u8> {
+    // Do something
+    let _ = foo::foo_function(...)
+}
+{% endhighlight %}
+
+But this doesn't compile. Running @rustc main.rs@ gives the following rather cryptic message
+
+{% highlight bash %}
+> rustc main.rs
+bar.rs:1:5: 1:8 error: cannot declare a new module at this location
+bar.rs:1 mod foo;
+             ^~~
+bar.rs:1:5: 1:8 note: maybe move this module `bar` to its own directory via `bar/mod.rs`
+       1 mod foo;
+bar.rs:1 mod foo;
+             ^~~
+bar.rs:1:5: 1:8 note: ... or maybe `use` the module `foo` instead of possibly redeclaring it
+bar.rs:1 mod foo;
+             ^~~
+{% endhighlight %}
+
+The fastest way to fix the above is to group all the @mod@ declarations together in @main.rs@ and write @use foo@ in @bar.rs@ instead. But this method _requires_ the root crate (@main.rs@) to name _all_ of the modules that will be used (even if it doesn't use them directly).
+
+But this solution is not really satisfactory.
+
+
