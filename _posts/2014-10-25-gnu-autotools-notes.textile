@@ -33,6 +33,7 @@ which allows the C code to be used from C++. The author suggests instead to have
 
 
 {% highlight c %}
+/* File: common.h */
 #ifdef __cplusplus
 # define BEGIN_C_DECLS extern "C" {
 # define END_C_DECLS }
