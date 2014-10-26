@@ -22,11 +22,11 @@ For the controller, I originally envisioned using the Arduino Uno, but it would 
 
 I want to post some design documents&mdash;pictures and drawings&mdash;soon.
 
-h2. Highly recommended reading
+<span class="inline-title">Highly recommended reading</span>
 
  1. "Keyboard Matrix Help":http://www.dribin.org/dave/keyboard/one_html/
 
-h2. Key set and key cap stores
+<span class="inline-title">Key set and key cap stores</span>
 
 Living in the EU, I would prefer to shop in the EU, since taxes can be quite horrendous on imports from the US.
 
