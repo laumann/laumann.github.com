@@ -1,0 +1,55 @@
+---
+layout: post
+title: GNU Autotools and friends
+---
+
+If you want to write a library for distribution on most Un*x-like systems, chances are you'll want to use GNU Autotools. I have for a long time been curious how these tools work, and how the seemingly indecipherable syntaxes of @Makefile.am@ and @configure.ac@ were interpreted. And what is the relationship between @automake@, @autoconf@ and @aclocal@?
+
+The following online book is well worth the read:
+
+ * "GNU Autoconf, Automake, and Libtool":https://sourceware.org/autobook/autobook/autobook_toc.html
+
+So far the general idea is the following:
+ * aclocal generates an @aclocal.m4@ by scanning @configure.ac@ (from the @man@ page)
+ * autoconf is for generating @./configure@ which figures out the configuration of the installation system; while
+ * automake is for generating a @Makefile.in@, a Makefile template
+
+A common pattern in C header files is the following:
+
+{% highlight c %}
+/* File: some-header.h */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* Contents of header file */
+
+#ifdef __cplusplus
+}
+#endif
+{% endhighlight %}
+
+which allows the C code to be used from C++. The author suggests instead to have a common header file with the following @ifdef@ magic:
+
+
+{% highlight c %}
+#ifdef __cplusplus
+# define BEGIN_C_DECLS extern "C" {
+# define END_C_DECLS }
+#else
+# define BEGIN_C_DECLS 
+# define END_C_DECLS
+#endif
+{% endhighlight %}
+
+And rewrite the above as
+
+{% highlight c %}
+/* File: some-header.h */
+#include <common.h>
+BEGIN_C_DECLS
+
+/* Contents of header file */
+
+END_C_DECLS
+{% endhighlight %}
