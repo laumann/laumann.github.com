@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 <head>
 {% include head.html %}
 </head>
@@ -8,7 +8,7 @@
 <div id="wrap">
 	<div id="navbar">
 		<ul>
-			<li><a href="/"><i class="uk-icon-home"></i>laumann.github.io</a></li>
+			<li><a href="/">laumann.github.io</a></li>
 			<li>|</li>
 			<li {% if page.active == 'post' %}class="active"{% endif %}><a href="/blog">blog</a></li>
 			<li>|</li>
@@ -17,34 +17,7 @@
 			<li {% if page.active == 'reading' %}class="active"{% endif %}><a href="/reading">reading</a></li>
 		</ul>
 	</div>
-	<!--
-	<div id="blogroll">	
-		<ul class="uk-list uk-list-line">
-		{% for post in site.posts %}
-			<li><a href="{{ post.url }}">{{ post.title }}</a></li>
-		{% endfor %}
-		</ul>
-	</div>
-	-->
 	{{ content }}
-
-	<!--
-	<div id="fixed-pane">
-		<h1>Greg</h1>
-		<p>A simple regular expression editor and tester written in Go
-		(for Go). Heavily inspired by Rubular.</p>
-		<h1>Links</h1>
-		<ul>
-			<li><a href="http://eff.org">eff.org</a></li>
-			<li><a href="http://fsf.org">fsf.org</a></li>
-			<li><a href="http://golang.org">golang.org</a></li>
-			<li><a href="http://rust-lang.org">rust-lang.org</a></li>
-			<li><a href="http://keyboard.io">keyboard.io</a></li>
-			<li><a href="http://kernel.org">kernel.org</a></li>
-			<li><a href="http://git-scm.com">git-scm.com</a></li>
-		</ul>
-	</div>
-	-->
 </div>
 
 <div id="footer">
