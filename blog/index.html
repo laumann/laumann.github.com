@@ -7,13 +7,17 @@ title: Blog
 	<h1>Blog</h1>
 
 	<ul id="bloglist">
-		{% for post in site.posts %}
+		{% for post in site.posts limit:10 %}
 			<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title | truncate: 42 }}</a></li>
 		{% endfor %}
-		<li style="text-align: center; font-size: 12px"><a href="#">more...</a></li>
+		{% for post in site.posts offset:5 %}
+			<li class="more"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title | truncate: 42 }}</a></li>
+		{% endfor %}
+		<li><span id="more-btn">Show {{ site.posts | size | minus: 10 }}
+			more posts</span></li>
 	</ul>
 
-	{% for post in site.posts limit:5 %}
+	{% for post in site.posts limit:10 %}
 	<article class="uk-article">
 		<h1 class="uk-article-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
 		<p class="uk-article-meta">{{ post.date | date_to_string}}</p>

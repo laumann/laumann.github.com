@@ -16,6 +16,16 @@ $susy: (
 
 @include border-box-sizing;
 
+
+$font-color: #272822;
+$bg-color: #fff;
+$link-color: #1569C7;
+$nav-text: #ddd;
+$nav-bg: #1569C7;
+$footer-bg: #ddd;
+$muted-text: #555;
+
+
 #wrap { 
 	min-height: 100%;
 }
@@ -49,8 +59,28 @@ $susy: (
 		ul#bloglist {
 			float: right;
 			width: span(4);
-			padding-left: gutter();
+			padding: gutter();
 			list-style-type: none;
+
+			li.more {
+				display: none;
+			}
+
+			#more-btn {
+				font-size: 12px;
+				color: $footer-bg;
+				padding: 3px;
+				display: inline-block;
+				width: 100%;
+				text-align: center;
+				//border-top: 1px solid $footer-bg;
+				cursor: pointer;
+
+				&:hover {
+					text-decoration: none;
+					color: #aaa;
+				}
+			}
 		}
 	}
 
@@ -73,11 +103,6 @@ ul.inlist, ol.inlist {
 		display: inline-block;
 	}
 }
-
-$font-color: #272822;
-$bg-color: #fff;
-// $link-color: #66D9EF;
-$link-color: #1569C7;
 
 /**
  * Site layout with sticky footer
@@ -173,15 +198,12 @@ h1 a:hover {
 	text-decoration: none;
 }
 
-$dark-fg: #ddd;
-$dark-bg: #1569C7;
-
 /**
  * Top navigation bar
  */
 #navbar {
-	background-color: $dark-bg;
-	color: $dark-fg;
+	background-color: $nav-bg;
+	color: $nav-text;
 	padding: 2px 0;
 	font-size: 12px;
 
@@ -206,10 +228,11 @@ $dark-bg: #1569C7;
 
 	a {
 		font-weight: bold;
-		color: $dark-fg;
+		color: $nav-text;
 		text-decoration: none;
 	}
 }
+
 
 /**
  * Footer
@@ -217,8 +240,8 @@ $dark-bg: #1569C7;
 .site-footer {
 	//@include container(960px);
 	@include container(960px);
-	background-color: #ddd;
-	color: #555;
+	background-color: $footer-bg;
+	color: $muted-text;
 	height: 30px;
 
 	div.left {
