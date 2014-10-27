@@ -1,0 +1,32 @@
+---
+layout: post
+title: More notes on GNU Autotools
+---
+
+Here's a great slide show explaining how to use GNU Autotools for a given project:
+
+ * "Autotools Tutorial":https://www.lrde.epita.fr/~adl/dl/autotools.pdf (PDF)
+
+from "this site":https://www.lrde.epita.fr/~adl/autotools.html.
+
+Personally, it it very confusing to set up Autotools for the first time. The introductory texts available online rarely provide a full picture, since Automake and Autoconf are two different tools that just happen to be orchestrated together very often. On top of that you have commands such as @autoheader@ and @autoreconf@ (the latter which is in some places warned against for some reason).
+
+There are even fewer examples on how to set up a library. Apart from the aforementioned tools, there is also Libtool which should alleviate head-aches when building a library.
+
+But to be honest, it all seems to be a matter of taste.
+
+The goals of my project are:
+
+ * Building both statically and dynamically linkable libraries (@.a@ and @.so@ respectively)
+ * Building cross-platform, preferably according to some C standard (to improve portability)
+
+Notable projects that serve as inspiration points are:
+
+ * "Tig":http://jonas.nitro.dk/tig/: A text-mode interface for Git
+ * "GMP":https://gmplib.org/: The GNU Multi Precision Arithmetic library
+ * "libgit2":https://libgit2.github.com/: A portable, zero-dependencies C implementation of core Git methods
+
+Notably, libgit2's zero dependency and C89 compliant implementation makes is attractive as a source of inspiration, but for their build process, they have for some unfathomable reason chosen CMake instead of @make@.
+
+Rather, in order to achieve the goals listed above, I believe I could make do with @autoconf@ and @autoheader@ (but not @automake@) a la Tig, and generate a @config.make@, which could be fed into the Makefile.
+
