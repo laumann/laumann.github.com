@@ -24,7 +24,7 @@ I want to post some design documents&mdash;pictures and drawings&mdash;soon.
 
 <span class="inline-title">Highly recommended reading</span>
 
- 1. "Keyboard Matrix Help":http://www.dribin.org/dave/keyboard/one_html/
+ * "Keyboard Matrix Help":http://www.dribin.org/dave/keyboard/one_html/
 
 <span class="inline-title">Key set and key cap stores</span>
 
