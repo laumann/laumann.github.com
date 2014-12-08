@@ -1,0 +1,41 @@
+---
+layout: post
+title: From the Rust Book of IO
+category: rust
+tags: [en,rust,io,stdio]
+---
+
+This little gem showed up while perusing the Rust source code (@src/libstd/io/stdio.rs@):
+
+bc.. And so begins the tale of acquiring a uv handle to a stdio stream on all
+platforms in all situations. Our story begins by splitting the world into two
+categories, windows and unix. Then one day the creators of unix said let
+there be redirection! And henceforth there was redirection away from the
+console for standard I/O streams.
+
+After this day, the world split into four factions:
+
+1. Unix with stdout on a terminal.
+2. Unix with stdout redirected.
+3. Windows with stdout on a terminal.
+4. Windows with stdout redirected.
+
+Many years passed, and then one day the nation of libuv decided to unify this
+world. After months of toiling, uv created three ideas: TTY, Pipe, File.
+These three ideas propagated throughout the lands and the four great factions
+decided to settle among them.
+
+The groups of 1, 2, and 3 all worked very hard towards the idea of TTY. Upon
+doing so, they even enhanced themselves further then their Pipe/File
+brethren, becoming the dominant powers.
+
+The group of 4, however, decided to work independently. They abandoned the
+common TTY belief throughout, and even abandoned the fledgling Pipe belief.
+The members of the 4th faction decided to only align themselves with File.
+
+tl;dr; TTY works on everything but when windows stdout is redirected, in that
+        case pipe also doesn't work, but magically file does!
+
+p. I especially like that the TL;DR is located at the bottom.
+
+Credit: From what @git blame@ tells me, the above quote was authored by "Alex Crichton":https://github.com/alexcrichton
