@@ -4,25 +4,17 @@ title: Blog
 ---
 
 <div id="blogroll">
-	<h1>Blog</h1>
+  <h1>Blog</h1>
 
-	<ul id="bloglist">
-		{% for post in site.posts limit:10 %}
-			<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title | truncate: 42 }}</a></li>
-		{% endfor %}
-		{% for post in site.posts offset:5 %}
-			<li class="more"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title | truncate: 42 }}</a></li>
-		{% endfor %}
-		<li><span id="more-btn">Show {{ site.posts | size | minus: 10 }}
-			more posts</span></li>
-	</ul>
+  <p>This section of the site is dedicated to all things I find interesting, including (but not limited to) computing, computer science, programming languages, I try to categorise posts, but have not been very strict with it.</p>
+
+  <p>This page only shows the last ten posts. For a comprehensive list, please see the <a href="archive.html">archive</a>.</p>
 
 	{% for post in site.posts limit:10 %}
 	<article class="uk-article">
-		<h1 class="uk-article-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
-		<p class="uk-article-meta">{{ post.date | date_to_string}}</p>
+		<h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+		<p class="post-meta">Posted on <span class="date">{{ post.date | date_to_string}}</span></p>
 		{{ post.content }}
 	</article>
 	{% endfor %}
-
 </div>

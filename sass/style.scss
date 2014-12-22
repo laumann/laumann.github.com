@@ -22,11 +22,46 @@ $bg-color: #fff;
 $link-color: #1569C7;
 $nav-text: #ddd;
 $nav-bg: #1569C7;
-$footer-bg: #ddd;
+$footer-bg: #e8e8e8;
 $muted-text: #555;
 
+//$font-color: #ddd;
+//$bg-color: #222;
+//$link-color: #F0AD4E;
 
-#wrap { 
+/**
+ * Site layout with sticky footer
+ */
+html, body {
+	height: 100%;
+	color: $font-color;
+	background-color: $bg-color;
+}
+
+
+/* must be same height as the footer */
+#footer {
+	position: relative;
+	margin-top: -50px; /* negative value of footer height */
+	//height: 50px;
+	clear:both;
+	background-color: $footer-bg;
+	//background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.35);
+	padding-top: 20px;
+	font-size: 12px;
+}
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;
+}
+
+
+#wrap {
 	min-height: 100%;
 }
 
@@ -37,6 +72,12 @@ $muted-text: #555;
 
 #index-right {
 	@include span(4);
+
+	.index-tab {
+//	    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.35);
+		padding: gutter();
+		margin: gutter();
+	}
 }
 
 #main {
@@ -52,36 +93,25 @@ $muted-text: #555;
 /* Blog page layout */
 #blog {
 	@include container(960px);
+	//background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.35);
 
 	#blogroll {
 		@include span(12 last);
+	}
 
-		ul#bloglist {
-			float: right;
-			width: span(4);
-			padding-left: gutter();
-			list-style-type: none;
 
-			li.more {
-				display: none;
-			}
+	#bloglist {
+	    @include span(12 last);
 
-			#more-btn {
-				font-size: 12px;
-				color: $footer-bg;
-				padding: 3px;
-				display: inline-block;
-				width: 100%;
-				text-align: center;
-				//border-top: 1px solid $footer-bg;
-				cursor: pointer;
+	    ul {
+		padding-left: gutter();
+		list-style-type: none;
 
-				&:hover {
-					text-decoration: none;
-					color: #aaa;
-				}
-			}
+		span.date {
+		    font-family: monospace;
+		    color: $muted-text;
 		}
+	    }
 	}
 
 	#post {
@@ -104,37 +134,9 @@ ul.inlist, ol.inlist {
 	}
 }
 
-/**
- * Site layout with sticky footer
- */
-html, body {
-	height: 100%;
-	color: $font-color;
-	background-color: $bg-color;
-}
-
-
-/* must be same height as the footer */
-#footer {
-	position: relative;
-	margin-top: -50px; /* negative value of footer height */
-	//height: 50px;
-	clear:both;
-	background-color: #ddd;
-	padding-top: 20px;
-	font-size: 12px;
-}
-
-/*Opera Fix*/
-body:before {
-	content:"";
-	height:100%;
-	float:left;
-	width:0;
-	margin-top:-32767px;
-}
 
 p {
+	line-height: 1.4em;
 	.footnote { margin-bottom: 0; }
 	#fn1 { border-top: 1px solid #e6e6e6; margin-top: 30px; }
 }
@@ -190,12 +192,42 @@ code {
 
 .latex sup { font-size: 0.85em; vertical-align: -0.2em; margin-left: -0.36em; margin-right: -0.15em; }
 
-h1 a {
-	color: #000 !important;
-	text-decoration: none;
+h1,h2,h3,h4,h5,h6 {
+    font-family: sans;
 }
-h1 a:hover {
+
+h1 {
+    background-color: #e8e8e8;
+    text-align: center;
+    padding: 3px 0;
+    color: #15317e;
+}
+
+h2.post-title {
+    background-color: #e8e8e8;
+    text-align: center;
+    padding: 3px 0;
+    margin-bottom: 0;
+    a {
+	color: #15317e;
+	//color: $font-color !important;
 	text-decoration: none;
+
+	&:hover {
+	    text-decoration: none;
+	}
+    }
+}
+
+p.post-meta {
+    font-family: sans;
+    font-size: .9em;
+    color: #aaa;
+    /* text-align: right; */
+    margin: 0;
+    span.date {
+	color: $muted-text;
+    }
 }
 
 /**
@@ -219,7 +251,7 @@ h1 a:hover {
 			margin: 0;
 			padding: 0;
 			padding-left: 5px;
-			
+
 			&.active a {
 				color: #f8f8f2;
 			}
@@ -240,7 +272,7 @@ h1 a:hover {
 .site-footer {
 	//@include container(960px);
 	@include container(960px);
-	background-color: $footer-bg;
+	//background-color: $footer-bg;
 	color: $muted-text;
 	height: 30px;
 
@@ -266,4 +298,3 @@ span.inline-title {
 	font-weight: bold;
 	padding-right: gutter();
 }
-
