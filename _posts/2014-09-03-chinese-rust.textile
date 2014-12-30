@@ -3,6 +3,10 @@ layout: post
 title: Chinese whispers in Rust
 ---
 
+<ul class="edit">
+  <li>[30-12-2014] EDIT: Update examples to reflect current Rust syntax</li>
+</ul>
+
 A tiny exercise in Rust processes and channels. Essentially we want to build a chain of channels, where an independent process sits in-between each channel, reading on one end and passing the received data along the chain.
 
 Usually in chinese whispers some sort of distortion occurs. In our case, just passing along a @uint@ our distortion simply adds one to the passed-along value.
@@ -16,7 +20,7 @@ where @tx@ is the sending end of type @Sender<T>@, and @rx@ is the receiving end
 
 Spawning a process running a function is achieved as follows
 {% highlight rust %}
-spawn(proc() {
+std::thread::Thread::spawn(move|| {
     // ... code here
 });
 {% endhighlight %}
@@ -42,9 +46,10 @@ in &rarr; (tx , rx) &mdash;&mdash; (tx , rx) &mdash;&mdash; (tx , rx) &mdash;&md
 </notextile>
 where each process gets the receiver of one channel and the sender of the next channel in the chain. In the end we'll pass in an input on the first @tx@ and wait for the output to appear on the last @rx@.
 
-Below is the full program. "Here":http://is.gd/zI51SQ is the code in action.
+Below is the full program. -"Here":http://is.gd/zI51SQ- "Here":http://is.gd/SylXGM is the code in action.
 
 {% highlight rust %}
+use std::thread::Thread;
 static NPROC: uint = 25_000;
 
 fn whisper(rx: Receiver<uint>, tx: Sender<uint>) {
@@ -58,7 +63,7 @@ fn main() {
     let (tx, mut rx) = channel();
     for _ in range(0, NPROC) {
         let (tx_next, rx_next) = channel();
-        spawn(proc() whisper(rx, tx_next));
+        Thread::spawn(move|| whisper(rx, tx_next));
         rx = rx_next;
     }
 

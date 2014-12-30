@@ -118,6 +118,8 @@ body:before { content: ""; height: 100%; float: left; width: 0; margin-top: -327
 #blog #bloglist ul { padding-left: 0.83333%; list-style-type: none; }
 #blog #bloglist ul span.date { font-family: monospace; color: #555; }
 #blog #post { width: 100%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
+#blog ul.edit { font-family: monospace; padding: 0.83333%; color: #555; }
+#blog ul.edit li { list-style-type: none; }
 
 #about { width: 50%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
 #about p { text-align: justify; }
@@ -134,7 +136,7 @@ a { color: #1569C7; text-decoration: none; }
 a:hover { text-decoration: underline; color: #1569C7; }
 a:visited { color: #1569C7; }
 
-pre { white-space: pre-wrap; background-color: rgba(255, 232, 171, 0.49); padding: 10px; border-radius: 3px; }
+pre { white-space: pre-wrap; /* background-color: rgba(255, 232, 171, 0.49); */ background-color: #FDF6E3; border: 1px solid #DFD8C2; padding: 10px; border-radius: 3px; }
 pre .terminal { background-color: #ffe8ab; padding: 0.5em; font-family: monospace; }
 pre code { color: #000; font-family: monospace; font-weight: normal; }
 
@@ -151,9 +153,9 @@ code { font-family: monospace; font-size: .8rem; color: #555; }
 
 h1, h2, h3, h4, h5, h6 { font-family: sans; }
 
-h1 { background-color: #e8e8e8; text-align: center; padding: 3px 0; color: #15317e; }
+h1 { background-color: #e8e8e8; border: 1px solid #d8d8d8; text-align: center; padding: 3px 0; color: #15317e; }
 
-h2.post-title { background-color: #e8e8e8; text-align: center; padding: 3px 0; margin-bottom: 0; }
+h2.post-title { background-color: #e8e8e8; border: 1px solid #d8d8d8; text-align: center; padding: 3px 0; margin-bottom: 0; }
 h2.post-title a { color: #15317e; text-decoration: none; }
 h2.post-title a:hover { text-decoration: none; }
 
