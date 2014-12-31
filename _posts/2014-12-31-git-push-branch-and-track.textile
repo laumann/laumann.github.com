@@ -1,0 +1,40 @@
+---
+layout: post
+title: Pushing and tracking a local branch
+categories: [git,cs]
+tags: [git,workflow,programming]
+---
+Workflow note: A fairly common workflow pattern has established itself:
+
+ * Create local branch, call it @fx@ for "feature x"
+ * Work on it for a while (committing frequently)
+ * Push it to @origin@
+ * Periodically merge @master@ into it
+ * Eventually merge it back into @master@
+
+But I tend to forget some of the commands I need to type (especially when dealing with remote tracking branches). This is a quick run-down of the common commands.
+
+bc. $ git checkout -b fx
+
+Creates and checks out @fx@ branch.
+
+The biggest problem sometimes is pushing this new branch to a remote. Very often I'll just do:
+
+bc. $ git push origin fx
+
+which achieves exactly that, but there is no remote-tracking, ie. something like the following is missing from @.git/config@:
+
+bc. [branch "fx"]
+	remote = origin
+	merge = refs/heads/fx
+
+which we can fix in a few ways. One way is simply adding the section to your config file, which is probably best to do through the CLI:
+
+bc. $ git config branch.fx.remote origin
+$ git config branch.fx.merge refs/heads/fx
+
+or simply be smart enough to include @-u@ when pushing the branch the first time:
+
+bc. $ git push -u origin fx
+
+which takes care of setting exactly these tracking parameters in the configuration.
