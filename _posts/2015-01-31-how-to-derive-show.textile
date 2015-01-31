@@ -5,6 +5,8 @@ category: rust
 tags: [rust, rustc, programming, compilation]
 ---
 
+*_Disclaimer_* All the code quoted in this post is extracted from the Rust compiler source code. Most snippets are annotated with the file name relative to the @RUST_ROOT/src@.
+
 Rust is an awesome language. In the beginning I had a lot of trouble coming to terms with some of the decisions taken in the language specification. But a little over a year later, I must admit that I am enjoying it.
 
 To be honest, it is probably not only the language itself, but the community around it - there are a lot of opinions, but the general tune is "we want to make the best systems programming language possible". And that, of course, will leave some less content and some very content, but all in all I there is a lot of excitement around it.
