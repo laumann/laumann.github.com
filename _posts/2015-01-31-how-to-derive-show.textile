@@ -1,0 +1,112 @@
+---
+layout: post
+title: How to derive Show
+category: rust
+tags: [rust, rustc, programming, compilation]
+---
+
+Rust is an awesome language. In the beginning I had a lot of trouble coming to terms with some of the decisions taken in the lanugage specification. But a little over a year later, I must admit that I am enjoying the language.
+
+To be honest, it is probably not only the language itself, but the community around it - there are a lot of opinions, but the general tune is "we want to make the best systems programming language possible". And that, of course, will leave some less content and some very content.
+
+Recently, I have been interested in writing compiler plugins, as I think they will come in handy for my Master's project. The documentation is a little sparse, only grazing the surface, but it's probably for the better as that whole section of the compiler is still marked as unstable. On the other hand, I doubt it will change drastically before 1.0, as quite a few projects make use of it as it is (to great effect I might add).
+
+Looking through the Rust source code, trying to learn about macro expansions, I naturally find a definition of the different types of syntax extensions available in Rust (file: @libsyntax/ext/base.rs@), defined as @enum SyntaxExtension@:
+
+* @Decorator@: A syntax extension attached to an item, creating new items based on it.
+* @Modifier@: Syntax extension attached to an item, modifying it in-place.
+* @MultiModifier@: Same as above, but more flexible (whatever that means)
+* @NormalTT@: A normal, function-like extension, for example @bytes!@ is one such
+* @IdentMacroExpander@: As a @NormalTT@, but has an extra @ident@ before the block.
+* @MacroRulesTT@: Represents @macro_rules!@ itself.
+
+How interesting. Then a question popped up: How is a standard derivable trait such as @Show@ actually derived?
+
+First of all, in the same file, there is a function defining all the basic syntax extensions, @initial_syntax_expander_table()@ in which we find the following lines:
+
+{% highlight rust %}
+fn initial_syntax_expander_table(ecfg: &expand::ExpansionConfig) -> SyntaxEnv {
+    // ...
+    let mut syntax_expanders = SyntaxEnv::new();
+
+    // ...
+    syntax_expanders.insert(intern("derive"),
+                            Decorator(box ext::deriving::expand_meta_derive));
+    // ...
+}
+{% endhighlight %}
+
+which tells us that the "derive" functionality is registered as a decorator (which makes sense), and expands to call the function @expand_meta_derive()@. This function is defined in @libsyntax/ext/deriving@ and is not much different from any other syntax extension.
+
+{% highlight rust %}
+pub fn expand_meta_derive(cx: &mut ExtCtxt,
+                          _span: Span,
+                          mitem: &MetaItem,
+                          item: &Item,
+                          mut push: Box<FnMut(P<Item>)>) {
+    // ...
+}
+{% endhighlight %}
+
+First it checks the node type of @mitem@. If it is not a list or an empty list, an error is emitted. Otherwise all the items are inspected in turn. This gives us exactly what @derive@ can derive:
+
+{% highlight rust %}
+match tname.get() {
+    "Clone" => expand!(clone::expand_deriving_clone),
+
+    "Hash" => expand!(hash::expand_deriving_hash),
+
+    "RustcEncodable" => {
+        expand!(encodable::expand_deriving_rustc_encodable)
+    }
+    "RustcDecodable" => {
+        expand!(decodable::expand_deriving_rustc_decodable)
+    }
+    "Encodable" => {
+        cx.span_warn(titem.span,
+                     "derive(Encodable) is deprecated \
+                      in favor of derive(RustcEncodable)");
+
+        expand!(encodable::expand_deriving_encodable)
+    }
+    "Decodable" => {
+        cx.span_warn(titem.span,
+                     "derive(Decodable) is deprecated \
+                      in favor of derive(RustcDecodable)");
+
+        expand!(decodable::expand_deriving_decodable)
+    }
+
+    "PartialEq" => expand!(eq::expand_deriving_eq),
+    "Eq" => expand!(totaleq::expand_deriving_totaleq),
+    "PartialOrd" => expand!(ord::expand_deriving_ord),
+    "Ord" => expand!(totalord::expand_deriving_totalord),
+
+    "Rand" => expand!(rand::expand_deriving_rand),
+
+    "Show" => {
+        cx.span_warn(titem.span,
+                     "derive(Show) is deprecated \
+                      in favor of derive(Debug)");
+
+        expand!(show::expand_deriving_show)
+    },
+
+    "Debug" => expand!(show::expand_deriving_show),
+
+    "Default" => expand!(default::expand_deriving_default),
+
+    "FromPrimitive" => expand!(primitive::expand_deriving_from_primitive),
+
+    "Send" => expand!(bounds::expand_deriving_bound),
+    "Sync" => expand!(bounds::expand_deriving_bound),
+    "Copy" => expand!(bounds::expand_deriving_bound),
+
+    ref tname => {
+        cx.span_err(titem.span,
+                    &format!("unknown `derive` \
+                             trait: `{}`",
+                            *tname)[]);
+    }
+}
+{% endhighlight %}
