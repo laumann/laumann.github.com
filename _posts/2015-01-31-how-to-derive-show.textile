@@ -5,9 +5,9 @@ category: rust
 tags: [rust, rustc, programming, compilation]
 ---
 
-Rust is an awesome language. In the beginning I had a lot of trouble coming to terms with some of the decisions taken in the lanugage specification. But a little over a year later, I must admit that I am enjoying the language.
+Rust is an awesome language. In the beginning I had a lot of trouble coming to terms with some of the decisions taken in the language specification. But a little over a year later, I must admit that I am enjoying it.
 
-To be honest, it is probably not only the language itself, but the community around it - there are a lot of opinions, but the general tune is "we want to make the best systems programming language possible". And that, of course, will leave some less content and some very content.
+To be honest, it is probably not only the language itself, but the community around it - there are a lot of opinions, but the general tune is "we want to make the best systems programming language possible". And that, of course, will leave some less content and some very content, but all in all I there is a lot of excitement around it.
 
 Recently, I have been interested in writing compiler plugins, as I think they will come in handy for my Master's project. The documentation is a little sparse, only grazing the surface, but it's probably for the better as that whole section of the compiler is still marked as unstable. On the other hand, I doubt it will change drastically before 1.0, as quite a few projects make use of it as it is (to great effect I might add).
 
@@ -20,7 +20,7 @@ Looking through the Rust source code, trying to learn about macro expansions, I 
 * @IdentMacroExpander@: As a @NormalTT@, but has an extra @ident@ before the block.
 * @MacroRulesTT@: Represents @macro_rules!@ itself.
 
-How interesting. Then a question popped up: How is a standard derivable trait such as @Show@ actually derived?
+How interesting. Then a question popped up: *How is a standard derivable trait such as @Show@ actually derived?*
 
 First of all, in the same file, there is a function defining all the basic syntax extensions, @initial_syntax_expander_table()@ in which we find the following lines:
 
@@ -157,9 +157,10 @@ pub fn expand_deriving_show<F>(cx: &mut ExtCtxt,
 
 This is beautiful! Deriving @Show@ looks a lot like we had written it by hand. We have a trait definition for @std::fmt::Debug@ with no additional bounds nor generics. There is one method called @fmt@ that takes @&self@ (borrowed explicit self) and a pointer to a @std::fmt::Formatter@ as arguments. The return type is @std::fmt::Result@.
 
-This is not the end however, since this does not mention the name of the structure we are trying to derive @Show@ for. This must take place in @trait_def.expand()@. This function expands the trait definition, ensuring that the derived-upon item is either a struct or an enum, taking care of various
+This is not the end however, since this does not mention the name of the structure we are trying to derive @Show@ for. This must take place in @trait_def.expand()@. This function expands the trait definition, ensuring that the derived-upon item is either a struct or an enum, taking care of various possible error conditions, juggling lifetimes, generics, @where@ clauses and associated types.
 
-Ultimately it ends in the following item creation:
+All this boils down to the following item creation:
+
 {% highlight rust %}
 cx.item(
     self.span,
@@ -180,7 +181,7 @@ cx.item(
                          ).collect()))
 {% endhighlight %}
 
-which may not mean a lot, but it's there. We can conclude that we end up calling @cx.item@, creating a new item in the AST. The @item()@ method is not defined on @ExtCtxt@ itself, but rather declared in a trait @AstBuilder@, which is implemented of @ExtCtxt@. Ultimately @cx.item()@ expands to:
+which I will not even pretend to understand. We can conclude that we end up calling @cx.item@, creating a new item in the AST. The @item()@ method is not defined on @ExtCtxt@ itself, but rather declared in a trait @AstBuilder@, which is implemented for @ExtCtxt@.
 
 {% highlight rust %}
 impl<'a> AstBuilder for ExtCtxt<'a> {
@@ -201,3 +202,7 @@ impl<'a> AstBuilder for ExtCtxt<'a> {
     // ...
 }
 {% endhighlight %}
+
+So there you have it. How @Show@ (or @Debug@) gets derived in Rust. It is a rather long story, with some gaps, but it is very instructive to skip around the compiler infrastructure to see how some of the AST-mangling syntax extensions do their work.
+
+If you stuck with it this far, thanks for reading, hope you enjoyed it.
