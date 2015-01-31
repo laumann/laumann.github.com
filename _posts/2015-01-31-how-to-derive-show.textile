@@ -186,6 +186,7 @@ cx.item(
 which I will not even pretend to understand. We can conclude that we end up calling @cx.item@, creating a new item in the AST. The @item()@ method is not defined on @ExtCtxt@ itself, but rather declared in a trait @AstBuilder@, which is implemented for @ExtCtxt@.
 
 {% highlight rust %}
+// File: libsyntax/ext/build.rs
 impl<'a> AstBuilder for ExtCtxt<'a> {
     // ...
     fn item(&self, span: Span, name: Ident,
