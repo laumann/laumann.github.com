@@ -5,7 +5,7 @@ category: rust
 tags: [rust, rustc, programming, compilation]
 ---
 
-*_Disclaimer_* All the code quoted in this post is extracted from the Rust compiler source code. Most snippets are annotated with the file name relative to the @RUST_ROOT/src@.
+*_Disclaimer_* All the code quoted in this post is extracted from the Rust compiler source code. Most snippets are annotated with the file name relative to @$RUST_ROOT/src@.
 
 Rust is an awesome language. In the beginning I had a lot of trouble coming to terms with some of the decisions taken in the language specification. But a little over a year later, I must admit that I am enjoying it.
 
