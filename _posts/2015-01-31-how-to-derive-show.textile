@@ -39,6 +39,7 @@ fn initial_syntax_expander_table(ecfg: &expand::ExpansionConfig) -> SyntaxEnv {
 which tells us that the "derive" functionality is registered as a decorator (which makes sense), and expands to call the function @expand_meta_derive()@. This function is defined in @libsyntax/ext/deriving@ and is not much different from any other syntax extension.
 
 {% highlight rust %}
+// File: libsyntax/ext/deriving/mod.rs
 pub fn expand_meta_derive(cx: &mut ExtCtxt,
                           _span: Span,
                           mitem: &MetaItem,
@@ -51,6 +52,7 @@ pub fn expand_meta_derive(cx: &mut ExtCtxt,
 First it checks the node type of @mitem@. If it is not a list or an empty list, an error is emitted. Otherwise all the items are inspected in turn. This gives us exactly what @derive@ can derive:
 
 {% highlight rust %}
+// File: libsyntax/ext/deriving/mod.rs in function expand_meta_derive()
 match tname.get() {
     "Clone" => expand!(clone::expand_deriving_clone),
 
@@ -108,5 +110,94 @@ match tname.get() {
                              trait: `{}`",
                             *tname)[]);
     }
+}
+{% endhighlight %}
+
+Straight from the heart (or kidney) of the beast! Not only do we clearly see that @Show@ is supported, mapping to the function @expand_deriving_show@, we also see that it comes with a deprecation warning, and we should prefer @Debug@ over @Show@. At the moment there is no difference, as they both map to the same function.
+
+We are getting close to the end here. Instead of explaining what goes on I am going to quote the entire function @expand_deriving_show@:
+
+{% highlight rust %}
+// File: libsyntax/ext/deriving/show.rs
+pub fn expand_deriving_show<F>(cx: &mut ExtCtxt,
+                               span: Span,
+                               mitem: &MetaItem,
+                               item: &Item,
+                               push: F) where
+    F: FnOnce(P<Item>),
+{
+    // &mut ::std::fmt::Formatter
+    let fmtr = Ptr(box Literal(Path::new(vec!("std", "fmt", "Formatter"))),
+                   Borrowed(None, ast::MutMutable));
+
+    let trait_def = TraitDef {
+        span: span,
+        attributes: Vec::new(),
+        path: Path::new(vec!["std", "fmt", "Debug"]),
+        additional_bounds: Vec::new(),
+        generics: LifetimeBounds::empty(),
+        methods: vec![
+            MethodDef {
+                name: "fmt",
+                generics: LifetimeBounds::empty(),
+                explicit_self: borrowed_explicit_self(),
+                args: vec!(fmtr),
+                ret_ty: Literal(Path::new(vec!("std", "fmt", "Result"))),
+                attributes: Vec::new(),
+                combine_substructure: combine_substructure(box |a, b, c| {
+                    show_substructure(a, b, c)
+                })
+            }
+        ],
+        associated_types: Vec::new(),
+    };
+    trait_def.expand(cx, mitem, item, push)
+}
+{% endhighlight %}
+
+This is beautiful! Deriving @Show@ looks a lot like we had written it by hand. We have a trait definition for @std::fmt::Debug@ with no additional bounds nor generics. There is one method called @fmt@ that takes @&self@ (borrowed explicit self) and a pointer to a @std::fmt::Formatter@ as arguments. The return type is @std::fmt::Result@.
+
+This is not the end however, since this does not mention the name of the structure we are trying to derive @Show@ for. This must take place in @trait_def.expand()@. This function expands the trait definition, ensuring that the derived-upon item is either a struct or an enum, taking care of various
+
+Ultimately it ends in the following item creation:
+{% highlight rust %}
+cx.item(
+    self.span,
+    ident,
+    a,
+    ast::ItemImpl(ast::Unsafety::Normal,
+                  ast::ImplPolarity::Positive,
+                  trait_generics,
+                  opt_trait_ref,
+                  self_type,
+                  methods.into_iter()
+                         .map(|method| {
+                             ast::MethodImplItem(method)
+                         }).chain(
+                             associated_types.map(|type_| {
+                                 ast::TypeImplItem(type_)
+                             })
+                         ).collect()))
+{% endhighlight %}
+
+which may not mean a lot, but it's there. We can conclude that we end up calling @cx.item@, creating a new item in the AST. The @item()@ method is not defined on @ExtCtxt@ itself, but rather declared in a trait @AstBuilder@, which is implemented of @ExtCtxt@. Ultimately @cx.item()@ expands to:
+
+{% highlight rust %}
+impl<'a> AstBuilder for ExtCtxt<'a> {
+    // ...
+    fn item(&self, span: Span, name: Ident,
+            attrs: Vec<ast::Attribute>, node: ast::Item_) -> P<ast::Item> {
+        // FIXME: Would be nice if our generated code didn't violate
+        // Rust coding conventions
+        P(ast::Item {
+            ident: name,
+            attrs: attrs,
+            id: ast::DUMMY_NODE_ID,
+            node: node,
+            vis: ast::Inherited,
+            span: span
+        })
+    }
+    // ...
 }
 {% endhighlight %}
