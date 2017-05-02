@@ -90,7 +90,7 @@ td, th { padding: 0; }
 *, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 /** Site layout with sticky footer */
-html, body { height: 100%; color: #272822; background-color: #fff; }
+html, body { height: 100%; color: #272822; background-color: #fff; font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 /* must be same height as the footer */
 #footer { position: relative; margin-top: -50px; /* negative value of footer height */ clear: both; background-color: #e8e8e8; padding-top: 20px; font-size: 12px; }
@@ -100,11 +100,11 @@ body:before { content: ""; height: 100%; float: left; width: 0; margin-top: -327
 
 #wrap { min-height: 100%; }
 
-/* Index page */
-#index-left { width: 66.66667%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
-
-#index-right { width: 33.33333%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
-#index-right .index-tab { padding: 0.83333%; margin: 0.83333%; }
+#index { max-width: 960px; margin-left: auto; margin-right: auto; /* Index page */ }
+#index:after { content: " "; display: block; clear: both; }
+#index #index-left { width: 50%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; text-align: justify; }
+#index #index-right { width: 50%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
+#index #index-right .index-tab { padding: 0.83333%; margin: 0.83333%; }
 
 #main { width: 58.33333%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; overflow: auto; padding-bottom: 50px; }
 
@@ -116,12 +116,13 @@ body:before { content: ""; height: 100%; float: left; width: 0; margin-top: -327
 #blog #blogroll { width: 100%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
 #blog #bloglist { width: 100%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
 #blog #bloglist ul { padding-left: 0.83333%; list-style-type: none; }
-#blog #bloglist ul span.date { font-family: monospace; color: #555; }
+#blog #bloglist ul span.date { font-family: "Inconsolata", "Fira Mono", monospace; color: #555; }
 #blog #post { width: 100%; float: right; padding-left: 0.83333%; padding-right: 0.83333%; }
-#blog ul.edit { font-family: monospace; padding: 0.83333%; color: #555; }
+#blog ul.edit { font-family: "Inconsolata", "Fira Mono", monospace; padding: 0.83333%; color: #555; }
 #blog ul.edit li { list-style-type: none; }
 
-#about { width: 50%; float: left; padding-left: 0.83333%; padding-right: 0.83333%; }
+#about { max-width: 960px; margin-left: auto; margin-right: auto; }
+#about:after { content: " "; display: block; clear: both; }
 #about p { text-align: justify; }
 
 ul.inlist, ol.inlist { list-style-type: none; }
@@ -137,12 +138,12 @@ a:hover { text-decoration: underline; color: #1569C7; }
 a:visited { color: #1569C7; }
 
 pre { white-space: pre-wrap; /* background-color: rgba(255, 232, 171, 0.49); */ background-color: #FDF6E3; border: 1px solid #DFD8C2; padding: 10px; border-radius: 3px; }
-pre .terminal { background-color: #ffe8ab; padding: 0.5em; font-family: monospace; }
-pre code { color: #000; font-family: monospace; font-weight: normal; }
+pre .terminal { background-color: #ffe8ab; padding: 0.5em; font-family: "Inconsolata", "Fira Mono", monospace; }
+pre code { color: #000; font-family: "Inconsolata", "Fira Mono", monospace; font-weight: normal; }
 
-code { font-family: monospace; font-size: .8rem; color: #555; }
+code { font-family: "Inconsolata", "Fira Mono", monospace; color: #555; }
 
-/* div .highlight { background-color: #ffe8ab; padding: 0.5em; font-family: monospace; margin-bottom: 13px; } */
+/* div .highlight { background-color: #ffe8ab; padding: 0.5em; font-family: $font-stack-code; margin-bottom: 13px; } */
 .tex sub, .latex sub, .latex sup { text-transform: uppercase; }
 
 .tex sub, .latex sub { vertical-align: 0.0ex; margin-left: -0.1667em; margin-right: -0.125em; }
@@ -151,11 +152,11 @@ code { font-family: monospace; font-size: .8rem; color: #555; }
 
 .latex sup { font-size: 0.85em; vertical-align: -0.2em; margin-left: -0.36em; margin-right: -0.15em; }
 
-h1, h2, h3, h4, h5, h6 { font-family: sans; }
+h1, h2, h3, h4, h5, h6 { font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-h1 { background-color: #e8e8e8; border: 1px solid #d8d8d8; text-align: center; padding: 3px 0; color: #15317e; }
+h1 { text-align: center; padding: 3px 0; }
 
-h2.post-title { background-color: #e8e8e8; border: 1px solid #d8d8d8; text-align: center; padding: 3px 0; margin-bottom: 0; }
+h2.post-title { text-align: center; padding: 3px 0; margin-bottom: 0; }
 h2.post-title a { color: #15317e; text-decoration: none; }
 h2.post-title a:hover { text-decoration: none; }
 
@@ -163,11 +164,11 @@ p.post-meta { font-family: sans; font-size: .9em; color: #aaa; /* text-align: ri
 p.post-meta span.date { color: #555; }
 
 /** Top navigation bar */
-#navbar { background-color: #1569C7; color: #ddd; padding: 2px 0; font-size: 12px; }
+#navbar { background-color: #ffffd8; color: #ddd; padding: 2px 0; font-size: 12px; border-bottom: 1px solid #ddd; }
 #navbar ul { list-style: none outside none !important; display: inline !important; margin: 0; padding: 0 0 0 10px; }
-#navbar ul li { display: inline; font-family: "Lucida Console", "Courier New", monospace; margin: 0; padding: 0; padding-left: 5px; }
-#navbar ul li.active a { color: #f8f8f2; }
-#navbar a { font-weight: bold; color: #ddd; text-decoration: none; }
+#navbar ul li { display: inline; font-family: "Inconsolata", "Fira Mono", monospace; margin: 0; padding: 0; padding-left: 5px; }
+#navbar ul li.active a { color: #000; }
+#navbar a { font-weight: bold; color: #1569c7; text-decoration: none; }
 
 /** Footer */
 .site-footer { max-width: 960px; margin-left: auto; margin-right: auto; color: #555; height: 30px; }
